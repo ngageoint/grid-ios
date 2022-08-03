@@ -40,7 +40,7 @@ Please fill out as much known and relevant information as possible.
 
 #### Relevant Code:
 
-```objectivec
+```swift
 // Code to reproduce the problem?
 ```
 
