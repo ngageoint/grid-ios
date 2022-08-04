@@ -21,20 +21,5 @@ enum Unit: Int {
      * Meters
      */
     case METER
-
-    var descriptor:String{
-        switch self{
-        case .DEGREE: return "DEGREE"
-        case .METER: return "METER"
-        }
-    }
-
-    init(descriptor: String){
-        switch descriptor {
-            case "DEGREE": self = .DEGREE
-            case "METER": self = .METER
-            default: self = .DEGREE
-        }
-    }
     
 }

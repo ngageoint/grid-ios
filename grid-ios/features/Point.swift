@@ -8,12 +8,99 @@
 import Foundation
 import sf_ios
 
+/**
+ * Point
+ */
 class Point: SFPoint {
     
     /**
      * Unit
      */
     var unit: Unit
+    
+    /**
+     * Create a point in degrees
+     *
+     * @param longitude
+     *            longitude in degrees
+     * @param latitude
+     *            latitude in degrees
+     * @return point in degrees
+     */
+    static func degrees(longitude: Double, latitude: Double) -> Point {
+        return Point(longitude: longitude, latitude: latitude, unit: Unit.DEGREE)
+    }
+
+    /**
+     * Create a point in meters
+     *
+     * @param longitude
+     *            longitude in meters
+     * @param latitude
+     *            latitude in meters
+     * @return point in meters
+     */
+    static func meters(longitude: Double, latitude: Double) -> Point {
+        return Point(longitude: longitude, latitude: latitude, unit: Unit.METER)
+    }
+
+    /**
+     * Create a point from a coordinate in a unit to another unit
+     *
+     * @param fromUnit
+     *            unit of provided coordinate
+     * @param longitude
+     *            longitude
+     * @param latitude
+     *            latitude
+     * @param toUnit
+     *            desired unit
+     * @return point in unit
+     */
+    static func toUnit(fromUnit: Unit, longitude: Double, latitude: Double, toUnit: Unit) -> Point {
+        return GridUtils.toUnit(fromUnit: fromUnit, longitude: longitude, latitude: latitude, toUnit: toUnit)
+    }
+
+    /**
+     * Create a point from a coordinate in an opposite unit to another unit
+     *
+     * @param longitude
+     *            longitude
+     * @param latitude
+     *            latitude
+     * @param unit
+     *            desired unit
+     * @return point in unit
+     */
+    static func toUnit(longitude: Double, latitude: Double, unit: Unit) -> Point {
+        return GridUtils.toUnit(longitude: longitude, latitude: latitude, unit: unit)
+    }
+
+    /**
+     * Create a point converting the degrees coordinate to meters
+     *
+     * @param longitude
+     *            longitude in degrees
+     * @param latitude
+     *            latitude in degrees
+     * @return point in meters
+     */
+    static func degreesToMeters(longitude: Double, latitude: Double) -> Point {
+        return toUnit(fromUnit: Unit.DEGREE, longitude: longitude, latitude: latitude, toUnit: Unit.METER)
+    }
+
+    /**
+     * Create a point converting the meters coordinate to degrees
+     *
+     * @param longitude
+     *            longitude in meters
+     * @param latitude
+     *            latitude in meters
+     * @return point in degrees
+     */
+    static func metersToDegrees(longitude: Double, latitude: Double) -> Point {
+        return toUnit(fromUnit: Unit.METER, longitude: longitude, latitude: latitude, toUnit: Unit.DEGREE)
+    }
     
     /**
      * Initialize, in DEGREE units
@@ -65,6 +152,9 @@ class Point: SFPoint {
         super.init(point: point)
     }
     
+    /**
+     * The longitude
+     */
     var longitude: Double {
         get {
             return x.doubleValue
@@ -74,6 +164,9 @@ class Point: SFPoint {
         }
     }
     
+    /**
+     * The latitude
+     */
     var latitide: Double {
         get {
             return y.doubleValue
@@ -83,50 +176,107 @@ class Point: SFPoint {
         }
     }
     
-    func isUnit(unit: Unit) -> Bool{
+    /**
+     * Is in the provided unit type
+     *
+     * @param unit
+     *            unit
+     * @return true if in the unit
+     */
+    func isUnit(unit: Unit) -> Bool {
         return self.unit == unit
     }
     
-    func isDegrees() -> Bool{
+    /**
+     * Is this point in degrees
+     *
+     * @return true if degrees
+     */
+    func isDegrees() -> Bool {
         return isUnit(unit: Unit.DEGREE)
     }
     
-    func isMeters() -> Bool{
+    /**
+     * Is this point in meters
+     *
+     * @return true if meters
+     */
+    func isMeters() -> Bool {
         return isUnit(unit: Unit.METER)
     }
     
-    func toUnit(unit: Unit) -> Point{
+    /**
+     * Convert to the unit
+     *
+     * @param unit
+     *            unit
+     * @return point in units, same point if equal units
+     */
+    func toUnit(unit: Unit) -> Point {
         var point: Point
         if (isUnit(unit: unit)) {
             point = self
         } else {
-            // TODO
-            point = self
+            point = GridUtils.toUnit(fromUnit: self.unit, longitude: longitude, latitude: latitide, toUnit: unit)
         }
         return point
     }
     
-    func toDegrees() -> Point{
+    /**
+     * Convert to degrees
+     *
+     * @return point in degrees, same point if already in degrees
+     */
+    func toDegrees() -> Point {
         return toUnit(unit: Unit.DEGREE)
     }
     
-    func toMeters() -> Point{
+    /**
+     * Convert to meters
+     *
+     * @return point in meters, same point if already in meters
+     */
+    func toMeters() -> Point {
         return toUnit(unit: Unit.METER)
     }
     
-    // TODO
+    /**
+     * Get the pixel where the point fits into tile
+     *
+     * @param tile
+     *            tile
+     * @return pixel
+     */
+    func pixel(tile: GridTile) -> Pixel {
+        return pixel(width: tile.width, height: tile.height, bounds: tile.bounds)
+    }
+
+    /**
+     * Get the pixel where the point fits into the bounds
+     *
+     * @param width
+     *            width
+     * @param height
+     *            height
+     * @param bounds
+     *            bounds
+     * @return pixel
+     */
+    func pixel(width: Int, height: Int, bounds: Bounds) -> Pixel {
+        return GridUtils.pixel(width: width, height: height, bounds: bounds, point: self)
+    }
     
     override func mutableCopy(with zone: NSZone? = nil) -> Any {
         return Point(point: self)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(unit.descriptor, forKey: "unit")
+        coder.encode(unit.rawValue, forKey: "unit")
         super.encode(with: coder)
     }
     
     required init?(coder: NSCoder) {
-        unit = Unit.init(descriptor: coder.decodeObject(forKey: "unit") as! String)
+        unit = Unit.init(rawValue: coder.decodeInteger(forKey: "unit"))!
         super.init(coder: coder)
     }
     
@@ -156,10 +306,10 @@ class Point: SFPoint {
     }
 
     override var hash: Int {
-        let prime = 31;
+        let prime = 31
         var result = super.hash
-        result = prime * result + unit.rawValue;
-        return result;
+        result = prime * result + unit.rawValue
+        return result
     }
     
 }

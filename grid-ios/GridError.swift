@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum GridError: Error {
+    case runtimeError(String)
+}
+/*
 struct GridError: Error {
     let message: String
 
@@ -18,3 +22,4 @@ struct GridError: Error {
         return message
     }
 }
+*/

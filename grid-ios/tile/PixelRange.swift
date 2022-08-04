@@ -22,6 +22,14 @@ class PixelRange {
      */
     var bottomRight: Pixel
     
+    /**
+     * Initialize
+     *
+     * @param topLeft
+     *            top left pixel
+     * @param bottomRight
+     *            bottom right pixel
+     */
     init(topLeft: Pixel, bottomRight: Pixel) {
         self.topLeft = topLeft
         self.bottomRight = bottomRight

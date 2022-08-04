@@ -22,6 +22,14 @@ class Pixel {
      */
     var y: Float
 
+    /**
+     * Initialize
+     *
+     * @param x
+     *            x pixel
+     * @param y
+     *            y pixel
+     */
     init(x: Float, y: Float) {
         self.x = x
         self.y = y

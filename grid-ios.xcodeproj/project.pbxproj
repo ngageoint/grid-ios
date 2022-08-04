@@ -17,6 +17,10 @@
 		04282013289AC5CF00026382 /* PixelRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04282012289AC5CF00026382 /* PixelRange.swift */; };
 		04282015289AC85A00026382 /* GridTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04282014289AC85A00026382 /* GridTile.swift */; };
 		04282017289ACA3B00026382 /* Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04282016289ACA3B00026382 /* Bounds.swift */; };
+		04282019289BF4CE00026382 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04282018289BF4CE00026382 /* Line.swift */; };
+		0428201B289C0E6100026382 /* GridUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428201A289C0E6100026382 /* GridUtils.swift */; };
+		0428201D289C44AF00026382 /* GridConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428201C289C44AF00026382 /* GridConstants.swift */; };
+		04282020289C651A00026382 /* PointTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428201F289C651A00026382 /* PointTestCase.swift */; };
 		2907E7EE8CA53CF62AFC3E75 /* Pods_grid_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E36DE03238D8AC01ADED67E /* Pods_grid_iosTests.framework */; };
 		671EF8B2DAEA3EE01DED6175 /* Pods_grid_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B99FD8FF209BA9FAD563145 /* Pods_grid_ios.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +47,10 @@
 		04282012289AC5CF00026382 /* PixelRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelRange.swift; sourceTree = "<group>"; };
 		04282014289AC85A00026382 /* GridTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridTile.swift; sourceTree = "<group>"; };
 		04282016289ACA3B00026382 /* Bounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bounds.swift; sourceTree = "<group>"; };
+		04282018289BF4CE00026382 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		0428201A289C0E6100026382 /* GridUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridUtils.swift; sourceTree = "<group>"; };
+		0428201C289C44AF00026382 /* GridConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridConstants.swift; sourceTree = "<group>"; };
+		0428201F289C651A00026382 /* PointTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTestCase.swift; sourceTree = "<group>"; };
 		2E36DE03238D8AC01ADED67E /* Pods_grid_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_grid_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3295100FC695C71079321C28 /* Pods-grid-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-ios.release.xcconfig"; path = "Target Support Files/Pods-grid-ios/Pods-grid-ios.release.xcconfig"; sourceTree = "<group>"; };
 		43F6D866DB2D2299E81BE1D4 /* Pods-grid-ios-grid-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-ios-grid-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-grid-ios-grid-iosTests/Pods-grid-ios-grid-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,7 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				04281FF02899BD7F00026382 /* grid_ios.h */,
+				0428201C289C44AF00026382 /* GridConstants.swift */,
 				0428200E289AB2D000026382 /* GridError.swift */,
+				0428201A289C0E6100026382 /* GridUtils.swift */,
 				04282007289A9A8400026382 /* features */,
 				04282006289A9A7900026382 /* property */,
 				04282005289A9A6B00026382 /* tile */,
@@ -109,6 +119,7 @@
 		04281FF92899BD7F00026382 /* grid-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				0428201E289C64A500026382 /* features */,
 				04281FFA2899BD7F00026382 /* grid_iosTests.swift */,
 			);
 			path = "grid-iosTests";
@@ -135,8 +146,17 @@
 			isa = PBXGroup;
 			children = (
 				04282016289ACA3B00026382 /* Bounds.swift */,
+				04282018289BF4CE00026382 /* Line.swift */,
 				04282009289A9B8200026382 /* Point.swift */,
 				0428200C289AA16B00026382 /* Unit.swift */,
+			);
+			path = features;
+			sourceTree = "<group>";
+		};
+		0428201E289C64A500026382 /* features */ = {
+			isa = PBXGroup;
+			children = (
+				0428201F289C651A00026382 /* PointTestCase.swift */,
 			);
 			path = features;
 			sourceTree = "<group>";
@@ -325,9 +345,12 @@
 				04282011289AC47400026382 /* Pixel.swift in Sources */,
 				04282017289ACA3B00026382 /* Bounds.swift in Sources */,
 				04282015289AC85A00026382 /* GridTile.swift in Sources */,
+				0428201D289C44AF00026382 /* GridConstants.swift in Sources */,
 				0428200F289AB2D000026382 /* GridError.swift in Sources */,
 				0428200A289A9B8200026382 /* Point.swift in Sources */,
+				04282019289BF4CE00026382 /* Line.swift in Sources */,
 				0428200D289AA16B00026382 /* Unit.swift in Sources */,
+				0428201B289C0E6100026382 /* GridUtils.swift in Sources */,
 				04282013289AC5CF00026382 /* PixelRange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04282020289C651A00026382 /* PointTestCase.swift in Sources */,
 				04281FFB2899BD7F00026382 /* grid_iosTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
