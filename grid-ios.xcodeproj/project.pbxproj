@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		04281FF62899BD7F00026382 /* grid_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04281FED2899BD7F00026382 /* grid_ios.framework */; };
-		04281FFB2899BD7F00026382 /* grid_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04281FFA2899BD7F00026382 /* grid_iosTests.swift */; };
 		04281FFC2899BD7F00026382 /* grid_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 04281FF02899BD7F00026382 /* grid_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0428200A289A9B8200026382 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04282009289A9B8200026382 /* Point.swift */; };
 		0428200D289AA16B00026382 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428200C289AA16B00026382 /* Unit.swift */; };
@@ -21,8 +20,8 @@
 		0428201B289C0E6100026382 /* GridUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428201A289C0E6100026382 /* GridUtils.swift */; };
 		0428201D289C44AF00026382 /* GridConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428201C289C44AF00026382 /* GridConstants.swift */; };
 		04282020289C651A00026382 /* PointTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428201F289C651A00026382 /* PointTestCase.swift */; };
-		2907E7EE8CA53CF62AFC3E75 /* Pods_grid_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E36DE03238D8AC01ADED67E /* Pods_grid_iosTests.framework */; };
-		671EF8B2DAEA3EE01DED6175 /* Pods_grid_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B99FD8FF209BA9FAD563145 /* Pods_grid_ios.framework */; };
+		0B7C2DAABE127728CFB6C6CB /* Pods_grid_ios_grid_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5142358B0030EE5EEA5031 /* Pods_grid_ios_grid_iosTests.framework */; };
+		50B9B0B1E086FD5500D745EB /* Pods_grid_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBD562A1B4FB562124BAC61 /* Pods_grid_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +38,6 @@
 		04281FED2899BD7F00026382 /* grid_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = grid_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04281FF02899BD7F00026382 /* grid_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grid_ios.h; sourceTree = "<group>"; };
 		04281FF52899BD7F00026382 /* grid-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "grid-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		04281FFA2899BD7F00026382 /* grid_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = grid_iosTests.swift; sourceTree = "<group>"; };
 		04282009289A9B8200026382 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		0428200C289AA16B00026382 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		0428200E289AB2D000026382 /* GridError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridError.swift; sourceTree = "<group>"; };
@@ -51,14 +49,14 @@
 		0428201A289C0E6100026382 /* GridUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridUtils.swift; sourceTree = "<group>"; };
 		0428201C289C44AF00026382 /* GridConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridConstants.swift; sourceTree = "<group>"; };
 		0428201F289C651A00026382 /* PointTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTestCase.swift; sourceTree = "<group>"; };
-		2E36DE03238D8AC01ADED67E /* Pods_grid_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_grid_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3295100FC695C71079321C28 /* Pods-grid-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-ios.release.xcconfig"; path = "Target Support Files/Pods-grid-ios/Pods-grid-ios.release.xcconfig"; sourceTree = "<group>"; };
 		43F6D866DB2D2299E81BE1D4 /* Pods-grid-ios-grid-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-ios-grid-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-grid-ios-grid-iosTests/Pods-grid-ios-grid-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		449E8DB981E6CC3061EE3115 /* Pods-grid-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-iosTests.release.xcconfig"; path = "Target Support Files/Pods-grid-iosTests/Pods-grid-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		4E9E5249E3C73D594F06BCAF /* Pods-grid-ios-grid-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-ios-grid-iosTests.release.xcconfig"; path = "Target Support Files/Pods-grid-ios-grid-iosTests/Pods-grid-ios-grid-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		4EBD562A1B4FB562124BAC61 /* Pods_grid_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_grid_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92880B6C95E606EF80A8E4FC /* Pods-grid-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-grid-iosTests/Pods-grid-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9B99FD8FF209BA9FAD563145 /* Pods_grid_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_grid_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E851D60405F0F6192D5968E0 /* Pods-grid-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-ios.debug.xcconfig"; path = "Target Support Files/Pods-grid-ios/Pods-grid-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		FB5142358B0030EE5EEA5031 /* Pods_grid_ios_grid_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_grid_ios_grid_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				671EF8B2DAEA3EE01DED6175 /* Pods_grid_ios.framework in Frameworks */,
+				50B9B0B1E086FD5500D745EB /* Pods_grid_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04281FF62899BD7F00026382 /* grid_ios.framework in Frameworks */,
-				2907E7EE8CA53CF62AFC3E75 /* Pods_grid_iosTests.framework in Frameworks */,
+				0B7C2DAABE127728CFB6C6CB /* Pods_grid_ios_grid_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				0428201E289C64A500026382 /* features */,
-				04281FFA2899BD7F00026382 /* grid_iosTests.swift */,
 			);
 			path = "grid-iosTests";
 			sourceTree = "<group>";
@@ -164,8 +161,8 @@
 		6F74DC420EB3232760614D11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9B99FD8FF209BA9FAD563145 /* Pods_grid_ios.framework */,
-				2E36DE03238D8AC01ADED67E /* Pods_grid_iosTests.framework */,
+				4EBD562A1B4FB562124BAC61 /* Pods_grid_ios.framework */,
+				FB5142358B0030EE5EEA5031 /* Pods_grid_ios_grid_iosTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,6 +221,7 @@
 				04281FF12899BD7F00026382 /* Sources */,
 				04281FF22899BD7F00026382 /* Frameworks */,
 				04281FF32899BD7F00026382 /* Resources */,
+				581772FF1A5C069C867FD975 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,11 +304,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-grid-iosTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-grid-ios-grid-iosTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		581772FF1A5C069C867FD975 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-grid-ios-grid-iosTests/Pods-grid-ios-grid-iosTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-grid-ios-grid-iosTests/Pods-grid-ios-grid-iosTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-grid-ios-grid-iosTests/Pods-grid-ios-grid-iosTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B993E02F2C99A4D637D2A1D2 /* [CP] Check Pods Manifest.lock */ = {
@@ -360,7 +375,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04282020289C651A00026382 /* PointTestCase.swift in Sources */,
-				04281FFB2899BD7F00026382 /* grid_iosTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +576,7 @@
 		};
 		042820032899BD7F00026382 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92880B6C95E606EF80A8E4FC /* Pods-grid-iosTests.debug.xcconfig */;
+			baseConfigurationReference = 43F6D866DB2D2299E81BE1D4 /* Pods-grid-ios-grid-iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -579,7 +593,7 @@
 		};
 		042820042899BD7F00026382 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 449E8DB981E6CC3061EE3115 /* Pods-grid-iosTests.release.xcconfig */;
+			baseConfigurationReference = 4E9E5249E3C73D594F06BCAF /* Pods-grid-ios-grid-iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

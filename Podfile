@@ -7,6 +7,6 @@ target 'grid-ios' do
   pod 'sf-ios', :path => '../simple-features-ios'
 
   target 'grid-iosTests' do
-    inherit! :search_paths
+    inherit! :complete
   end
 end
