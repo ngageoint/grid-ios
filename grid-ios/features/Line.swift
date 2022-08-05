@@ -22,7 +22,7 @@ class Line: SFLine {
      *            second point
      */
     init(point1: Point, point2: Point) {
-        super.init()
+        super.init(hasZ: false, andHasM: false)
         setPoints(point1: point1, point2: point2)
     }
     
@@ -33,7 +33,8 @@ class Line: SFLine {
      *            line to copy
      */
     init(line: Line) {
-        super.init(line: line)
+        super.init(hasZ: line.hasZ, andHasM: line.hasM)
+        setPoints(point1: line.point1, point2: line.point2)
     }
     
     /**

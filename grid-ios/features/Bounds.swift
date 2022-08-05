@@ -84,7 +84,7 @@ class Bounds: SFGeometryEnvelope {
      */
     init(minLongitude: Double, minLatitude: Double, maxLongitude: Double, maxLatitude: Double, unit: Unit) {
         self.unit = unit
-        super.init(minXValue: minLongitude, andMinYValue: minLatitude, andMaxXValue: maxLongitude, andMaxYValue: maxLatitude)
+        super.init(minX: NSDecimalNumber.init(value: minLongitude), andMinY: NSDecimalNumber.init(value: minLatitude), andMinZ: nil, andMinM: nil, andMaxX: NSDecimalNumber.init(value: maxLongitude), andMaxY: NSDecimalNumber.init(value: maxLatitude), andMaxZ: nil, andMaxM: nil)
     }
     
     /**
@@ -123,7 +123,7 @@ class Bounds: SFGeometryEnvelope {
      */
     init(envelope: SFGeometryEnvelope, unit: Unit) {
         self.unit = unit
-        super.init(geometryEnvelope: envelope)
+        super.init(minX: envelope.minX, andMinY: envelope.minY, andMinZ: envelope.minZ, andMinM: envelope.minM, andMaxX: envelope.maxX, andMaxY: envelope.maxY, andMaxZ: envelope.maxZ, andMaxM: envelope.maxM)
     }
     
     /**

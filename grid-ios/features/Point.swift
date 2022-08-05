@@ -126,7 +126,7 @@ class Point: SFPoint {
      */
     init(longitude: Double, latitude: Double, unit: Unit) {
         self.unit = unit
-        super.init(xValue: longitude, andYValue: latitude)
+        super.init(hasZ: false, andHasM: false, andX: NSDecimalNumber.init(value: longitude), andY: NSDecimalNumber.init(value: latitude))
     }
     
     /**
@@ -149,7 +149,9 @@ class Point: SFPoint {
      */
     init(point: SFPoint, unit: Unit) {
         self.unit = unit
-        super.init(point: point)
+        super.init(hasZ: point.hasZ, andHasM: point.hasM, andX: point.x, andY: point.y)
+        z = point.z
+        m = point.m
     }
     
     /**
