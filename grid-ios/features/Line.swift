@@ -205,7 +205,7 @@ class Line: SFLine {
      */
     private func validateUnits() {
         if (!point1.isUnit(unit: point2.unit)) {
-            preconditionFailure("Points are in different units. point1: " + String(describing: point1.unit) + ", point2: " + String(describing: point2.unit))
+            preconditionFailure("Points are in different units. point1: \(String(describing: point1.unit)), point2: \(String(describing: point2.unit)))")
         }
     }
     

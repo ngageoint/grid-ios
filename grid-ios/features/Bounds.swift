@@ -99,7 +99,7 @@ class Bounds: SFGeometryEnvelope {
         self.init(minLongitude: southwest.longitude, minLatitude: southwest.latitide, maxLongitude: northeast.longitude, maxLatitude: northeast.latitide, unit: southwest.unit)
         
         if (!isUnit(unit: northeast.unit)) {
-            preconditionFailure("Points are in different units. southwest: " + String(describing: unit) + ", northeast: " + String(describing: northeast.unit))
+            preconditionFailure("Points are in different units. southwest: \(String(describing: unit)), northeast: \(String(describing: northeast.unit))")
         }
     }
     
