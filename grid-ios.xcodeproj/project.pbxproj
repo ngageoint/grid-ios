@@ -26,6 +26,9 @@
 		04282028289D9AFC00026382 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04282027289D9AFC00026382 /* Label.swift */; };
 		0428202A289DA41700026382 /* GridStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04282029289DA41700026382 /* GridStyle.swift */; };
 		0428202C289DB5DE00026382 /* Labeler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428202B289DB5DE00026382 /* Labeler.swift */; };
+		0428202E28A1242B00026382 /* BaseGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428202D28A1242B00026382 /* BaseGrid.swift */; };
+		0428203028A1454D00026382 /* BaseZoomGrids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428202F28A1454D00026382 /* BaseZoomGrids.swift */; };
+		0428203228A155C900026382 /* BaseGrids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428203128A155C900026382 /* BaseGrids.swift */; };
 		0B7C2DAABE127728CFB6C6CB /* Pods_grid_ios_grid_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5142358B0030EE5EEA5031 /* Pods_grid_ios_grid_iosTests.framework */; };
 		50B9B0B1E086FD5500D745EB /* Pods_grid_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBD562A1B4FB562124BAC61 /* Pods_grid_ios.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +64,9 @@
 		04282027289D9AFC00026382 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		04282029289DA41700026382 /* GridStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStyle.swift; sourceTree = "<group>"; };
 		0428202B289DB5DE00026382 /* Labeler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labeler.swift; sourceTree = "<group>"; };
+		0428202D28A1242B00026382 /* BaseGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGrid.swift; sourceTree = "<group>"; };
+		0428202F28A1454D00026382 /* BaseZoomGrids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseZoomGrids.swift; sourceTree = "<group>"; };
+		0428203128A155C900026382 /* BaseGrids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGrids.swift; sourceTree = "<group>"; };
 		3295100FC695C71079321C28 /* Pods-grid-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-ios.release.xcconfig"; path = "Target Support Files/Pods-grid-ios/Pods-grid-ios.release.xcconfig"; sourceTree = "<group>"; };
 		43F6D866DB2D2299E81BE1D4 /* Pods-grid-ios-grid-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-ios-grid-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-grid-ios-grid-iosTests/Pods-grid-ios-grid-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		449E8DB981E6CC3061EE3115 /* Pods-grid-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-iosTests.release.xcconfig"; path = "Target Support Files/Pods-grid-iosTests/Pods-grid-iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +122,9 @@
 			isa = PBXGroup;
 			children = (
 				04281FF02899BD7F00026382 /* grid_ios.h */,
+				0428202D28A1242B00026382 /* BaseGrid.swift */,
+				0428203128A155C900026382 /* BaseGrids.swift */,
+				0428202F28A1454D00026382 /* BaseZoomGrids.swift */,
 				0428201C289C44AF00026382 /* GridConstants.swift */,
 				0428200E289AB2D000026382 /* GridError.swift */,
 				04282029289DA41700026382 /* GridStyle.swift */,
@@ -384,6 +393,8 @@
 				0428200F289AB2D000026382 /* GridError.swift in Sources */,
 				04282024289D4B2C00026382 /* GridProperties.swift in Sources */,
 				0428200A289A9B8200026382 /* Point.swift in Sources */,
+				0428203028A1454D00026382 /* BaseZoomGrids.swift in Sources */,
+				0428202E28A1242B00026382 /* BaseGrid.swift in Sources */,
 				04282019289BF4CE00026382 /* Line.swift in Sources */,
 				0428200D289AA16B00026382 /* Unit.swift in Sources */,
 				0428201B289C0E6100026382 /* GridUtils.swift in Sources */,
@@ -391,6 +402,7 @@
 				04282013289AC5CF00026382 /* PixelRange.swift in Sources */,
 				0428202A289DA41700026382 /* GridStyle.swift in Sources */,
 				0428202C289DB5DE00026382 /* Labeler.swift in Sources */,
+				0428203228A155C900026382 /* BaseGrids.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

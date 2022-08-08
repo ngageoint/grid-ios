@@ -21,18 +21,13 @@ class GridStyle {
     /**
      * Grid line width
      */
-    var width: Double
+    var width: Double = 0
     
     /**
      * Initialize
-     *
-     * @param color
-     *            color
-     * @param width
-     *            width
      */
     init() {
-        self.width = 0
+        
     }
     
     /**
