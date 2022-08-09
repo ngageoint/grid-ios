@@ -11,22 +11,22 @@ import color_ios
 /**
  * Base Grid
  */
-class BaseGrid: Hashable, Comparable {
+open class BaseGrid: Hashable, Comparable {
     
     /**
      * Enabled grid
      */
-    var enabled: Bool = true
+    public var enabled: Bool = true
     
     /**
      * Minimum zoom level
      */
-    var minZoom: Int = 0
+    public var minZoom: Int = 0
     
     /**
      * Maximum zoom level
      */
-    var maxZoom: Int?
+    public var maxZoom: Int?
     
     /**
      * Minimum zoom level override for drawing grid lines
@@ -36,7 +36,7 @@ class BaseGrid: Hashable, Comparable {
     /**
      * Minimum zoom level override for drawing grid lines
      */
-    var linesMinZoom: Int? {
+    public var linesMinZoom: Int? {
         get {
             return _linesMinZoom != nil ? _linesMinZoom : minZoom
         }
@@ -53,7 +53,7 @@ class BaseGrid: Hashable, Comparable {
     /**
      * Maximum zoom level override for drawing grid lines
      */
-    var linesMaxZoom: Int? {
+    public var linesMaxZoom: Int? {
         get {
             return _linesMaxZoom != nil ? _linesMaxZoom : maxZoom
         }
@@ -65,17 +65,17 @@ class BaseGrid: Hashable, Comparable {
     /**
      * Grid line style
      */
-    var style: GridStyle = GridStyle()
+    public var style: GridStyle = GridStyle()
     
     /**
      * Grid labeler
      */
-    var labeler: Labeler?
+    public var labeler: Labeler?
     
     /**
      * Initialize
      */
-    init() {
+    public init() {
         
     }
     
@@ -84,7 +84,7 @@ class BaseGrid: Hashable, Comparable {
      *
      * @return true if has a maximum, false if unbounded
      */
-    func hasMaxZoom() -> Bool {
+    public func hasMaxZoom() -> Bool {
         return maxZoom != nil
     }
     
@@ -95,7 +95,7 @@ class BaseGrid: Hashable, Comparable {
      *            zoom level
      * @return true if within range
      */
-    func isWithin(zoom: Int) -> Bool {
+    public func isWithin(zoom: Int) -> Bool {
         return zoom >= minZoom && (maxZoom == nil || zoom <= maxZoom!)
     }
     
@@ -104,7 +104,7 @@ class BaseGrid: Hashable, Comparable {
      *
      * @return true if has a minimum, false if not overridden
      */
-    func hasLinesMinZoom() -> Bool {
+    public func hasLinesMinZoom() -> Bool {
         return _linesMinZoom != nil
     }
     
@@ -113,7 +113,7 @@ class BaseGrid: Hashable, Comparable {
      *
      * @return true if has a maximum, false if not overridden
      */
-    func hasLinesMaxZoom() -> Bool {
+    public func hasLinesMaxZoom() -> Bool {
         return _linesMaxZoom != nil
     }
     
@@ -124,7 +124,7 @@ class BaseGrid: Hashable, Comparable {
      *            zoom level
      * @return true if within range
      */
-    func isLinesWithin(zoom: Int) -> Bool {
+    public func isLinesWithin(zoom: Int) -> Bool {
         return (_linesMinZoom == nil || zoom >= _linesMinZoom!)
                         && (_linesMaxZoom == nil || zoom <= _linesMaxZoom!)
     }
@@ -132,7 +132,7 @@ class BaseGrid: Hashable, Comparable {
     /**
      * The grid line color
      */
-    var color: CLRColor? {
+    public var color: CLRColor? {
         get {
             return style.color
         }
@@ -144,7 +144,7 @@ class BaseGrid: Hashable, Comparable {
     /**
      * The grid line width
      */
-    var width: Double {
+    public var width: Double {
         get {
             return style.width
         }
@@ -158,7 +158,7 @@ class BaseGrid: Hashable, Comparable {
      *
      * @return true if has a grid labeler
      */
-    func hasLabeler() -> Bool {
+    public func hasLabeler() -> Bool {
         return labeler != nil
     }
     
@@ -169,7 +169,7 @@ class BaseGrid: Hashable, Comparable {
      *            zoom level
      * @return true if within range
      */
-    func isLabelerWithin(zoom: Int) -> Bool {
+    public func isLabelerWithin(zoom: Int) -> Bool {
         return hasLabeler() && labeler!.enabled && labeler!.isWithin(zoom: zoom)
     }
     
@@ -178,19 +178,19 @@ class BaseGrid: Hashable, Comparable {
      *
      * @return label buffer (greater than or equal to 0.0 and less than 0.5)
      */
-    func labelBuffer() -> Double {
+    public func labelBuffer() -> Double {
         return hasLabeler() ? labeler!.buffer : 0.0
     }
     
-    static func == (lhs: BaseGrid, rhs: BaseGrid) -> Bool {
+    public static func == (lhs: BaseGrid, rhs: BaseGrid) -> Bool {
         return true
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
 
     }
     
-    static func < (lhs: BaseGrid, rhs: BaseGrid) -> Bool {
+    public static func < (lhs: BaseGrid, rhs: BaseGrid) -> Bool {
         return true
     }
     

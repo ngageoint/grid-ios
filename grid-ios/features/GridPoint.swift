@@ -1,5 +1,5 @@
 //
-//  Point.swift
+//  GridPoint.swift
 //  grid-ios
 //
 //  Created by Brian Osborn on 8/3/22.
@@ -11,12 +11,12 @@ import sf_ios
 /**
  * Point
  */
-class Point: SFPoint {
+public class GridPoint: SFPoint {
     
     /**
      * Unit
      */
-    var unit: Unit
+    public var unit: Unit
     
     /**
      * Create a point in degrees
@@ -27,8 +27,8 @@ class Point: SFPoint {
      *            latitude in degrees
      * @return point in degrees
      */
-    static func degrees(longitude: Double, latitude: Double) -> Point {
-        return Point(longitude: longitude, latitude: latitude, unit: Unit.DEGREE)
+    public static func degrees(longitude: Double, latitude: Double) -> GridPoint {
+        return GridPoint(longitude: longitude, latitude: latitude, unit: Unit.DEGREE)
     }
 
     /**
@@ -40,8 +40,8 @@ class Point: SFPoint {
      *            latitude in meters
      * @return point in meters
      */
-    static func meters(longitude: Double, latitude: Double) -> Point {
-        return Point(longitude: longitude, latitude: latitude, unit: Unit.METER)
+    public static func meters(longitude: Double, latitude: Double) -> GridPoint {
+        return GridPoint(longitude: longitude, latitude: latitude, unit: Unit.METER)
     }
 
     /**
@@ -57,7 +57,7 @@ class Point: SFPoint {
      *            desired unit
      * @return point in unit
      */
-    static func toUnit(fromUnit: Unit, longitude: Double, latitude: Double, toUnit: Unit) -> Point {
+    public static func toUnit(fromUnit: Unit, longitude: Double, latitude: Double, toUnit: Unit) -> GridPoint {
         return GridUtils.toUnit(fromUnit: fromUnit, longitude: longitude, latitude: latitude, toUnit: toUnit)
     }
 
@@ -72,7 +72,7 @@ class Point: SFPoint {
      *            desired unit
      * @return point in unit
      */
-    static func toUnit(longitude: Double, latitude: Double, unit: Unit) -> Point {
+    public static func toUnit(longitude: Double, latitude: Double, unit: Unit) -> GridPoint {
         return GridUtils.toUnit(longitude: longitude, latitude: latitude, unit: unit)
     }
 
@@ -85,7 +85,7 @@ class Point: SFPoint {
      *            latitude in degrees
      * @return point in meters
      */
-    static func degreesToMeters(longitude: Double, latitude: Double) -> Point {
+    public static func degreesToMeters(longitude: Double, latitude: Double) -> GridPoint {
         return toUnit(fromUnit: Unit.DEGREE, longitude: longitude, latitude: latitude, toUnit: Unit.METER)
     }
 
@@ -98,7 +98,7 @@ class Point: SFPoint {
      *            latitude in meters
      * @return point in degrees
      */
-    static func metersToDegrees(longitude: Double, latitude: Double) -> Point {
+    public static func metersToDegrees(longitude: Double, latitude: Double) -> GridPoint {
         return toUnit(fromUnit: Unit.METER, longitude: longitude, latitude: latitude, toUnit: Unit.DEGREE)
     }
     
@@ -110,7 +110,7 @@ class Point: SFPoint {
      * @param latitude
      *            latitude
      */
-    convenience init(longitude: Double, latitude: Double) {
+    public convenience init(longitude: Double, latitude: Double) {
         self.init(longitude: longitude, latitude: latitude, unit: Unit.DEGREE)
     }
     
@@ -124,7 +124,7 @@ class Point: SFPoint {
      * @param unit
      *            unit
      */
-    init(longitude: Double, latitude: Double, unit: Unit) {
+    public init(longitude: Double, latitude: Double, unit: Unit) {
         self.unit = unit
         super.init(hasZ: false, andHasM: false, andX: NSDecimalNumber.init(value: longitude), andY: NSDecimalNumber.init(value: latitude))
     }
@@ -135,7 +135,7 @@ class Point: SFPoint {
      * @param point
      *            point to copy
      */
-    convenience init(point: Point) {
+    public convenience init(point: GridPoint) {
         self.init(point: point, unit: point.unit)
     }
     
@@ -147,7 +147,7 @@ class Point: SFPoint {
      * @param unit
      *            unit
      */
-    init(point: SFPoint, unit: Unit) {
+    public init(point: SFPoint, unit: Unit) {
         self.unit = unit
         super.init(hasZ: point.hasZ, andHasM: point.hasM, andX: point.x, andY: point.y)
         z = point.z
@@ -157,7 +157,7 @@ class Point: SFPoint {
     /**
      * The longitude
      */
-    var longitude: Double {
+    public var longitude: Double {
         get {
             return x.doubleValue
         }
@@ -169,7 +169,7 @@ class Point: SFPoint {
     /**
      * The latitude
      */
-    var latitide: Double {
+    public var latitide: Double {
         get {
             return y.doubleValue
         }
@@ -185,7 +185,7 @@ class Point: SFPoint {
      *            unit
      * @return true if in the unit
      */
-    func isUnit(unit: Unit) -> Bool {
+    public func isUnit(unit: Unit) -> Bool {
         return self.unit == unit
     }
     
@@ -194,7 +194,7 @@ class Point: SFPoint {
      *
      * @return true if degrees
      */
-    func isDegrees() -> Bool {
+    public func isDegrees() -> Bool {
         return isUnit(unit: Unit.DEGREE)
     }
     
@@ -203,7 +203,7 @@ class Point: SFPoint {
      *
      * @return true if meters
      */
-    func isMeters() -> Bool {
+    public func isMeters() -> Bool {
         return isUnit(unit: Unit.METER)
     }
     
@@ -214,8 +214,8 @@ class Point: SFPoint {
      *            unit
      * @return point in units, same point if equal units
      */
-    func toUnit(unit: Unit) -> Point {
-        var point: Point
+    public func toUnit(unit: Unit) -> GridPoint {
+        var point: GridPoint
         if (isUnit(unit: unit)) {
             point = self
         } else {
@@ -229,7 +229,7 @@ class Point: SFPoint {
      *
      * @return point in degrees, same point if already in degrees
      */
-    func toDegrees() -> Point {
+    public func toDegrees() -> GridPoint {
         return toUnit(unit: Unit.DEGREE)
     }
     
@@ -238,7 +238,7 @@ class Point: SFPoint {
      *
      * @return point in meters, same point if already in meters
      */
-    func toMeters() -> Point {
+    public func toMeters() -> GridPoint {
         return toUnit(unit: Unit.METER)
     }
     
@@ -249,7 +249,7 @@ class Point: SFPoint {
      *            tile
      * @return pixel
      */
-    func pixel(tile: GridTile) -> Pixel {
+    public func pixel(tile: GridTile) -> Pixel {
         return pixel(width: tile.width, height: tile.height, bounds: tile.bounds)
     }
 
@@ -264,25 +264,25 @@ class Point: SFPoint {
      *            bounds
      * @return pixel
      */
-    func pixel(width: Int, height: Int, bounds: Bounds) -> Pixel {
+    public func pixel(width: Int, height: Int, bounds: Bounds) -> Pixel {
         return GridUtils.pixel(width: width, height: height, bounds: bounds, point: self)
     }
     
-    override func mutableCopy(with zone: NSZone? = nil) -> Any {
-        return Point(point: self)
+    public override func mutableCopy(with zone: NSZone? = nil) -> Any {
+        return GridPoint(point: self)
     }
     
-    override func encode(with coder: NSCoder) {
+    public override func encode(with coder: NSCoder) {
         coder.encode(unit.rawValue, forKey: "unit")
         super.encode(with: coder)
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         unit = Unit.init(rawValue: coder.decodeInteger(forKey: "unit"))!
         super.init(coder: coder)
     }
     
-    func isEqual(point: Point?) -> Bool {
+    public func isEqual(point: GridPoint?) -> Bool {
         if(self == point) {
             return true
         }
@@ -298,16 +298,16 @@ class Point: SFPoint {
         return true
     }
     
-    override func isEqual(_ object: Any?) -> Bool {
+    public override func isEqual(_ object: Any?) -> Bool {
         
-        if(!(object is Point)) {
+        if(!(object is GridPoint)) {
             return false
         }
         
-        return isEqual(point: object as? Point)
+        return isEqual(point: object as? GridPoint)
     }
 
-    override var hash: Int {
+    public override var hash: Int {
         let prime = 31
         var result = super.hash
         result = prime * result + unit.rawValue

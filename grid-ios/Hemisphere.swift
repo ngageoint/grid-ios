@@ -10,7 +10,7 @@ import Foundation
 /**
  * Hemisphere enumeration
  */
-enum Hemisphere: Int {
+public enum Hemisphere: Int {
     
     /**
      * Northern hemisphere
@@ -29,7 +29,7 @@ enum Hemisphere: Int {
      *            latitude
      * @return hemisphere
      */
-    static func from(latitude: Double) -> Hemisphere {
+    public static func from(latitude: Double) -> Hemisphere {
         return latitude >= 0 ? Hemisphere.NORTH : Hemisphere.SOUTH
     }
 
@@ -40,7 +40,7 @@ enum Hemisphere: Int {
      *            point
      * @return hemisphere
      */
-    static func from(point: Point) -> Hemisphere {
+    public static func from(point: GridPoint) -> Hemisphere {
         return from(latitude: point.latitide)
     }
     

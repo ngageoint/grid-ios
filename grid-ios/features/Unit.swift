@@ -10,7 +10,7 @@ import Foundation
 /**
  * Unit
  */
-enum Unit: Int {
+public enum Unit: Int {
     
     /**
      * Degrees

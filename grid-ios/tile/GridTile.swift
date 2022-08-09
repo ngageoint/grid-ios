@@ -10,27 +10,27 @@ import Foundation
 /**
  * Grid Tile
  */
-class GridTile {
+public class GridTile {
     
     /**
      * Tile width
      */
-    var width: Int
+    public var width: Int
     
     /**
      * Tile height
      */
-    var height: Int
+    public var height: Int
     
     /**
      * Zoom level
      */
-    var zoom: Int
+    public var zoom: Int
     
     /**
      * Bounds
      */
-    var bounds: Bounds
+    public var bounds: Bounds
     
     /**
      * Initialize
@@ -46,7 +46,7 @@ class GridTile {
      * @param zoom
      *            zoom level
      */
-    init(width: Int, height: Int, x: Int, y: Int, zoom: Int) {
+    public init(width: Int, height: Int, x: Int, y: Int, zoom: Int) {
         self.width = width
         self.height = height
         self.zoom = zoom
@@ -63,7 +63,7 @@ class GridTile {
      * @param bounds
      *            tile bounds
      */
-    init(width: Int, height: Int, bounds: Bounds) {
+    public init(width: Int, height: Int, bounds: Bounds) {
         self.width = width
         self.height = height
         self.bounds = bounds
@@ -77,7 +77,7 @@ class GridTile {
      *            units
      * @return bounds in units
      */
-    func bounds(unit: Unit) -> Bounds {
+    public func bounds(unit: Unit) -> Bounds {
         return bounds.toUnit(unit: unit)
     }
     
@@ -86,7 +86,7 @@ class GridTile {
      *
      * @return bounds in degrees
      */
-    func boundsDegrees() -> Bounds {
+    public func boundsDegrees() -> Bounds {
         return bounds(unit: Unit.DEGREE)
     }
     
@@ -95,7 +95,7 @@ class GridTile {
      *
      * @return bounds in meters
      */
-    func boundsMeters() -> Bounds {
+    public func boundsMeters() -> Bounds {
         return bounds(unit: Unit.METER)
     }
     
@@ -106,7 +106,7 @@ class GridTile {
      *            point
      * @return pixel
      */
-    func pixel(point: Point) -> Pixel {
+    public func pixel(point: GridPoint) -> Pixel {
         return GridUtils.pixel(width: width, height: height, bounds: bounds, point: point)
     }
 
@@ -117,7 +117,7 @@ class GridTile {
      *            longitude in meters
      * @return x pixel
      */
-    func xPixel(longitude: Double) -> Float {
+    public func xPixel(longitude: Double) -> Float {
         return GridUtils.xPixel(width: width, bounds: bounds, longitude: longitude)
     }
 
@@ -128,7 +128,7 @@ class GridTile {
      *            latitude in meters
      * @return y pixel
      */
-    func yPixel(latitude: Double) -> Float {
+    public func yPixel(latitude: Double) -> Float {
         return GridUtils.yPixel(height: height, bounds: bounds, latitude: latitude)
     }
     

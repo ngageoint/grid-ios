@@ -10,76 +10,76 @@ import Foundation
 /**
  * Property Constants
  */
-struct PropertyConstants {
+public struct PropertyConstants {
     
     /**
      * Property list type
      */
-    static let PROPERTY_LIST_TYPE = "plist"
+    public static let PROPERTY_LIST_TYPE = "plist"
     
     /**
      * Property part divider
      */
-    static let PROPERTY_DIVIDER = "."
+    public static let PROPERTY_DIVIDER = "."
 
     /**
      * Grid
      */
-    static let GRID = "grid"
+    public static let GRID = "grid"
 
     /**
      * Labeler
      */
-    static let LABELER = "labeler"
+    public static let LABELER = "labeler"
 
     /**
      * Grids
      */
-    static let GRIDS = "grids"
+    public static let GRIDS = "grids"
 
     /**
      * Propagate
      */
-    static let PROPAGATE = "propagate"
+    public static let PROPAGATE = "propagate"
 
     /**
      * Width
      */
-    static let WIDTH = "width"
+    public static let WIDTH = "width"
 
     /**
      * Text Size
      */
-    static let TEXT_SIZE = "text_size"
+    public static let TEXT_SIZE = "text_size"
 
     /**
      * Buffer
      */
-    static let BUFFER = "buffer"
+    public static let BUFFER = "buffer"
 
     /**
      * Enabled
      */
-    static let ENABLED = "enabled"
+    public static let ENABLED = "enabled"
 
     /**
      * Min Zoom
      */
-    static let MIN_ZOOM = "min_zoom"
+    public static let MIN_ZOOM = "min_zoom"
 
     /**
      * Max Zoom
      */
-    static let MAX_ZOOM = "max_zoom"
+    public static let MAX_ZOOM = "max_zoom"
 
     /**
      * Color
      */
-    static let COLOR = "color"
+    public static let COLOR = "color"
 
     /**
      * Lines
      */
-    static let LINES = "lines"
+    public static let LINES = "lines"
     
 }

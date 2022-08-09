@@ -11,7 +11,7 @@ import sf_ios
 /**
  * Line between two points
  */
-class Line: SFLine {
+open class Line: SFLine {
     
     /**
      * Initialize
@@ -21,7 +21,7 @@ class Line: SFLine {
      * @param point2
      *            second point
      */
-    init(point1: Point, point2: Point) {
+    public init(point1: GridPoint, point2: GridPoint) {
         super.init(hasZ: false, andHasM: false)
         setPoints(point1: point1, point2: point2)
     }
@@ -32,7 +32,7 @@ class Line: SFLine {
      * @param line
      *            line to copy
      */
-    init(line: Line) {
+    public init(line: Line) {
         super.init(hasZ: line.hasZ, andHasM: line.hasM)
         setPoints(point1: line.point1, point2: line.point2)
     }
@@ -40,9 +40,9 @@ class Line: SFLine {
     /**
      * The first point
      */
-    var point1: Point {
+    public var point1: GridPoint {
         get {
-            return startPoint() as! Point
+            return startPoint() as! GridPoint
         }
         set(point1) {
             setPoints(point1: point1, point2: point2)
@@ -52,9 +52,9 @@ class Line: SFLine {
     /**
      * The second point
      */
-    var point2: Point {
+    public var point2: GridPoint {
         get {
-            return endPoint() as! Point
+            return endPoint() as! GridPoint
         }
         set(point2) {
             setPoints(point1: point1, point2: point2)
@@ -69,8 +69,8 @@ class Line: SFLine {
      * @param point2
      *            second point
      */
-    func setPoints(point1: Point, point2: Point) {
-        var linePoints: [Point] = []
+    public func setPoints(point1: GridPoint, point2: GridPoint) {
+        var linePoints: [GridPoint] = []
         linePoints.append(point1)
         linePoints.append(point2)
         points = linePoints as? NSMutableArray
@@ -80,7 +80,7 @@ class Line: SFLine {
     /**
      * The unit
      */
-    var unit: Unit {
+    public var unit: Unit {
         get {
             return point1.unit
         }
@@ -93,7 +93,7 @@ class Line: SFLine {
      *            unit
      * @return true if in the unit
      */
-    func isUnit(unit: Unit) -> Bool {
+    public func isUnit(unit: Unit) -> Bool {
         return point1.isUnit(unit: unit)
     }
     
@@ -102,7 +102,7 @@ class Line: SFLine {
      *
      * @return true if degrees
      */
-    func isDegrees() -> Bool {
+    public func isDegrees() -> Bool {
         return point1.isDegrees()
     }
     
@@ -111,7 +111,7 @@ class Line: SFLine {
      *
      * @return true if meters
      */
-    func isMeters() -> Bool {
+    public func isMeters() -> Bool {
         return point1.isMeters()
     }
     
@@ -122,7 +122,7 @@ class Line: SFLine {
      *            unit
      * @return line in units, same line if equal units
      */
-    func toUnit(unit: Unit) -> Line {
+    public func toUnit(unit: Unit) -> Line {
         var line: Line
         if (isUnit(unit: unit)) {
             line = self
@@ -138,7 +138,7 @@ class Line: SFLine {
      *
      * @return line in degrees, same line if already in degrees
      */
-    func toDegrees() -> Line {
+    public func toDegrees() -> Line {
         return toUnit(unit: Unit.DEGREE)
     }
     
@@ -147,7 +147,7 @@ class Line: SFLine {
      *
      * @return line in meters, same line if already in meters
      */
-    func toMeters() -> Line {
+    public func toMeters() -> Line {
         return toUnit(unit: Unit.METER)
     }
     
@@ -158,23 +158,23 @@ class Line: SFLine {
      *            line
      * @return intersection
      */
-    func intersection(line: Line) -> Point? {
+    public func intersection(line: Line) -> GridPoint? {
         return GridUtils.intersection(line1: self, line2: line)
     }
     
-    override func mutableCopy(with zone: NSZone? = nil) -> Any {
+    public override func mutableCopy(with zone: NSZone? = nil) -> Any {
         return Line(line: self)
     }
     
-    override func encode(with coder: NSCoder) {
+    public override func encode(with coder: NSCoder) {
         super.encode(with: coder)
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    func isEqual(line: Line?) -> Bool {
+    public func isEqual(line: Line?) -> Bool {
         if(self == line) {
             return true
         }
@@ -187,7 +187,7 @@ class Line: SFLine {
         return true
     }
     
-    override func isEqual(_ object: Any?) -> Bool {
+    public override func isEqual(_ object: Any?) -> Bool {
         
         if(!(object is Line)) {
             return false
@@ -196,7 +196,7 @@ class Line: SFLine {
         return isEqual(line: object as? Line)
     }
 
-    override var hash: Int {
+    public override var hash: Int {
         return super.hash
     }
     

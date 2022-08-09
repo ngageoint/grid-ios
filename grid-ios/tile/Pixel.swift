@@ -10,17 +10,17 @@ import Foundation
 /**
  * Tile Pixel
  */
-class Pixel {
+public class Pixel {
 
     /**
      * X pixel
      */
-    var x: Float
+    public var x: Float
 
     /**
      * Y pixel
      */
-    var y: Float
+    public var y: Float
 
     /**
      * Initialize
@@ -30,7 +30,7 @@ class Pixel {
      * @param y
      *            y pixel
      */
-    init(x: Float, y: Float) {
+    public init(x: Float, y: Float) {
         self.x = x
         self.y = y
     }

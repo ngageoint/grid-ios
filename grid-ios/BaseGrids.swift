@@ -11,12 +11,12 @@ import color_ios
 /**
  * Grids
  */
-class BaseGrids {
+open class BaseGrids {
   
     /**
      * Grid properties
      */
-    let properties: GridProperties
+    public let properties: GridProperties
     
     /**
      * Map between zoom levels and grids
@@ -29,7 +29,7 @@ class BaseGrids {
      * @param properties
      *            grid properties
      */
-    init(properties: GridProperties) {
+    public init(properties: GridProperties) {
         self.properties = properties
     }
     
@@ -38,7 +38,7 @@ class BaseGrids {
      *
      * @return width
      */
-    func defaultWidth() -> Double {
+    public func defaultWidth() -> Double {
         preconditionFailure("This method must be overridden")
     }
 
@@ -47,7 +47,7 @@ class BaseGrids {
      *
      * @return grids
      */
-    func grids() -> [BaseGrid] {
+    public func grids() -> [BaseGrid] {
         preconditionFailure("This method must be overridden")
     }
 
@@ -58,7 +58,7 @@ class BaseGrids {
      *            zoom level
      * @return zoom grids
      */
-    func newZoomGrids(zoom: Int) -> BaseZoomGrids {
+    public func newZoomGrids(zoom: Int) -> BaseZoomGrids {
         preconditionFailure("This method must be overridden")
     }
     
@@ -74,7 +74,7 @@ class BaseGrids {
      * @param labeler
      *            grid labeler
      */
-    func loadGrid(grid: BaseGrid, gridKey: String, enabled: Bool?, labeler: Labeler?) {
+    public func loadGrid(grid: BaseGrid, gridKey: String, enabled: Bool?, labeler: Labeler?) {
         
         let gridKeyProperty = properties.combine(base: PropertyConstants.GRIDS, property: gridKey)
         
@@ -129,7 +129,7 @@ class BaseGrids {
      * @param gridKey
      *            grid name key
      */
-    func loadLabeler(labeler: Labeler, gridKey: String) {
+    public func loadLabeler(labeler: Labeler, gridKey: String) {
         
         let gridKeyProperty = properties.combine(base: PropertyConstants.GRIDS, property: gridKey)
         let labelerProperty = properties.combine(base: gridKeyProperty, property: PropertyConstants.LABELER)
@@ -173,7 +173,7 @@ class BaseGrids {
      *            second grid name key
      * @return color
      */
-    func loadGridStyleColor(gridKey: String, gridKey2: String) -> CLRColor? {
+    public func loadGridStyleColor(gridKey: String, gridKey2: String) -> CLRColor? {
         
         let gridKeyProperty = properties.combine(base: PropertyConstants.GRIDS, property: gridKey)
         let gridKey2Property = properties.combine(base: gridKeyProperty, property: gridKey2)
@@ -195,7 +195,7 @@ class BaseGrids {
      *            second grid name key
      * @return width
      */
-    func loadGridStyleWidth(gridKey: String, gridKey2: String) -> Double? {
+    public func loadGridStyleWidth(gridKey: String, gridKey2: String) -> Double? {
         
         let gridKeyProperty = properties.combine(base: PropertyConstants.GRIDS, property: gridKey)
         let gridKey2Property = properties.combine(base: gridKeyProperty, property: gridKey2)
@@ -214,7 +214,7 @@ class BaseGrids {
      *            grid
      * @return grid style
      */
-    func gridStyle(color: CLRColor?, width: Double?, grid: BaseGrid) -> GridStyle {
+    public func gridStyle(color: CLRColor?, width: Double?, grid: BaseGrid) -> GridStyle {
         
         var colorValue = color
         if (colorValue == nil) {
@@ -232,7 +232,7 @@ class BaseGrids {
     /**
      * Create the zoom level grids
      */
-    func createZoomGrids() {
+    public func createZoomGrids() {
         for zoom in 0 ... GridConstants.MAX_MAP_ZOOM_LEVEL {
             _ = createZoomGrids(zoom: zoom)
         }
@@ -245,7 +245,7 @@ class BaseGrids {
      *            zoom level
      * @return grids
      */
-    func grids(zoom: Int) -> BaseZoomGrids {
+    public func grids(zoom: Int) -> BaseZoomGrids {
         var grids = zoomGrids[zoom]
         if (grids == nil) {
             grids = createZoomGrids(zoom: zoom)
@@ -277,7 +277,7 @@ class BaseGrids {
      * @param grids
      *            grids
      */
-    func enableGrids(grids: [BaseGrid]) {
+    public func enableGrids(grids: [BaseGrid]) {
         for grid in grids {
             enable(grid: grid)
         }
@@ -289,7 +289,7 @@ class BaseGrids {
      * @param grids
      *            grids
      */
-    func disableGrids(grids: [BaseGrid]) {
+    public func disableGrids(grids: [BaseGrid]) {
         for grid in grids {
             disable(grid: grid)
         }
@@ -301,7 +301,7 @@ class BaseGrids {
      * @param grid
      *            grid
      */
-    func enable(grid: BaseGrid) {
+    public func enable(grid: BaseGrid) {
         
         if (!grid.enabled) {
             
@@ -327,7 +327,7 @@ class BaseGrids {
      * @param grid
      *            grid
      */
-    func disable(grid: BaseGrid) {
+    public func disable(grid: BaseGrid) {
         
         if (grid.enabled) {
             
@@ -352,7 +352,7 @@ class BaseGrids {
      *
      * @return zoom levels
      */
-    func zoomLevels() -> [Int] {
+    public func zoomLevels() -> [Int] {
         return zoomGrids.keys.sorted()
     }
     
@@ -361,7 +361,7 @@ class BaseGrids {
      *
      * @return min zoom level
      */
-    func minZoomLevel() -> Int {
+    public func minZoomLevel() -> Int {
         return zoomLevels().first!
     }
     
@@ -370,7 +370,7 @@ class BaseGrids {
      *
      * @return min zoom level
      */
-    func maxZoomLevel() -> Int {
+    public func maxZoomLevel() -> Int {
         return zoomLevels().last!
     }
     
@@ -382,7 +382,7 @@ class BaseGrids {
      * @param minZoom
      *            minimum zoom
      */
-    func setMinZoom(grid: BaseGrid, minZoom: Int) {
+    public func setMinZoom(grid: BaseGrid, minZoom: Int) {
         var maxZoom = grid.maxZoom
         if (maxZoom != nil && maxZoom! < minZoom) {
             maxZoom = minZoom
@@ -398,7 +398,7 @@ class BaseGrids {
      * @param maxZoom
      *            maximum zoom
      */
-    func setMaxZoom(grid: BaseGrid, maxZoom: Int?) {
+    public func setMaxZoom(grid: BaseGrid, maxZoom: Int?) {
         var minZoom = grid.minZoom
         if (maxZoom != nil && minZoom > maxZoom!) {
             minZoom = maxZoom!
@@ -416,7 +416,7 @@ class BaseGrids {
      * @param maxZoom
      *            maximum zoom
      */
-    func setZoomRange(grid: BaseGrid, minZoom: Int, maxZoom: Int?) {
+    public func setZoomRange(grid: BaseGrid, minZoom: Int, maxZoom: Int?) {
         
         if (maxZoom != nil && maxZoom! < minZoom) {
             preconditionFailure("Min zoom '\(minZoom)' can not be larger than max zoom '\(String(describing: maxZoom))\'")
@@ -500,7 +500,7 @@ class BaseGrids {
     /**
      * Enable all grid labelers
      */
-    func enableAllLabelers() {
+    public func enableAllLabelers() {
         for grid in grids() {
             grid.labeler?.enabled = true
         }
@@ -512,7 +512,7 @@ class BaseGrids {
      * @param buffer
      *            label buffer (greater than or equal to 0.0 and less than 0.5)
      */
-    func setAllLabelBuffers(buffer: Double) {
+    public func setAllLabelBuffers(buffer: Double) {
         for grid in grids() {
             grid.labeler?.buffer = buffer
         }

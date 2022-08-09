@@ -10,17 +10,17 @@ import Foundation
 /**
  * Pixel Range
  */
-class PixelRange {
+public class PixelRange {
     
     /**
      * Top left pixel
      */
-    var topLeft: Pixel
+    public var topLeft: Pixel
 
     /**
      * Bottom right pixel
      */
-    var bottomRight: Pixel
+    public var bottomRight: Pixel
     
     /**
      * Initialize
@@ -30,7 +30,7 @@ class PixelRange {
      * @param bottomRight
      *            bottom right pixel
      */
-    init(topLeft: Pixel, bottomRight: Pixel) {
+    public init(topLeft: Pixel, bottomRight: Pixel) {
         self.topLeft = topLeft
         self.bottomRight = bottomRight
     }
@@ -40,7 +40,7 @@ class PixelRange {
      *
      * @return minimum x pixel
      */
-    var minX: Float {
+    public var minX: Float {
         get {
             return topLeft.x
         }
@@ -51,7 +51,7 @@ class PixelRange {
      *
      * @return minimum y pixel
      */
-    var minY: Float {
+    public var minY: Float {
         get {
             return topLeft.y
         }
@@ -62,7 +62,7 @@ class PixelRange {
      *
      * @return maximum x pixel
      */
-    var maxX: Float {
+    public var maxX: Float {
         get {
             return bottomRight.x
         }
@@ -73,7 +73,7 @@ class PixelRange {
      *
      * @return maximum y pixel
      */
-    var maxY: Float {
+    public var maxY: Float {
         get {
             return bottomRight.y
         }
@@ -84,7 +84,7 @@ class PixelRange {
      *
      * @return left pixel
      */
-    var left: Float {
+    public var left: Float {
         get {
             return minX
         }
@@ -95,7 +95,7 @@ class PixelRange {
      *
      * @return top pixel
      */
-    var top: Float {
+    public var top: Float {
         get {
             return minY
         }
@@ -106,7 +106,7 @@ class PixelRange {
      *
      * @return right pixel
      */
-    var right: Float {
+    public var right: Float {
         get {
             return maxX
         }
@@ -117,7 +117,7 @@ class PixelRange {
      *
      * @return bottom pixel
      */
-    var bottom: Float {
+    public var bottom: Float {
         get {
             return maxY
         }
@@ -128,7 +128,7 @@ class PixelRange {
      *
      * @return pixel width
      */
-    var width: Float {
+    public var width: Float {
         get {
             return maxX - minX
         }
@@ -139,7 +139,7 @@ class PixelRange {
      *
      * @return pixel height
      */
-    var height: Float {
+    public var height: Float {
         get {
             return maxY - minY
         }

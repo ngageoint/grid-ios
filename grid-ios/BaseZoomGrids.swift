@@ -10,12 +10,12 @@ import Foundation
 /**
  * Zoom Level Matching Grids
  */
-class BaseZoomGrids {
+open class BaseZoomGrids {
     
     /**
      * Zoom level
      */
-    let zoom: Int
+    public let zoom: Int
     
     /**
      * Grids
@@ -28,7 +28,7 @@ class BaseZoomGrids {
      * @param zoom
      *            zoom level
      */
-    init(zoom: Int) {
+    public init(zoom: Int) {
         self.zoom = zoom
     }
     
@@ -37,7 +37,7 @@ class BaseZoomGrids {
      *
      * @return grids
      */
-    var grids: [BaseGrid] {
+    public var grids: [BaseGrid] {
         get {
             return _grids.sorted()
         }
@@ -48,7 +48,7 @@ class BaseZoomGrids {
      *
      * @return number of grids
      */
-    func numGrids() -> Int {
+    public func numGrids() -> Int {
         return _grids.count
     }
 
@@ -57,7 +57,7 @@ class BaseZoomGrids {
      *
      * @return true if has grids
      */
-    func hasGrids() -> Bool {
+    public func hasGrids() -> Bool {
         return !_grids.isEmpty
     }
 
@@ -68,7 +68,7 @@ class BaseZoomGrids {
      *            grid
      * @return true if added
      */
-    func addGrid(grid: BaseGrid) -> Bool {
+    public func addGrid(grid: BaseGrid) -> Bool {
         return _grids.insert(grid).inserted
     }
 
@@ -79,7 +79,7 @@ class BaseZoomGrids {
      *            grid
      * @return true if removed
      */
-    func removeGrid(grid: BaseGrid) -> Bool {
+    public func removeGrid(grid: BaseGrid) -> Bool {
         return _grids.remove(grid) != nil
     }
     

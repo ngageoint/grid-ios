@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.platform         = :ios, '12.0'
   s.ios.deployment_target = '12.0'
 
-  s.source_files = 'grid-ios/**/*.{h,m}'
+  s.source_files = 'grid-ios/**/*.swift'
 
   s.frameworks = 'Foundation'
 

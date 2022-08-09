@@ -10,22 +10,22 @@ import Foundation
 /**
  * Grid Label
  */
-class Label {
+public class Label {
     
     /**
      * Name
      */
-    var name: String
+    public var name: String
     
     /**
      * Center point
      */
-    var center: Point
+    public var center: GridPoint
     
     /**
      * Bounds
      */
-    var bounds: Bounds
+    public var bounds: Bounds
     
     /**
      * Initialize
@@ -41,7 +41,7 @@ class Label {
      * @param zoom
      *            zoom level
      */
-    init(name: String, center: Point, bounds: Bounds) {
+    public init(name: String, center: GridPoint, bounds: Bounds) {
         self.name = name
         self.center = center
         self.bounds = bounds

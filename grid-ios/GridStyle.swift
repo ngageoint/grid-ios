@@ -11,22 +11,22 @@ import color_ios
 /**
  * Grid Line Style
  */
-class GridStyle {
+public class GridStyle {
     
     /**
      * Grid line color
      */
-    var color: CLRColor?
+    public var color: CLRColor?
     
     /**
      * Grid line width
      */
-    var width: Double = 0
+    public var width: Double = 0
     
     /**
      * Initialize
      */
-    init() {
+    public init() {
         
     }
     
@@ -38,7 +38,7 @@ class GridStyle {
      * @param width
      *            width
      */
-    init(color: CLRColor?, width: Double) {
+    public init(color: CLRColor?, width: Double) {
         self.color = color
         self.width = width
     }
