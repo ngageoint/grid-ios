@@ -5,3 +5,4 @@ Pods
 xcuserdata/
 *.swp
 Carthage/
+build/
