@@ -10,12 +10,18 @@ import Foundation
 /**
  * Grid property loader
  */
-public class GridProperties {
+open class GridProperties {
 
+    /**
+     * Properties
+     */
     public var properties: [String: Any]
     
     /**
-     * Initialize
+     *  Initialize
+     *
+     *  @param bundle  bundle name
+     *  @param name    properties name
      */
     public init(bundle: String, name: String) {
         let dict: [String: Any]?
