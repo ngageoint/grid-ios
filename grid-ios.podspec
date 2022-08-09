@@ -15,4 +15,7 @@ Pod::Spec.new do |s|
   s.source_files = 'grid-ios/**/*.{h,m}'
 
   s.frameworks = 'Foundation'
+
+  s.dependency 'color-ios', '~> 1.0.0'
+  s.dependency 'sf-ios', '~> 4.1.0'
 end
