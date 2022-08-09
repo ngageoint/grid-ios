@@ -11,7 +11,6 @@
 		04281FFC2899BD7F00026382 /* grid_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 04281FF02899BD7F00026382 /* grid_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0428200A289A9B8200026382 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04282009289A9B8200026382 /* Point.swift */; };
 		0428200D289AA16B00026382 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428200C289AA16B00026382 /* Unit.swift */; };
-		0428200F289AB2D000026382 /* GridError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428200E289AB2D000026382 /* GridError.swift */; };
 		04282011289AC47400026382 /* Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04282010289AC47400026382 /* Pixel.swift */; };
 		04282013289AC5CF00026382 /* PixelRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04282012289AC5CF00026382 /* PixelRange.swift */; };
 		04282015289AC85A00026382 /* GridTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04282014289AC85A00026382 /* GridTile.swift */; };
@@ -49,7 +48,6 @@
 		04281FF52899BD7F00026382 /* grid-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "grid-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04282009289A9B8200026382 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		0428200C289AA16B00026382 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
-		0428200E289AB2D000026382 /* GridError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridError.swift; sourceTree = "<group>"; };
 		04282010289AC47400026382 /* Pixel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixel.swift; sourceTree = "<group>"; };
 		04282012289AC5CF00026382 /* PixelRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelRange.swift; sourceTree = "<group>"; };
 		04282014289AC85A00026382 /* GridTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridTile.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 				0428203128A155C900026382 /* BaseGrids.swift */,
 				0428202F28A1454D00026382 /* BaseZoomGrids.swift */,
 				0428201C289C44AF00026382 /* GridConstants.swift */,
-				0428200E289AB2D000026382 /* GridError.swift */,
 				04282029289DA41700026382 /* GridStyle.swift */,
 				0428201A289C0E6100026382 /* GridUtils.swift */,
 				04282025289D970700026382 /* Hemisphere.swift */,
@@ -390,7 +387,6 @@
 				04282015289AC85A00026382 /* GridTile.swift in Sources */,
 				0428201D289C44AF00026382 /* GridConstants.swift in Sources */,
 				04282026289D970700026382 /* Hemisphere.swift in Sources */,
-				0428200F289AB2D000026382 /* GridError.swift in Sources */,
 				04282024289D4B2C00026382 /* GridProperties.swift in Sources */,
 				0428200A289A9B8200026382 /* Point.swift in Sources */,
 				0428203028A1454D00026382 /* BaseZoomGrids.swift in Sources */,

@@ -310,7 +310,7 @@ class BaseGrids {
             let minZoom = grid.minZoom
             var maxZoom = grid.maxZoom
             if (maxZoom == nil) {
-                //maxZoom = zoomGrids[] TODO
+                maxZoom = maxZoomLevel()
             }
             
             for zoom in minZoom ... maxZoom! {
@@ -336,7 +336,7 @@ class BaseGrids {
             let minZoom = grid.minZoom
             var maxZoom = grid.maxZoom
             if (maxZoom == nil) {
-                //maxZoom = zoomGrids[] TODO
+                maxZoom = maxZoomLevel()
             }
             
             for zoom in minZoom ... maxZoom! {
@@ -345,6 +345,33 @@ class BaseGrids {
             
         }
         
+    }
+    
+    /**
+     * Get the sorted zoom levels
+     *
+     * @return zoom levels
+     */
+    func zoomLevels() -> [Int] {
+        return zoomGrids.keys.sorted()
+    }
+    
+    /**
+     * Get the min zoom level
+     *
+     * @return min zoom level
+     */
+    func minZoomLevel() -> Int {
+        return zoomLevels().first!
+    }
+    
+    /**
+     * Get the min zoom level
+     *
+     * @return min zoom level
+     */
+    func maxZoomLevel() -> Int {
+        return zoomLevels().last!
     }
     
     /**
@@ -396,8 +423,8 @@ class BaseGrids {
         }
         
         // All grids zoom range
-        let allGridsMin: Int = 1 // TODO
-        let allGridsMax: Int = 2 // TODO
+        let allGridsMin = minZoomLevel()
+        let allGridsMax = maxZoomLevel()
         
         // Existing grid zoom range
         let gridMinZoom = grid.minZoom
