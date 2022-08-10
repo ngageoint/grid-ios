@@ -21,9 +21,9 @@ open class Line: SFLine {
      * @param point2
      *            second point
      */
-    public init(point1: GridPoint, point2: GridPoint) {
+    public init(_ point1: GridPoint, _ point2: GridPoint) {
         super.init(hasZ: false, andHasM: false)
-        setPoints(point1: point1, point2: point2)
+        setPoints(point1, point2)
     }
     
     /**
@@ -32,9 +32,9 @@ open class Line: SFLine {
      * @param line
      *            line to copy
      */
-    public init(line: Line) {
+    public init(_ line: Line) {
         super.init(hasZ: line.hasZ, andHasM: line.hasM)
-        setPoints(point1: line.point1, point2: line.point2)
+        setPoints(line.point1, line.point2)
     }
     
     /**
@@ -45,7 +45,7 @@ open class Line: SFLine {
             return startPoint() as! GridPoint
         }
         set(point1) {
-            setPoints(point1: point1, point2: point2)
+            setPoints(point1, point2)
         }
     }
     
@@ -57,7 +57,7 @@ open class Line: SFLine {
             return endPoint() as! GridPoint
         }
         set(point2) {
-            setPoints(point1: point1, point2: point2)
+            setPoints(point1, point2)
         }
     }
     
@@ -69,7 +69,7 @@ open class Line: SFLine {
      * @param point2
      *            second point
      */
-    public func setPoints(point1: GridPoint, point2: GridPoint) {
+    public func setPoints(_ point1: GridPoint, _ point2: GridPoint) {
         var linePoints: [GridPoint] = []
         linePoints.append(point1)
         linePoints.append(point2)
@@ -93,8 +93,8 @@ open class Line: SFLine {
      *            unit
      * @return true if in the unit
      */
-    public func isUnit(unit: Unit) -> Bool {
-        return point1.isUnit(unit: unit)
+    public func isUnit(_ unit: Unit) -> Bool {
+        return point1.isUnit(unit)
     }
     
     /**
@@ -122,13 +122,13 @@ open class Line: SFLine {
      *            unit
      * @return line in units, same line if equal units
      */
-    public func toUnit(unit: Unit) -> Line {
+    public func toUnit(_ unit: Unit) -> Line {
         var line: Line
-        if (isUnit(unit: unit)) {
+        if (isUnit(unit)) {
             line = self
         } else {
             line = mutableCopy() as! Line
-            line.setPoints(point1: point1.toUnit(unit: unit), point2: point2.toUnit(unit: unit))
+            line.setPoints(point1.toUnit(unit), point2.toUnit(unit))
         }
         return line
     }
@@ -139,7 +139,7 @@ open class Line: SFLine {
      * @return line in degrees, same line if already in degrees
      */
     public func toDegrees() -> Line {
-        return toUnit(unit: Unit.DEGREE)
+        return toUnit(Unit.DEGREE)
     }
     
     /**
@@ -148,7 +148,7 @@ open class Line: SFLine {
      * @return line in meters, same line if already in meters
      */
     public func toMeters() -> Line {
-        return toUnit(unit: Unit.METER)
+        return toUnit(Unit.METER)
     }
     
     /**
@@ -158,12 +158,12 @@ open class Line: SFLine {
      *            line
      * @return intersection
      */
-    public func intersection(line: Line) -> GridPoint? {
+    public func intersection(_ line: Line) -> GridPoint? {
         return GridUtils.intersection(self, line)
     }
     
     open override func mutableCopy(with zone: NSZone? = nil) -> Any {
-        return Line(line: self)
+        return Line(self)
     }
     
     open override func encode(with coder: NSCoder) {
@@ -204,7 +204,7 @@ open class Line: SFLine {
      * Validate units are the same
      */
     private func validateUnits() {
-        if (!point1.isUnit(unit: point2.unit)) {
+        if (!point1.isUnit(point2.unit)) {
             preconditionFailure("Points are in different units. point1: \(String(describing: point1.unit)), point2: \(String(describing: point2.unit)))")
         }
     }

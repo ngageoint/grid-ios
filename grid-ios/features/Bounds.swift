@@ -271,8 +271,8 @@ public class Bounds: SFGeometryEnvelope {
         if (isUnit(unit)) {
             bounds = self
         } else {
-            let sw: GridPoint = southwest.toUnit(unit: unit)
-            let ne: GridPoint = northeast.toUnit(unit: unit)
+            let sw: GridPoint = southwest.toUnit(unit)
+            let ne: GridPoint = northeast.toUnit(unit)
             bounds = Bounds(sw, ne)
         }
         return bounds
@@ -325,7 +325,7 @@ public class Bounds: SFGeometryEnvelope {
         if (unit == Unit.DEGREE) {
             point = toMeters().centroid().toDegrees()
         } else {
-            point = GridPoint(point: super.centroid(), unit: unit)
+            point = GridPoint(super.centroid(), unit)
         }
         return point
     }
@@ -355,7 +355,7 @@ public class Bounds: SFGeometryEnvelope {
      */
     public var southwest: GridPoint {
         get {
-            return GridPoint(longitude: minLongitude, latitude: minLatitude, unit: unit)
+            return GridPoint(minLongitude, minLatitude, unit)
         }
     }
     
@@ -366,7 +366,7 @@ public class Bounds: SFGeometryEnvelope {
      */
     public var northwest: GridPoint {
         get {
-            return GridPoint(longitude: minLongitude, latitude: maxLatitude, unit: unit)
+            return GridPoint(minLongitude, maxLatitude, unit)
         }
     }
     
@@ -377,7 +377,7 @@ public class Bounds: SFGeometryEnvelope {
      */
     public var southeast: GridPoint {
         get {
-            return GridPoint(longitude: maxLongitude, latitude: minLatitude, unit: unit)
+            return GridPoint(maxLongitude, minLatitude, unit)
         }
     }
     
@@ -388,7 +388,7 @@ public class Bounds: SFGeometryEnvelope {
      */
     public var northeast: GridPoint {
         get {
-            return GridPoint(longitude: maxLongitude, latitude: maxLatitude, unit: unit)
+            return GridPoint(maxLongitude, maxLatitude, unit)
         }
     }
     
@@ -437,7 +437,7 @@ public class Bounds: SFGeometryEnvelope {
      * @return west line
      */
     public func westLine() -> Line {
-        return grid_ios.Line(point1: northwest, point2: southwest)
+        return grid_ios.Line(northwest, southwest)
     }
 
     /**
@@ -446,7 +446,7 @@ public class Bounds: SFGeometryEnvelope {
      * @return south line
      */
     public func southLine() -> Line {
-        return grid_ios.Line(point1: southwest, point2: southeast)
+        return grid_ios.Line(southwest, southeast)
     }
 
     /**
@@ -455,7 +455,7 @@ public class Bounds: SFGeometryEnvelope {
      * @return east line
      */
     public func eastLine() -> Line {
-        return grid_ios.Line(point1: southeast, point2: northeast)
+        return grid_ios.Line(southeast, northeast)
     }
 
     /**
@@ -464,7 +464,7 @@ public class Bounds: SFGeometryEnvelope {
      * @return north line
      */
     public func northLine() -> Line {
-        return grid_ios.Line(point1: northeast, point2: northwest)
+        return grid_ios.Line(northeast, northwest)
     }
     
     /**
@@ -529,10 +529,10 @@ public class Bounds: SFGeometryEnvelope {
         let southeast = southeast
         
         var lines: [Line] = []
-        lines.append(Line(point1: southwest, point2: northwest))
-        lines.append(Line(point1: northwest, point2: northeast))
-        lines.append(Line(point1: northeast, point2: southeast))
-        lines.append(Line(point1: southeast, point2: southwest))
+        lines.append(Line(southwest, northwest))
+        lines.append(Line(northwest, northeast))
+        lines.append(Line(northeast, southeast))
+        lines.append(Line(southeast, southwest))
         
         return lines
     }

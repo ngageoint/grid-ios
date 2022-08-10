@@ -27,8 +27,8 @@ public class GridPoint: SFPoint {
      *            latitude in degrees
      * @return point in degrees
      */
-    public static func degrees(longitude: Double, latitude: Double) -> GridPoint {
-        return GridPoint(longitude: longitude, latitude: latitude, unit: Unit.DEGREE)
+    public static func degrees(_ longitude: Double, _ latitude: Double) -> GridPoint {
+        return GridPoint(longitude, latitude, Unit.DEGREE)
     }
 
     /**
@@ -40,8 +40,8 @@ public class GridPoint: SFPoint {
      *            latitude in meters
      * @return point in meters
      */
-    public static func meters(longitude: Double, latitude: Double) -> GridPoint {
-        return GridPoint(longitude: longitude, latitude: latitude, unit: Unit.METER)
+    public static func meters(_ longitude: Double, _ latitude: Double) -> GridPoint {
+        return GridPoint(longitude, latitude, Unit.METER)
     }
 
     /**
@@ -57,7 +57,7 @@ public class GridPoint: SFPoint {
      *            desired unit
      * @return point in unit
      */
-    public static func toUnit(fromUnit: Unit, longitude: Double, latitude: Double, toUnit: Unit) -> GridPoint {
+    public static func toUnit(_ fromUnit: Unit, _ longitude: Double, _ latitude: Double, _ toUnit: Unit) -> GridPoint {
         return GridUtils.toUnit(fromUnit, longitude, latitude, toUnit)
     }
 
@@ -72,7 +72,7 @@ public class GridPoint: SFPoint {
      *            desired unit
      * @return point in unit
      */
-    public static func toUnit(longitude: Double, latitude: Double, unit: Unit) -> GridPoint {
+    public static func toUnit(_ longitude: Double, _ latitude: Double, _ unit: Unit) -> GridPoint {
         return GridUtils.toUnit(longitude, latitude, unit)
     }
 
@@ -85,8 +85,8 @@ public class GridPoint: SFPoint {
      *            latitude in degrees
      * @return point in meters
      */
-    public static func degreesToMeters(longitude: Double, latitude: Double) -> GridPoint {
-        return toUnit(fromUnit: Unit.DEGREE, longitude: longitude, latitude: latitude, toUnit: Unit.METER)
+    public static func degreesToMeters(_ longitude: Double, _ latitude: Double) -> GridPoint {
+        return toUnit(Unit.DEGREE, longitude, latitude, Unit.METER)
     }
 
     /**
@@ -98,8 +98,8 @@ public class GridPoint: SFPoint {
      *            latitude in meters
      * @return point in degrees
      */
-    public static func metersToDegrees(longitude: Double, latitude: Double) -> GridPoint {
-        return toUnit(fromUnit: Unit.METER, longitude: longitude, latitude: latitude, toUnit: Unit.DEGREE)
+    public static func metersToDegrees(_ longitude: Double, _ latitude: Double) -> GridPoint {
+        return toUnit(Unit.METER, longitude, latitude, Unit.DEGREE)
     }
     
     /**
@@ -110,8 +110,8 @@ public class GridPoint: SFPoint {
      * @param latitude
      *            latitude
      */
-    public convenience init(longitude: Double, latitude: Double) {
-        self.init(longitude: longitude, latitude: latitude, unit: Unit.DEGREE)
+    public convenience init(_ longitude: Double, _ latitude: Double) {
+        self.init(longitude, latitude, Unit.DEGREE)
     }
     
     /**
@@ -124,7 +124,7 @@ public class GridPoint: SFPoint {
      * @param unit
      *            unit
      */
-    public init(longitude: Double, latitude: Double, unit: Unit) {
+    public init(_ longitude: Double, _ latitude: Double, _ unit: Unit) {
         self.unit = unit
         super.init(hasZ: false, andHasM: false, andX: NSDecimalNumber.init(value: longitude), andY: NSDecimalNumber.init(value: latitude))
     }
@@ -135,8 +135,8 @@ public class GridPoint: SFPoint {
      * @param point
      *            point to copy
      */
-    public convenience init(point: GridPoint) {
-        self.init(point: point, unit: point.unit)
+    public convenience init(_ point: GridPoint) {
+        self.init(point, point.unit)
     }
     
     /**
@@ -147,7 +147,7 @@ public class GridPoint: SFPoint {
      * @param unit
      *            unit
      */
-    public init(point: SFPoint, unit: Unit) {
+    public init(_ point: SFPoint, _ unit: Unit) {
         self.unit = unit
         super.init(hasZ: point.hasZ, andHasM: point.hasM, andX: point.x, andY: point.y)
         z = point.z
@@ -185,7 +185,7 @@ public class GridPoint: SFPoint {
      *            unit
      * @return true if in the unit
      */
-    public func isUnit(unit: Unit) -> Bool {
+    public func isUnit(_ unit: Unit) -> Bool {
         return self.unit == unit
     }
     
@@ -195,7 +195,7 @@ public class GridPoint: SFPoint {
      * @return true if degrees
      */
     public func isDegrees() -> Bool {
-        return isUnit(unit: Unit.DEGREE)
+        return isUnit(Unit.DEGREE)
     }
     
     /**
@@ -204,7 +204,7 @@ public class GridPoint: SFPoint {
      * @return true if meters
      */
     public func isMeters() -> Bool {
-        return isUnit(unit: Unit.METER)
+        return isUnit(Unit.METER)
     }
     
     /**
@@ -214,9 +214,9 @@ public class GridPoint: SFPoint {
      *            unit
      * @return point in units, same point if equal units
      */
-    public func toUnit(unit: Unit) -> GridPoint {
+    public func toUnit(_ unit: Unit) -> GridPoint {
         var point: GridPoint
-        if (isUnit(unit: unit)) {
+        if (isUnit(unit)) {
             point = self
         } else {
             point = GridUtils.toUnit(self.unit, longitude, latitide, unit)
@@ -230,7 +230,7 @@ public class GridPoint: SFPoint {
      * @return point in degrees, same point if already in degrees
      */
     public func toDegrees() -> GridPoint {
-        return toUnit(unit: Unit.DEGREE)
+        return toUnit(Unit.DEGREE)
     }
     
     /**
@@ -239,7 +239,7 @@ public class GridPoint: SFPoint {
      * @return point in meters, same point if already in meters
      */
     public func toMeters() -> GridPoint {
-        return toUnit(unit: Unit.METER)
+        return toUnit(Unit.METER)
     }
     
     /**
@@ -249,8 +249,8 @@ public class GridPoint: SFPoint {
      *            tile
      * @return pixel
      */
-    public func pixel(tile: GridTile) -> Pixel {
-        return pixel(width: tile.width, height: tile.height, bounds: tile.bounds)
+    public func pixel(_ tile: GridTile) -> Pixel {
+        return pixel(tile.width, tile.height, tile.bounds)
     }
 
     /**
@@ -264,12 +264,12 @@ public class GridPoint: SFPoint {
      *            bounds
      * @return pixel
      */
-    public func pixel(width: Int, height: Int, bounds: Bounds) -> Pixel {
+    public func pixel(_ width: Int, _ height: Int, _ bounds: Bounds) -> Pixel {
         return GridUtils.pixel(width, height, bounds, self)
     }
     
     public override func mutableCopy(with zone: NSZone? = nil) -> Any {
-        return GridPoint(point: self)
+        return GridPoint(self)
     }
     
     public override func encode(with coder: NSCoder) {

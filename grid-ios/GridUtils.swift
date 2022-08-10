@@ -158,7 +158,7 @@ public class GridUtils {
     public static func toUnit(_ fromUnit: Unit, _ longitude: Double, _ latitude: Double, _ toUnit: Unit) -> GridPoint {
         var point: GridPoint
         if (fromUnit == toUnit) {
-            point = GridPoint(longitude: longitude, latitude: latitude, unit: toUnit)
+            point = GridPoint(longitude, latitude, toUnit)
         } else {
             point = self.toUnit(longitude, latitude, toUnit)
         }
@@ -186,7 +186,7 @@ public class GridUtils {
         case .METER:
             point = SFGeometryUtils.degreesToMetersWith(x: longitude, andY: latitude)
         }
-        return GridPoint(point: point, unit: unit)
+        return GridPoint(point, unit)
     }
     
     /**
@@ -267,7 +267,7 @@ public class GridUtils {
         let point: SFPoint? = SFGeometryUtils.intersectionBetweenLine1Point1(line1Point1.toMeters(), andLine1Point2: line1Point2.toMeters(), andLine2Point1: line2Point1.toMeters(), andLine2Point2: line2Point2.toMeters())
         
         if (point != nil) {
-            intersection = GridPoint(point: point!, unit: Unit.METER).toUnit(unit: line1Point1.unit)
+            intersection = GridPoint(point!, Unit.METER).toUnit(line1Point1.unit)
         }
         
         return intersection

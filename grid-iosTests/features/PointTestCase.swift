@@ -12,7 +12,7 @@ class PointTestCase: XCTestCase {
 
     func testExample() {
         
-        let point = GridPoint.degrees(longitude: -112.500003, latitude: 21.943049)
+        let point = GridPoint.degrees(-112.500003, 21.943049)
         XCTAssertEqual(Unit.DEGREE, point.unit)
         XCTAssertEqual(-112.500003, point.longitude, accuracy: 0.0000000000001)
         XCTAssertEqual(21.943049, point.latitide, accuracy: 0.0000000000001)
