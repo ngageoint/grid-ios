@@ -11,7 +11,7 @@ import color_ios
 /**
  * Grid Labeler
  */
-public class Labeler {
+open class Labeler {
     
     /**
      * Enabled labeler

@@ -10,7 +10,7 @@ import Foundation
 /**
  * Grid Label
  */
-public class Label {
+open class Label {
     
     /**
      * Name
