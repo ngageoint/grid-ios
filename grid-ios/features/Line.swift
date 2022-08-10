@@ -159,7 +159,7 @@ open class Line: SFLine {
      * @return intersection
      */
     public func intersection(line: Line) -> GridPoint? {
-        return GridUtils.intersection(line1: self, line2: line)
+        return GridUtils.intersection(self, line)
     }
     
     open override func mutableCopy(with zone: NSZone? = nil) -> Any {
@@ -174,7 +174,7 @@ open class Line: SFLine {
         super.init(coder: coder)
     }
     
-    public func isEqual(line: Line?) -> Bool {
+    public func isEqual(_ line: Line?) -> Bool {
         if(self == line) {
             return true
         }
@@ -193,7 +193,7 @@ open class Line: SFLine {
             return false
         }
         
-        return isEqual(line: object as? Line)
+        return isEqual(object as? Line)
     }
 
     open override var hash: Int {

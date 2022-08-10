@@ -62,8 +62,8 @@ public class Labeler {
      *            grid edge buffer (greater than or equal to 0.0 and less than
      *            0.5)
      */
-    public convenience init(minZoom: Int, color: CLRColor?, textSize: Double, buffer: Double) {
-        self.init(minZoom: minZoom, maxZoom: nil, color: color, textSize: textSize, buffer: buffer)
+    public convenience init(_ minZoom: Int, _ color: CLRColor?, _ textSize: Double, _ buffer: Double) {
+        self.init(minZoom, nil, color, textSize, buffer)
     }
     
     /**
@@ -81,8 +81,8 @@ public class Labeler {
      *            grid edge buffer (greater than or equal to 0.0 and less than
      *            0.5)
      */
-    public convenience init(minZoom: Int, maxZoom: Int?, color: CLRColor?, textSize: Double, buffer: Double) {
-        self.init(enabled: true, minZoom: minZoom, maxZoom: maxZoom, color: color, textSize: textSize, buffer: buffer)
+    public convenience init(_ minZoom: Int, _ maxZoom: Int?, _ color: CLRColor?, _ textSize: Double, _ buffer: Double) {
+        self.init(true, minZoom, maxZoom, color, textSize, buffer)
     }
     
     /**
@@ -102,7 +102,7 @@ public class Labeler {
      *            grid edge buffer (greater than or equal to 0.0 and less than
      *            0.5)
      */
-    public init(enabled: Bool, minZoom: Int, maxZoom: Int?, color: CLRColor?, textSize: Double, buffer: Double) {
+    public init(_ enabled: Bool, _ minZoom: Int, _ maxZoom: Int?, _ color: CLRColor?, _ textSize: Double, _ buffer: Double) {
         self.enabled = enabled
         self.minZoom = minZoom
         self.maxZoom = maxZoom
@@ -127,7 +127,7 @@ public class Labeler {
      *            zoom level
      * @return true if within range
      */
-    public func isWithin(zoom: Int) -> Bool {
+    public func isWithin(_ zoom: Int) -> Bool {
         return zoom >= minZoom && (maxZoom == nil || zoom <= maxZoom!)
     }
     

@@ -28,7 +28,7 @@ open class BaseZoomGrids {
      * @param zoom
      *            zoom level
      */
-    public init(zoom: Int) {
+    public init(_ zoom: Int) {
         self.zoom = zoom
     }
     
@@ -68,7 +68,7 @@ open class BaseZoomGrids {
      *            grid
      * @return true if added
      */
-    public func addGrid(grid: BaseGrid) -> Bool {
+    public func addGrid(_ grid: BaseGrid) -> Bool {
         return _grids.insert(grid).inserted
     }
 
@@ -79,7 +79,7 @@ open class BaseZoomGrids {
      *            grid
      * @return true if removed
      */
-    public func removeGrid(grid: BaseGrid) -> Bool {
+    public func removeGrid(_ grid: BaseGrid) -> Bool {
         return _grids.remove(grid) != nil
     }
     

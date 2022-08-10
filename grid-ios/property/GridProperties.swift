@@ -23,9 +23,9 @@ open class GridProperties {
      *  @param bundle  bundle name
      *  @param name    properties name
      */
-    public init(bundle: String, name: String) {
+    public init(_ bundle: String, _ name: String) {
         let dict: [String: Any]?
-        let propertiesPath = GridProperties.propertyListURL(bundle: bundle, name: name)
+        let propertiesPath = GridProperties.propertyListURL(bundle, name)
         do {
             let propertiesData = try Data(contentsOf: propertiesPath)
             dict = try PropertyListSerialization.propertyList(from: propertiesData, options: [], format: nil) as? [String: Any]
@@ -43,7 +43,7 @@ open class GridProperties {
      *
      *  @return string value
      */
-    public func combine(base: String, property: String) -> String {
+    public func combine(_ base: String, _ property: String) -> String {
         return "\(base)\(PropertyConstants.PROPERTY_DIVIDER)\(property)"
     }
     
@@ -54,8 +54,8 @@ open class GridProperties {
      *
      *  @return string value
      */
-    public func value(property: String) -> String? {
-        return value(property: property, required: true)
+    public func value(_ property: String) -> String? {
+        return value(property, true)
     }
     
     /**
@@ -66,7 +66,7 @@ open class GridProperties {
      *
      *  @return string value
      */
-    public func value(property: String, required: Bool) -> String? {
+    public func value(_ property: String, _ required: Bool) -> String? {
         let value: String? = properties[property] as? String
         
         if (value == nil && required) {
@@ -84,8 +84,8 @@ open class GridProperties {
      *
      *  @return string value
      */
-    public func value(base: String, property: String) -> String? {
-        return value(base: base, property: property, required: true)
+    public func value(_ base: String, _ property: String) -> String? {
+        return value(base, property, true)
     }
     
     /**
@@ -97,8 +97,8 @@ open class GridProperties {
      *
      *  @return string value
      */
-    public func value(base: String, property: String, required: Bool) -> String? {
-        return value(property: combine(base: base, property: property), required: required)
+    public func value(_ base: String, _ property: String, _ required: Bool) -> String? {
+        return value(combine(base, property), required)
     }
     
     /**
@@ -108,8 +108,8 @@ open class GridProperties {
      *
      *  @return int value
      */
-    public func intValue(property: String) -> Int? {
-        return intValue(property: property, required: true)
+    public func intValue(_ property: String) -> Int? {
+        return intValue(property, true)
     }
     
     /**
@@ -120,9 +120,9 @@ open class GridProperties {
      *
      *  @return int value
      */
-    public func intValue(property: String, required: Bool) -> Int? {
+    public func intValue(_ property: String, _ required: Bool) -> Int? {
         var val: Int?
-        let stringValue: String? = value(property: property, required: required)
+        let stringValue: String? = value(property, required)
         if (stringValue != nil) {
             val = Int(stringValue!)
         }
@@ -137,8 +137,8 @@ open class GridProperties {
      *
      *  @return int value
      */
-    public func intValue(base: String, property: String) -> Int? {
-        return intValue(base: base, property: property, required: true)
+    public func intValue(_ base: String, _ property: String) -> Int? {
+        return intValue(base, property, true)
     }
     
     /**
@@ -150,8 +150,8 @@ open class GridProperties {
      *
      *  @return int value
      */
-    public func intValue(base: String, property: String, required: Bool) -> Int? {
-        return intValue(property: combine(base: base, property: property), required: required)
+    public func intValue(_ base: String, _ property: String, _ required: Bool) -> Int? {
+        return intValue(combine(base, property), required)
     }
     
     /**
@@ -161,8 +161,8 @@ open class GridProperties {
      *
      *  @return float value
      */
-    public func floatValue(property: String) -> Float? {
-        return floatValue(property: property, required: true)
+    public func floatValue(_ property: String) -> Float? {
+        return floatValue(property, true)
     }
     
     /**
@@ -173,9 +173,9 @@ open class GridProperties {
      *
      *  @return float value
      */
-    public func floatValue(property: String, required: Bool) -> Float? {
+    public func floatValue(_ property: String, _ required: Bool) -> Float? {
         var val: Float?
-        let stringValue: String? = value(property: property, required: required)
+        let stringValue: String? = value(property, required)
         if (stringValue != nil) {
             val = Float(stringValue!)
         }
@@ -190,8 +190,8 @@ open class GridProperties {
      *
      *  @return float value
      */
-    public func floatValue(base: String, property: String) -> Float? {
-        return floatValue(base: base, property: property, required: true)
+    public func floatValue(_ base: String, _ property: String) -> Float? {
+        return floatValue(base, property, true)
     }
     
     /**
@@ -203,8 +203,8 @@ open class GridProperties {
      *
      *  @return float value
      */
-    public func floatValue(base: String, property: String, required: Bool) -> Float? {
-        return floatValue(property: combine(base: base, property: property), required: required)
+    public func floatValue(_ base: String, _ property: String, _ required: Bool) -> Float? {
+        return floatValue(combine(base, property), required)
     }
     
     /**
@@ -214,8 +214,8 @@ open class GridProperties {
      *
      *  @return double value
      */
-    public func doubleValue(property: String) -> Double? {
-        return doubleValue(property: property, required: true)
+    public func doubleValue(_ property: String) -> Double? {
+        return doubleValue(property, true)
     }
     
     /**
@@ -226,9 +226,9 @@ open class GridProperties {
      *
      *  @return double value
      */
-    public func doubleValue(property: String, required: Bool) -> Double? {
+    public func doubleValue(_ property: String, _ required: Bool) -> Double? {
         var val: Double?
-        let stringValue: String? = value(property: property, required: required)
+        let stringValue: String? = value(property, required)
         if (stringValue != nil) {
             val = Double(stringValue!)
         }
@@ -243,8 +243,8 @@ open class GridProperties {
      *
      *  @return double value
      */
-    public func doubleValue(base: String, property: String) -> Double? {
-        return doubleValue(base: base, property: property, required: true)
+    public func doubleValue(_ base: String, _ property: String) -> Double? {
+        return doubleValue(base, property, true)
     }
     
     /**
@@ -256,8 +256,8 @@ open class GridProperties {
      *
      *  @return double value
      */
-    public func doubleValue(base: String, property: String, required: Bool) -> Double? {
-        return doubleValue(property: combine(base: base, property: property), required: required)
+    public func doubleValue(_ base: String, _ property: String, _ required: Bool) -> Double? {
+        return doubleValue(combine(base, property), required)
     }
     
     /**
@@ -267,8 +267,8 @@ open class GridProperties {
      *
      *  @return bool value
      */
-    public func boolValue(property: String) -> Bool? {
-        return boolValue(property: property, required: true)
+    public func boolValue(_ property: String) -> Bool? {
+        return boolValue(property, true)
     }
     
     /**
@@ -279,9 +279,9 @@ open class GridProperties {
      *
      *  @return bool value
      */
-    public func boolValue(property: String, required: Bool) -> Bool? {
+    public func boolValue(_ property: String, _ required: Bool) -> Bool? {
         var val: Bool?
-        let stringValue: String? = value(property: property, required: required)
+        let stringValue: String? = value(property, required)
         if (stringValue != nil) {
             val = Bool(stringValue!)
         }
@@ -296,8 +296,8 @@ open class GridProperties {
      *
      *  @return bool value
      */
-    public func boolValue(base: String, property: String) -> Bool? {
-        return boolValue(base: base, property: property, required: true)
+    public func boolValue(_ base: String, _ property: String) -> Bool? {
+        return boolValue(base, property, true)
     }
     
     /**
@@ -309,15 +309,15 @@ open class GridProperties {
      *
      *  @return bool value
      */
-    public func boolValue(base: String, property: String, required: Bool) -> Bool? {
-        return boolValue(property: combine(base: base, property: property), required: required)
+    public func boolValue(_ base: String, _ property: String, _ required: Bool) -> Bool? {
+        return boolValue(combine(base, property), required)
     }
     
-    public static func propertyListURL(bundle: String, name: String) -> URL {
-        return resourceURL(bundle: bundle, name: name, ext: PropertyConstants.PROPERTY_LIST_TYPE)
+    public static func propertyListURL(_ bundle: String, _ name: String) -> URL {
+        return resourceURL(bundle, name, PropertyConstants.PROPERTY_LIST_TYPE)
     }
 
-    public static func resourceURL(bundle: String, name: String, ext: String) -> URL {
+    public static func resourceURL(_ bundle: String, _ name: String, _ ext: String) -> URL {
         
         let resource = "\(bundle)/\(name)"
         var resourceURL = Bundle.main.url(forResource: resource, withExtension: ext)

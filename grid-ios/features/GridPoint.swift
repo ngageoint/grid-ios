@@ -58,7 +58,7 @@ public class GridPoint: SFPoint {
      * @return point in unit
      */
     public static func toUnit(fromUnit: Unit, longitude: Double, latitude: Double, toUnit: Unit) -> GridPoint {
-        return GridUtils.toUnit(fromUnit: fromUnit, longitude: longitude, latitude: latitude, toUnit: toUnit)
+        return GridUtils.toUnit(fromUnit, longitude, latitude, toUnit)
     }
 
     /**
@@ -73,7 +73,7 @@ public class GridPoint: SFPoint {
      * @return point in unit
      */
     public static func toUnit(longitude: Double, latitude: Double, unit: Unit) -> GridPoint {
-        return GridUtils.toUnit(longitude: longitude, latitude: latitude, unit: unit)
+        return GridUtils.toUnit(longitude, latitude, unit)
     }
 
     /**
@@ -219,7 +219,7 @@ public class GridPoint: SFPoint {
         if (isUnit(unit: unit)) {
             point = self
         } else {
-            point = GridUtils.toUnit(fromUnit: self.unit, longitude: longitude, latitude: latitide, toUnit: unit)
+            point = GridUtils.toUnit(self.unit, longitude, latitide, unit)
         }
         return point
     }
@@ -265,7 +265,7 @@ public class GridPoint: SFPoint {
      * @return pixel
      */
     public func pixel(width: Int, height: Int, bounds: Bounds) -> Pixel {
-        return GridUtils.pixel(width: width, height: height, bounds: bounds, point: self)
+        return GridUtils.pixel(width, height, bounds, self)
     }
     
     public override func mutableCopy(with zone: NSZone? = nil) -> Any {
@@ -282,7 +282,7 @@ public class GridPoint: SFPoint {
         super.init(coder: coder)
     }
     
-    public func isEqual(point: GridPoint?) -> Bool {
+    public func isEqual(_ point: GridPoint?) -> Bool {
         if(self == point) {
             return true
         }
@@ -304,7 +304,7 @@ public class GridPoint: SFPoint {
             return false
         }
         
-        return isEqual(point: object as? GridPoint)
+        return isEqual(object as? GridPoint)
     }
 
     public override var hash: Int {

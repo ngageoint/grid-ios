@@ -41,7 +41,7 @@ public class Label {
      * @param zoom
      *            zoom level
      */
-    public init(name: String, center: GridPoint, bounds: Bounds) {
+    public init(_ name: String, _ center: GridPoint, _ bounds: Bounds) {
         self.name = name
         self.center = center
         self.bounds = bounds

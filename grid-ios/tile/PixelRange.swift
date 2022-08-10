@@ -30,7 +30,7 @@ public class PixelRange {
      * @param bottomRight
      *            bottom right pixel
      */
-    public init(topLeft: Pixel, bottomRight: Pixel) {
+    public init(_ topLeft: Pixel, _ bottomRight: Pixel) {
         self.topLeft = topLeft
         self.bottomRight = bottomRight
     }

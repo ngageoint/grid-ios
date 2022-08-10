@@ -95,7 +95,7 @@ open class BaseGrid: Hashable, Comparable {
      *            zoom level
      * @return true if within range
      */
-    public func isWithin(zoom: Int) -> Bool {
+    public func isWithin(_ zoom: Int) -> Bool {
         return zoom >= minZoom && (maxZoom == nil || zoom <= maxZoom!)
     }
     
@@ -124,7 +124,7 @@ open class BaseGrid: Hashable, Comparable {
      *            zoom level
      * @return true if within range
      */
-    public func isLinesWithin(zoom: Int) -> Bool {
+    public func isLinesWithin(_ zoom: Int) -> Bool {
         return (_linesMinZoom == nil || zoom >= _linesMinZoom!)
                         && (_linesMaxZoom == nil || zoom <= _linesMaxZoom!)
     }
@@ -169,8 +169,8 @@ open class BaseGrid: Hashable, Comparable {
      *            zoom level
      * @return true if within range
      */
-    public func isLabelerWithin(zoom: Int) -> Bool {
-        return hasLabeler() && labeler!.enabled && labeler!.isWithin(zoom: zoom)
+    public func isLabelerWithin(_ zoom: Int) -> Bool {
+        return hasLabeler() && labeler!.enabled && labeler!.isWithin(zoom)
     }
     
     /**

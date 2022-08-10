@@ -38,7 +38,7 @@ public class GridStyle {
      * @param width
      *            width
      */
-    public init(color: CLRColor?, width: Double) {
+    public init(_ color: CLRColor?, _ width: Double) {
         self.color = color
         self.width = width
     }

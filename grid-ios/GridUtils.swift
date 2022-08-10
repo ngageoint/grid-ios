@@ -26,14 +26,14 @@ public class GridUtils {
      *            point
      * @return pixel
      */
-    public static func pixel(width: Int, height: Int, bounds: Bounds, point: GridPoint) -> Pixel {
+    public static func pixel(_ width: Int, _ height: Int, _ bounds: Bounds, _ point: GridPoint) -> Pixel {
         
         let pointMeters = point.toMeters()
         let boundsMeters = bounds.toMeters()
         
-        let x = xPixel(width: width, bounds: boundsMeters, longitude: pointMeters.longitude)
-        let y = yPixel(height: height, bounds: boundsMeters, latitude: pointMeters.latitide)
-        return Pixel(x: x, y: y)
+        let x = xPixel(width, boundsMeters, pointMeters.longitude)
+        let y = yPixel(height, boundsMeters, pointMeters.latitide)
+        return Pixel(x, y)
     }
     
     /**
@@ -47,7 +47,7 @@ public class GridUtils {
      *            longitude in meters
      * @return x pixel
      */
-    public static func xPixel(width: Int, bounds: Bounds, longitude: Double) -> Float {
+    public static func xPixel(_ width: Int, _ bounds: Bounds, _ longitude: Double) -> Float {
         
         let boundsMeters = bounds.toMeters()
         
@@ -70,7 +70,7 @@ public class GridUtils {
      *            latitude
      * @return y pixel
      */
-    public static func yPixel(height: Int, bounds: Bounds, latitude: Double) -> Float {
+    public static func yPixel(_ height: Int, _ bounds: Bounds, _ latitude: Double) -> Float {
         
         let boundsMeters = bounds.toMeters()
         
@@ -93,17 +93,17 @@ public class GridUtils {
      *            zoom level
      * @return bounds
      */
-    public static func bounds(x: Int, y: Int, zoom: Int) -> Bounds {
+    public static func bounds(_ x: Int, _ y: Int, _ zoom: Int) -> Bounds {
         
-        let tilesPerSide = tilesPerSide(zoom: zoom)
-        let tileSize = tileSize(tilesPerSide: tilesPerSide)
+        let tilesPerSide = tilesPerSide(zoom)
+        let tileSize = tileSize(tilesPerSide)
 
         let minLon = (-1 * SF_WEB_MERCATOR_HALF_WORLD_WIDTH) + (Double(x) * tileSize)
         let minLat = SF_WEB_MERCATOR_HALF_WORLD_WIDTH - (Double(y + 1) * tileSize)
         let maxLon = (-1 * SF_WEB_MERCATOR_HALF_WORLD_WIDTH) + (Double(x + 1) * tileSize)
         let maxLat = SF_WEB_MERCATOR_HALF_WORLD_WIDTH - (Double(y) * tileSize)
 
-        return Bounds.meters(minLongitude: minLon, minLatitude: minLat, maxLongitude: maxLon, maxLatitude: maxLat)
+        return Bounds.meters(minLon, minLat, maxLon, maxLat)
     }
     
     /**
@@ -113,7 +113,7 @@ public class GridUtils {
      *            zoom level
      * @return tiles per side
      */
-    public static func tilesPerSide(zoom: Int) -> Int {
+    public static func tilesPerSide(_ zoom: Int) -> Int {
         return Int(pow(2, Double(zoom)))
     }
     
@@ -124,7 +124,7 @@ public class GridUtils {
      *            tiles per side
      * @return tile size
      */
-    public static func tileSize(tilesPerSide: Int) -> Double {
+    public static func tileSize(_ tilesPerSide: Int) -> Double {
         return (2 * SF_WEB_MERCATOR_HALF_WORLD_WIDTH) / Double(tilesPerSide)
     }
     
@@ -135,7 +135,7 @@ public class GridUtils {
      *            bounds
      * @return zoom level
      */
-    public static func zoomLevel(bounds: Bounds) -> Double {
+    public static func zoomLevel(_ bounds: Bounds) -> Double {
         let boundsMeters = bounds.toMeters()
         let tileSize = min(boundsMeters.width, boundsMeters.height)
         let tilesPerSide = 2 * SF_WEB_MERCATOR_HALF_WORLD_WIDTH / tileSize
@@ -155,12 +155,12 @@ public class GridUtils {
      *            desired unit
      * @return point in unit
      */
-    public static func toUnit(fromUnit: Unit, longitude: Double, latitude: Double, toUnit: Unit) -> GridPoint {
+    public static func toUnit(_ fromUnit: Unit, _ longitude: Double, _ latitude: Double, _ toUnit: Unit) -> GridPoint {
         var point: GridPoint
         if (fromUnit == toUnit) {
             point = GridPoint(longitude: longitude, latitude: latitude, unit: toUnit)
         } else {
-            point = self.toUnit(longitude: longitude, latitude: latitude, unit: toUnit)
+            point = self.toUnit(longitude, latitude, toUnit)
         }
         return point
     }
@@ -177,8 +177,8 @@ public class GridUtils {
      *            desired unit
      * @return point in unit
      */
-    public static func toUnit(longitude: Double, latitude: Double,
-            unit: Unit) -> GridPoint {
+    public static func toUnit(_ longitude: Double, _ latitude: Double,
+                              _ unit: Unit) -> GridPoint {
         var point: SFPoint
         switch unit {
         case .DEGREE:
@@ -198,7 +198,7 @@ public class GridUtils {
      *            band letter
      * @return true if omitted
      */
-    public static func isOmittedBandLetter(letter: Character) -> Bool {
+    public static func isOmittedBandLetter(_ letter: Character) -> Bool {
         return letter == GridConstants.BAND_LETTER_OMIT_I || letter == GridConstants.BAND_LETTER_OMIT_O
     }
     
@@ -211,7 +211,7 @@ public class GridUtils {
      *            precision
      * @return precision value
      */
-    public static func precisionBefore(value: Double, precision: Double) -> Double {
+    public static func precisionBefore(_ value: Double, _ precision: Double) -> Double {
         var before = 0.0
         if (abs(value) >= precision) {
             before = value - ((value.truncatingRemainder(dividingBy: precision) + precision).truncatingRemainder(dividingBy: precision))
@@ -230,8 +230,8 @@ public class GridUtils {
      *            precision
      * @return precision value
      */
-    public static func precisionAfter(value: Double, precision: Double) -> Double {
-        return precisionBefore(value: value + precision, precision: precision)
+    public static func precisionAfter(_ value: Double, _ precision: Double) -> Double {
+        return precisionBefore(value + precision, precision)
     }
     
     /**
@@ -243,8 +243,8 @@ public class GridUtils {
      *            second line
      * @return intersection point or null if no intersection
      */
-    public static func intersection(line1: Line, line2: Line) -> GridPoint? {
-        return intersection(line1Point1: line1.point1, line1Point2: line1.point2, line2Point1: line2.point1, line2Point2: line2.point2)
+    public static func intersection(_ line1: Line, _ line2: Line) -> GridPoint? {
+        return intersection(line1.point1, line1.point2, line2.point1, line2.point2)
     }
 
     /**
@@ -260,8 +260,7 @@ public class GridUtils {
      *            second point of the second line
      * @return intersection point or null if no intersection
      */
-    public static func intersection(line1Point1: GridPoint, line1Point2: GridPoint,
-            line2Point1: GridPoint, line2Point2: GridPoint) -> GridPoint? {
+    public static func intersection(_ line1Point1: GridPoint, _ line1Point2: GridPoint, _ line2Point1: GridPoint, _ line2Point2: GridPoint) -> GridPoint? {
         
         var intersection: GridPoint? = nil
         

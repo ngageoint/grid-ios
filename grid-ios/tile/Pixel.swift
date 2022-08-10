@@ -30,7 +30,7 @@ public class Pixel {
      * @param y
      *            y pixel
      */
-    public init(x: Float, y: Float) {
+    public init(_ x: Float, _ y: Float) {
         self.x = x
         self.y = y
     }

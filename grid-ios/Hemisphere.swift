@@ -29,7 +29,7 @@ public enum Hemisphere: Int {
      *            latitude
      * @return hemisphere
      */
-    public static func from(latitude: Double) -> Hemisphere {
+    public static func from(_ latitude: Double) -> Hemisphere {
         return latitude >= 0 ? Hemisphere.NORTH : Hemisphere.SOUTH
     }
 
@@ -40,8 +40,8 @@ public enum Hemisphere: Int {
      *            point
      * @return hemisphere
      */
-    public static func from(point: GridPoint) -> Hemisphere {
-        return from(latitude: point.latitide)
+    public static func from(_ point: GridPoint) -> Hemisphere {
+        return from(point.latitide)
     }
     
 }

@@ -31,8 +31,8 @@ public class Bounds: SFGeometryEnvelope {
      *            max latitude
      * @return bounds
      */
-    public static func degrees(minLongitude: Double, minLatitude: Double, maxLongitude: Double, maxLatitude: Double) -> Bounds {
-        return Bounds(minLongitude: minLongitude, minLatitude: minLatitude, maxLongitude: maxLongitude, maxLatitude: maxLatitude, unit: Unit.DEGREE)
+    public static func degrees(_ minLongitude: Double, _ minLatitude: Double, _ maxLongitude: Double, _ maxLatitude: Double) -> Bounds {
+        return Bounds(minLongitude, minLatitude, maxLongitude, maxLatitude, Unit.DEGREE)
     }
     
     /**
@@ -48,8 +48,8 @@ public class Bounds: SFGeometryEnvelope {
      *            max latitude
      * @return bounds
      */
-    public static func meters(minLongitude: Double, minLatitude: Double, maxLongitude: Double, maxLatitude: Double) -> Bounds {
-        return Bounds(minLongitude: minLongitude, minLatitude: minLatitude, maxLongitude: maxLongitude, maxLatitude: maxLatitude, unit: Unit.METER)
+    public static func meters(_ minLongitude: Double, _ minLatitude: Double, _ maxLongitude: Double, _ maxLatitude: Double) -> Bounds {
+        return Bounds(minLongitude, minLatitude, maxLongitude, maxLatitude, Unit.METER)
     }
     
     /**
@@ -64,8 +64,8 @@ public class Bounds: SFGeometryEnvelope {
      * @param maxLatitude
      *            max latitude
      */
-    public convenience init(minLongitude: Double, minLatitude: Double, maxLongitude: Double, maxLatitude: Double) {
-        self.init(minLongitude: minLongitude, minLatitude: minLatitude, maxLongitude: maxLongitude, maxLatitude: maxLatitude, unit: Unit.DEGREE)
+    public convenience init(_ minLongitude: Double, _ minLatitude: Double, _ maxLongitude: Double, _ maxLatitude: Double) {
+        self.init(minLongitude, minLatitude, maxLongitude, maxLatitude, Unit.DEGREE)
     }
     
     /**
@@ -82,7 +82,7 @@ public class Bounds: SFGeometryEnvelope {
      * @param unit
      *            unit
      */
-    public init(minLongitude: Double, minLatitude: Double, maxLongitude: Double, maxLatitude: Double, unit: Unit) {
+    public init(_ minLongitude: Double, _ minLatitude: Double, _ maxLongitude: Double, _ maxLatitude: Double, _ unit: Unit) {
         self.unit = unit
         super.init(minX: NSDecimalNumber.init(value: minLongitude), andMinY: NSDecimalNumber.init(value: minLatitude), andMinZ: nil, andMinM: nil, andMaxX: NSDecimalNumber.init(value: maxLongitude), andMaxY: NSDecimalNumber.init(value: maxLatitude), andMaxZ: nil, andMaxM: nil)
     }
@@ -95,10 +95,10 @@ public class Bounds: SFGeometryEnvelope {
      * @param northeast
      *            northeast corner
      */
-    public convenience init(southwest: GridPoint, northeast: GridPoint) {
-        self.init(minLongitude: southwest.longitude, minLatitude: southwest.latitide, maxLongitude: northeast.longitude, maxLatitude: northeast.latitide, unit: southwest.unit)
+    public convenience init(_ southwest: GridPoint, _ northeast: GridPoint) {
+        self.init(southwest.longitude, southwest.latitide, northeast.longitude, northeast.latitide, southwest.unit)
         
-        if (!isUnit(unit: northeast.unit)) {
+        if (!isUnit(northeast.unit)) {
             preconditionFailure("Points are in different units. southwest: \(String(describing: unit)), northeast: \(String(describing: northeast.unit))")
         }
     }
@@ -109,8 +109,8 @@ public class Bounds: SFGeometryEnvelope {
      * @param point
      *            point to copy
      */
-    public convenience init(bounds: Bounds) {
-        self.init(envelope: bounds, unit: bounds.unit)
+    public convenience init(_ bounds: Bounds) {
+        self.init(bounds, bounds.unit)
     }
     
     /**
@@ -121,7 +121,7 @@ public class Bounds: SFGeometryEnvelope {
      * @param unit
      *            unit
      */
-    public init(envelope: SFGeometryEnvelope, unit: Unit) {
+    public init(_ envelope: SFGeometryEnvelope, _ unit: Unit) {
         self.unit = unit
         super.init(minX: envelope.minX, andMinY: envelope.minY, andMinZ: envelope.minZ, andMinM: envelope.minM, andMaxX: envelope.maxX, andMaxY: envelope.maxY, andMaxZ: envelope.maxZ, andMaxM: envelope.maxM)
     }
@@ -237,7 +237,7 @@ public class Bounds: SFGeometryEnvelope {
      *            unit
      * @return true if in the unit
      */
-    public func isUnit(unit: Unit) -> Bool {
+    public func isUnit(_ unit: Unit) -> Bool {
         return self.unit == unit
     }
     
@@ -247,7 +247,7 @@ public class Bounds: SFGeometryEnvelope {
      * @return true if degrees
      */
     public func isDegrees() -> Bool {
-        return isUnit(unit: Unit.DEGREE)
+        return isUnit(Unit.DEGREE)
     }
     
     /**
@@ -256,7 +256,7 @@ public class Bounds: SFGeometryEnvelope {
      * @return true if meters
      */
     public func isMeters() -> Bool {
-        return isUnit(unit: Unit.METER)
+        return isUnit(Unit.METER)
     }
     
     /**
@@ -266,14 +266,14 @@ public class Bounds: SFGeometryEnvelope {
      *            unit
      * @return bounds in units, same bounds if equal units
      */
-    public func toUnit(unit: Unit) -> Bounds {
+    public func toUnit(_ unit: Unit) -> Bounds {
         var bounds: Bounds
-        if (isUnit(unit: unit)) {
+        if (isUnit(unit)) {
             bounds = self
         } else {
             let sw: GridPoint = southwest.toUnit(unit: unit)
             let ne: GridPoint = northeast.toUnit(unit: unit)
-            bounds = Bounds(southwest: sw, northeast: ne)
+            bounds = Bounds(sw, ne)
         }
         return bounds
     }
@@ -284,7 +284,7 @@ public class Bounds: SFGeometryEnvelope {
      * @return bounds in degrees, same bounds if already in degrees
      */
     public func toDegrees() -> Bounds {
-        return toUnit(unit: Unit.DEGREE)
+        return toUnit(Unit.DEGREE)
     }
     
     /**
@@ -293,7 +293,7 @@ public class Bounds: SFGeometryEnvelope {
      * @return bounds in meters, same bounds if already in meters
      */
     public func toMeters() -> Bounds {
-        return toUnit(unit: Unit.METER)
+        return toUnit(Unit.METER)
     }
     
     /**
@@ -400,13 +400,13 @@ public class Bounds: SFGeometryEnvelope {
      *            bounds
      * @return overlap bounds
      */
-    public func overlap(bounds: Bounds) -> Bounds? {
+    public func overlap(_ bounds: Bounds) -> Bounds? {
         
         var overlap: Bounds?
 
-        let overlapEnvelope: SFGeometryEnvelope? = super.overlap(with: bounds.toUnit(unit: unit), withAllowEmpty: true)
+        let overlapEnvelope: SFGeometryEnvelope? = super.overlap(with: bounds.toUnit(unit), withAllowEmpty: true)
         if (overlapEnvelope != nil) {
-            overlap = Bounds(envelope: overlapEnvelope!, unit: unit)
+            overlap = Bounds(overlapEnvelope!, unit)
         }
 
         return overlap
@@ -419,13 +419,13 @@ public class Bounds: SFGeometryEnvelope {
      *            bounds
      * @return union bounds
      */
-    public func union(bounds: Bounds) -> Bounds? {
+    public func union(_ bounds: Bounds) -> Bounds? {
         
         var union: Bounds?
 
-        let unionEnvelope: SFGeometryEnvelope? = super.union(with: bounds.toUnit(unit: unit))
+        let unionEnvelope: SFGeometryEnvelope? = super.union(with: bounds.toUnit(unit))
         if (unionEnvelope != nil) {
-            union = Bounds(envelope: unionEnvelope!, unit: unit)
+            union = Bounds(unionEnvelope!, unit)
         }
 
         return union
@@ -475,16 +475,16 @@ public class Bounds: SFGeometryEnvelope {
      *            precision in degrees
      * @return precision bounds
      */
-    public func toPrecision(precision: Double) -> Bounds {
+    public func toPrecision(_ precision: Double) -> Bounds {
         
         let boundsDegrees = toDegrees()
 
-        let minLon = GridUtils.precisionBefore(value: boundsDegrees.minLongitude, precision: precision)
-        let minLat = GridUtils.precisionBefore(value: boundsDegrees.minLatitude, precision: precision)
-        let maxLon = GridUtils.precisionAfter(value: boundsDegrees.maxLongitude, precision: precision)
-        let maxLat = GridUtils.precisionAfter(value: boundsDegrees.maxLatitude, precision: precision)
+        let minLon = GridUtils.precisionBefore(boundsDegrees.minLongitude, precision)
+        let minLat = GridUtils.precisionBefore(boundsDegrees.minLatitude, precision)
+        let maxLon = GridUtils.precisionAfter(boundsDegrees.maxLongitude, precision)
+        let maxLat = GridUtils.precisionAfter(boundsDegrees.maxLatitude, precision)
 
-        return Bounds.degrees(minLongitude: minLon, minLatitude: minLat, maxLongitude: maxLon, maxLatitude: maxLat)
+        return Bounds.degrees(minLon, minLat, maxLon, maxLat)
     }
     
     /**
@@ -494,8 +494,8 @@ public class Bounds: SFGeometryEnvelope {
      *            tile
      * @return pixel range
      */
-    public func pixelRange(tile: GridTile) -> PixelRange {
-        return pixelRange(width: tile.width, height: tile.height, bounds: tile.bounds)
+    public func pixelRange(_ tile: GridTile) -> PixelRange {
+        return pixelRange(tile.width, tile.height, tile.bounds)
     }
     
     /**
@@ -509,11 +509,11 @@ public class Bounds: SFGeometryEnvelope {
      *            bounds
      * @return pixel range
      */
-    public func pixelRange(width: Int, height: Int, bounds: Bounds) -> PixelRange {
+    public func pixelRange(_ width: Int, _ height: Int, _ bounds: Bounds) -> PixelRange {
         let boundsMeters = bounds.toMeters()
-        let topLeft = GridUtils.pixel(width: width, height: height, bounds: boundsMeters, point: northwest)
-        let bottomRight = GridUtils.pixel(width: width, height: height, bounds: boundsMeters, point: southeast)
-        return PixelRange(topLeft: topLeft, bottomRight: bottomRight)
+        let topLeft = GridUtils.pixel(width, height, boundsMeters, northwest)
+        let bottomRight = GridUtils.pixel(width, height, boundsMeters, southeast)
+        return PixelRange(topLeft, bottomRight)
     }
     
     /**
@@ -538,7 +538,7 @@ public class Bounds: SFGeometryEnvelope {
     }
     
     public override func mutableCopy(with zone: NSZone? = nil) -> Any {
-        return Bounds(bounds: self)
+        return Bounds(self)
     }
     
     public override func encode(with coder: NSCoder) {
@@ -551,7 +551,7 @@ public class Bounds: SFGeometryEnvelope {
         super.init(coder: coder)
     }
     
-    public func isEqual(bounds: Bounds?) -> Bool {
+    public func isEqual(_ bounds: Bounds?) -> Bool {
         if(self == bounds) {
             return true
         }
@@ -573,7 +573,7 @@ public class Bounds: SFGeometryEnvelope {
             return false
         }
         
-        return isEqual(bounds: object as? Bounds)
+        return isEqual(object as? Bounds)
     }
 
     public override var hash: Int {
