@@ -41,7 +41,7 @@ public enum Hemisphere: Int {
      * @return hemisphere
      */
     public static func from(_ point: GridPoint) -> Hemisphere {
-        return from(point.latitide)
+        return from(point.latitude)
     }
     
 }

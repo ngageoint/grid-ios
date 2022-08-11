@@ -96,7 +96,7 @@ public class Bounds: SFGeometryEnvelope {
      *            northeast corner
      */
     public convenience init(_ southwest: GridPoint, _ northeast: GridPoint) {
-        self.init(southwest.longitude, southwest.latitide, northeast.longitude, northeast.latitide, southwest.unit)
+        self.init(southwest.longitude, southwest.latitude, northeast.longitude, northeast.latitude, southwest.unit)
         
         if (!isUnit(northeast.unit)) {
             preconditionFailure("Points are in different units. southwest: \(String(describing: unit)), northeast: \(String(describing: northeast.unit))")
@@ -313,7 +313,7 @@ public class Bounds: SFGeometryEnvelope {
     public func centroidLatitude() -> Double {
         var centerLatitude: Double
         if (unit == Unit.DEGREE) {
-            centerLatitude = centroid().latitide
+            centerLatitude = centroid().latitude
         } else {
             centerLatitude = midY()
         }

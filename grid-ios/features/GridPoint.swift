@@ -169,12 +169,12 @@ public class GridPoint: SFPoint {
     /**
      * The latitude
      */
-    public var latitide: Double {
+    public var latitude: Double {
         get {
             return y.doubleValue
         }
-        set(latitide) {
-            setYValue(latitide)
+        set(latitude) {
+            setYValue(latitude)
         }
     }
     
@@ -219,7 +219,7 @@ public class GridPoint: SFPoint {
         if (isUnit(unit)) {
             point = self
         } else {
-            point = GridUtils.toUnit(self.unit, longitude, latitide, unit)
+            point = GridUtils.toUnit(self.unit, longitude, latitude, unit)
         }
         return point
     }

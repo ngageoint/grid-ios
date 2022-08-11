@@ -32,7 +32,7 @@ public class GridUtils {
         let boundsMeters = bounds.toMeters()
         
         let x = xPixel(width, boundsMeters, pointMeters.longitude)
-        let y = yPixel(height, boundsMeters, pointMeters.latitide)
+        let y = yPixel(height, boundsMeters, pointMeters.latitude)
         return Pixel(x, y)
     }
     
