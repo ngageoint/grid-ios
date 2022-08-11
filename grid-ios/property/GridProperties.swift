@@ -54,8 +54,8 @@ open class GridProperties {
      *
      *  @return string value
      */
-    public func value(_ property: String) -> String? {
-        return value(property, true)
+    public func value(_ property: String) -> String {
+        return value(property, true)!
     }
     
     /**
@@ -84,8 +84,8 @@ open class GridProperties {
      *
      *  @return string value
      */
-    public func value(_ base: String, _ property: String) -> String? {
-        return value(base, property, true)
+    public func value(_ base: String, _ property: String) -> String {
+        return value(base, property, true)!
     }
     
     /**
@@ -108,8 +108,8 @@ open class GridProperties {
      *
      *  @return int value
      */
-    public func intValue(_ property: String) -> Int? {
-        return intValue(property, true)
+    public func intValue(_ property: String) -> Int {
+        return intValue(property, true)!
     }
     
     /**
@@ -137,8 +137,8 @@ open class GridProperties {
      *
      *  @return int value
      */
-    public func intValue(_ base: String, _ property: String) -> Int? {
-        return intValue(base, property, true)
+    public func intValue(_ base: String, _ property: String) -> Int {
+        return intValue(base, property, true)!
     }
     
     /**
@@ -161,8 +161,8 @@ open class GridProperties {
      *
      *  @return float value
      */
-    public func floatValue(_ property: String) -> Float? {
-        return floatValue(property, true)
+    public func floatValue(_ property: String) -> Float {
+        return floatValue(property, true)!
     }
     
     /**
@@ -190,8 +190,8 @@ open class GridProperties {
      *
      *  @return float value
      */
-    public func floatValue(_ base: String, _ property: String) -> Float? {
-        return floatValue(base, property, true)
+    public func floatValue(_ base: String, _ property: String) -> Float {
+        return floatValue(base, property, true)!
     }
     
     /**
@@ -214,8 +214,8 @@ open class GridProperties {
      *
      *  @return double value
      */
-    public func doubleValue(_ property: String) -> Double? {
-        return doubleValue(property, true)
+    public func doubleValue(_ property: String) -> Double {
+        return doubleValue(property, true)!
     }
     
     /**
@@ -243,8 +243,8 @@ open class GridProperties {
      *
      *  @return double value
      */
-    public func doubleValue(_ base: String, _ property: String) -> Double? {
-        return doubleValue(base, property, true)
+    public func doubleValue(_ base: String, _ property: String) -> Double {
+        return doubleValue(base, property, true)!
     }
     
     /**
@@ -267,8 +267,8 @@ open class GridProperties {
      *
      *  @return bool value
      */
-    public func boolValue(_ property: String) -> Bool? {
-        return boolValue(property, true)
+    public func boolValue(_ property: String) -> Bool {
+        return boolValue(property, true)!
     }
     
     /**
@@ -296,8 +296,8 @@ open class GridProperties {
      *
      *  @return bool value
      */
-    public func boolValue(_ base: String, _ property: String) -> Bool? {
-        return boolValue(base, property, true)
+    public func boolValue(_ base: String, _ property: String) -> Bool {
+        return boolValue(base, property, true)!
     }
     
     /**
