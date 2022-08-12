@@ -14,11 +14,6 @@ import sf_ios
 public class Bounds: SFGeometryEnvelope {
     
     /**
-     * Unit
-     */
-    public var unit: Unit
-    
-    /**
      * Create bounds in degrees
      *
      * @param minLongitude
@@ -53,78 +48,9 @@ public class Bounds: SFGeometryEnvelope {
     }
     
     /**
-     * Initialize
-     *
-     * @param minLongitude
-     *            min longitude
-     * @param minLatitude
-     *            min latitude
-     * @param maxLongitude
-     *            max longitude
-     * @param maxLatitude
-     *            max latitude
+     * Unit
      */
-    public convenience init(_ minLongitude: Double, _ minLatitude: Double, _ maxLongitude: Double, _ maxLatitude: Double) {
-        self.init(minLongitude, minLatitude, maxLongitude, maxLatitude, Unit.DEGREE)
-    }
-    
-    /**
-     * Initialize
-     *
-     * @param minLongitude
-     *            min longitude
-     * @param minLatitude
-     *            min latitude
-     * @param maxLongitude
-     *            max longitude
-     * @param maxLatitude
-     *            max latitude
-     * @param unit
-     *            unit
-     */
-    public init(_ minLongitude: Double, _ minLatitude: Double, _ maxLongitude: Double, _ maxLatitude: Double, _ unit: Unit) {
-        self.unit = unit
-        super.init(minX: NSDecimalNumber.init(value: minLongitude), andMinY: NSDecimalNumber.init(value: minLatitude), andMinZ: nil, andMinM: nil, andMaxX: NSDecimalNumber.init(value: maxLongitude), andMaxY: NSDecimalNumber.init(value: maxLatitude), andMaxZ: nil, andMaxM: nil)
-    }
-    
-    /**
-     * Initialize
-     *
-     * @param southwest
-     *            southwest corner
-     * @param northeast
-     *            northeast corner
-     */
-    public convenience init(_ southwest: GridPoint, _ northeast: GridPoint) {
-        self.init(southwest.longitude, southwest.latitude, northeast.longitude, northeast.latitude, southwest.unit)
-        
-        if (!isUnit(northeast.unit)) {
-            preconditionFailure("Points are in different units. southwest: \(String(describing: unit)), northeast: \(String(describing: northeast.unit))")
-        }
-    }
-    
-    /**
-     * Initialize
-     *
-     * @param point
-     *            point to copy
-     */
-    public convenience init(_ bounds: Bounds) {
-        self.init(bounds, bounds.unit)
-    }
-    
-    /**
-     * Initialize
-     *
-     * @param envelope
-     *            geometry envelope
-     * @param unit
-     *            unit
-     */
-    public init(_ envelope: SFGeometryEnvelope, _ unit: Unit) {
-        self.unit = unit
-        super.init(minX: envelope.minX, andMinY: envelope.minY, andMinZ: envelope.minZ, andMinM: envelope.minM, andMaxX: envelope.maxX, andMaxY: envelope.maxY, andMaxZ: envelope.maxZ, andMaxM: envelope.maxM)
-    }
+    public var unit: Unit
     
     /**
      * The min longitude
@@ -231,6 +157,142 @@ public class Bounds: SFGeometryEnvelope {
     }
     
     /**
+     * The width
+     */
+    public var width: Double {
+        get {
+            return xRange()
+        }
+    }
+    
+    /**
+     * The height
+     */
+    public var height: Double {
+        get {
+            return yRange()
+        }
+    }
+    
+    /**
+     * The southwest coordinate
+     *
+     * @return southwest coordinate
+     */
+    public var southwest: GridPoint {
+        get {
+            return GridPoint(minLongitude, minLatitude, unit)
+        }
+    }
+    
+    /**
+     * The northwest coordinate
+     *
+     * @return northwest coordinate
+     */
+    public var northwest: GridPoint {
+        get {
+            return GridPoint(minLongitude, maxLatitude, unit)
+        }
+    }
+    
+    /**
+     * The southeast coordinate
+     *
+     * @return southeast coordinate
+     */
+    public var southeast: GridPoint {
+        get {
+            return GridPoint(maxLongitude, minLatitude, unit)
+        }
+    }
+    
+    /**
+     * The northeast coordinate
+     *
+     * @return northeast coordinate
+     */
+    public var northeast: GridPoint {
+        get {
+            return GridPoint(maxLongitude, maxLatitude, unit)
+        }
+    }
+    
+    /**
+     * Initialize
+     *
+     * @param minLongitude
+     *            min longitude
+     * @param minLatitude
+     *            min latitude
+     * @param maxLongitude
+     *            max longitude
+     * @param maxLatitude
+     *            max latitude
+     */
+    public convenience init(_ minLongitude: Double, _ minLatitude: Double, _ maxLongitude: Double, _ maxLatitude: Double) {
+        self.init(minLongitude, minLatitude, maxLongitude, maxLatitude, Unit.DEGREE)
+    }
+    
+    /**
+     * Initialize
+     *
+     * @param minLongitude
+     *            min longitude
+     * @param minLatitude
+     *            min latitude
+     * @param maxLongitude
+     *            max longitude
+     * @param maxLatitude
+     *            max latitude
+     * @param unit
+     *            unit
+     */
+    public init(_ minLongitude: Double, _ minLatitude: Double, _ maxLongitude: Double, _ maxLatitude: Double, _ unit: Unit) {
+        self.unit = unit
+        super.init(minX: NSDecimalNumber.init(value: minLongitude), andMinY: NSDecimalNumber.init(value: minLatitude), andMinZ: nil, andMinM: nil, andMaxX: NSDecimalNumber.init(value: maxLongitude), andMaxY: NSDecimalNumber.init(value: maxLatitude), andMaxZ: nil, andMaxM: nil)
+    }
+    
+    /**
+     * Initialize
+     *
+     * @param southwest
+     *            southwest corner
+     * @param northeast
+     *            northeast corner
+     */
+    public convenience init(_ southwest: GridPoint, _ northeast: GridPoint) {
+        self.init(southwest.longitude, southwest.latitude, northeast.longitude, northeast.latitude, southwest.unit)
+        
+        if (!isUnit(northeast.unit)) {
+            preconditionFailure("Points are in different units. southwest: \(String(describing: unit)), northeast: \(String(describing: northeast.unit))")
+        }
+    }
+    
+    /**
+     * Initialize
+     *
+     * @param point
+     *            point to copy
+     */
+    public convenience init(_ bounds: Bounds) {
+        self.init(bounds, bounds.unit)
+    }
+    
+    /**
+     * Initialize
+     *
+     * @param envelope
+     *            geometry envelope
+     * @param unit
+     *            unit
+     */
+    public init(_ envelope: SFGeometryEnvelope, _ unit: Unit) {
+        self.unit = unit
+        super.init(minX: envelope.minX, andMinY: envelope.minY, andMinZ: envelope.minZ, andMinM: envelope.minM, andMaxX: envelope.maxX, andMaxY: envelope.maxY, andMaxZ: envelope.maxZ, andMaxM: envelope.maxM)
+    }
+    
+    /**
      * Is in the provided unit type
      *
      * @param unit
@@ -328,68 +390,6 @@ public class Bounds: SFGeometryEnvelope {
             point = GridPoint(super.centroid(), unit)
         }
         return point
-    }
-    
-    /**
-     * The width
-     */
-    public var width: Double {
-        get {
-            return xRange()
-        }
-    }
-    
-    /**
-     * The height
-     */
-    public var height: Double {
-        get {
-            return yRange()
-        }
-    }
-    
-    /**
-     * The southwest coordinate
-     *
-     * @return southwest coordinate
-     */
-    public var southwest: GridPoint {
-        get {
-            return GridPoint(minLongitude, minLatitude, unit)
-        }
-    }
-    
-    /**
-     * The northwest coordinate
-     *
-     * @return northwest coordinate
-     */
-    public var northwest: GridPoint {
-        get {
-            return GridPoint(minLongitude, maxLatitude, unit)
-        }
-    }
-    
-    /**
-     * The southeast coordinate
-     *
-     * @return southeast coordinate
-     */
-    public var southeast: GridPoint {
-        get {
-            return GridPoint(maxLongitude, minLatitude, unit)
-        }
-    }
-    
-    /**
-     * The northeast coordinate
-     *
-     * @return northeast coordinate
-     */
-    public var northeast: GridPoint {
-        get {
-            return GridPoint(maxLongitude, maxLatitude, unit)
-        }
     }
     
     /**

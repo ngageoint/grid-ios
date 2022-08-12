@@ -70,7 +70,31 @@ open class BaseGrid: Hashable, Comparable {
     /**
      * Grid labeler
      */
-    public var labeler: Labeler?
+    open var labeler: Labeler?
+    
+    /**
+     * The grid line color
+     */
+    public var color: CLRColor? {
+        get {
+            return style.color
+        }
+        set {
+            style.color = newValue
+        }
+    }
+
+    /**
+     * The grid line width
+     */
+    public var width: Double {
+        get {
+            return style.width
+        }
+        set {
+            style.width = newValue
+        }
+    }
     
     /**
      * Initialize
@@ -130,30 +154,6 @@ open class BaseGrid: Hashable, Comparable {
     }
     
     /**
-     * The grid line color
-     */
-    public var color: CLRColor? {
-        get {
-            return style.color
-        }
-        set {
-            style.color = newValue
-        }
-    }
-
-    /**
-     * The grid line width
-     */
-    public var width: Double {
-        get {
-            return style.width
-        }
-        set {
-            style.width = newValue
-        }
-    }
-    
-    /**
      * Has a grid labeler
      *
      * @return true if has a grid labeler
@@ -186,7 +186,7 @@ open class BaseGrid: Hashable, Comparable {
         return true
     }
     
-    public func hash(into hasher: inout Hasher) {
+    open func hash(into hasher: inout Hasher) {
 
     }
     

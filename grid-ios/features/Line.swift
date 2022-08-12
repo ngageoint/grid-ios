@@ -14,30 +14,6 @@ import sf_ios
 open class Line: SFLine {
     
     /**
-     * Initialize
-     *
-     * @param point1
-     *            first point
-     * @param point2
-     *            second point
-     */
-    public init(_ point1: GridPoint, _ point2: GridPoint) {
-        super.init(hasZ: false, andHasM: false)
-        setPoints(point1, point2)
-    }
-    
-    /**
-     * Initialize
-     *
-     * @param line
-     *            line to copy
-     */
-    public init(_ line: Line) {
-        super.init(hasZ: line.hasZ, andHasM: line.hasM)
-        setPoints(line.point1, line.point2)
-    }
-    
-    /**
      * The first point
      */
     public var point1: GridPoint {
@@ -62,6 +38,39 @@ open class Line: SFLine {
     }
     
     /**
+     * The unit
+     */
+    public var unit: Unit {
+        get {
+            return point1.unit
+        }
+    }
+    
+    /**
+     * Initialize
+     *
+     * @param point1
+     *            first point
+     * @param point2
+     *            second point
+     */
+    public init(_ point1: GridPoint, _ point2: GridPoint) {
+        super.init(hasZ: false, andHasM: false)
+        setPoints(point1, point2)
+    }
+    
+    /**
+     * Initialize
+     *
+     * @param line
+     *            line to copy
+     */
+    public init(_ line: Line) {
+        super.init(hasZ: line.hasZ, andHasM: line.hasM)
+        setPoints(line.point1, line.point2)
+    }
+    
+    /**
      * Set the points
      *
      * @param point1
@@ -75,15 +84,6 @@ open class Line: SFLine {
         linePoints.append(point2)
         points = linePoints as? NSMutableArray
         validateUnits()
-    }
-    
-    /**
-     * The unit
-     */
-    public var unit: Unit {
-        get {
-            return point1.unit
-        }
     }
     
     /**

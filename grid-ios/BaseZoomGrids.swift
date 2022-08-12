@@ -23,16 +23,6 @@ open class BaseZoomGrids {
     private var _grids: Set<BaseGrid> = Set()
     
     /**
-     * Initialize
-     *
-     * @param zoom
-     *            zoom level
-     */
-    public init(_ zoom: Int) {
-        self.zoom = zoom
-    }
-    
-    /**
      * Get the grids within the zoom level
      *
      * @return grids
@@ -41,6 +31,16 @@ open class BaseZoomGrids {
         get {
             return _grids.sorted()
         }
+    }
+    
+    /**
+     * Initialize
+     *
+     * @param zoom
+     *            zoom level
+     */
+    public init(_ zoom: Int) {
+        self.zoom = zoom
     }
     
     /**

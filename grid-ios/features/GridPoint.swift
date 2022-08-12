@@ -14,11 +14,6 @@ import sf_ios
 public class GridPoint: SFPoint {
     
     /**
-     * Unit
-     */
-    public var unit: Unit
-    
-    /**
      * Create a point in degrees
      *
      * @param longitude
@@ -103,6 +98,35 @@ public class GridPoint: SFPoint {
     }
     
     /**
+     * Unit
+     */
+    public var unit: Unit
+    
+    /**
+     * The longitude
+     */
+    public var longitude: Double {
+        get {
+            return x.doubleValue
+        }
+        set(longitude) {
+            setXValue(longitude)
+        }
+    }
+    
+    /**
+     * The latitude
+     */
+    public var latitude: Double {
+        get {
+            return y.doubleValue
+        }
+        set(latitude) {
+            setYValue(latitude)
+        }
+    }
+    
+    /**
      * Initialize, in DEGREE units
      *
      * @param longitude
@@ -152,30 +176,6 @@ public class GridPoint: SFPoint {
         super.init(hasZ: point.hasZ, andHasM: point.hasM, andX: point.x, andY: point.y)
         z = point.z
         m = point.m
-    }
-    
-    /**
-     * The longitude
-     */
-    public var longitude: Double {
-        get {
-            return x.doubleValue
-        }
-        set(longitude) {
-            setXValue(longitude)
-        }
-    }
-    
-    /**
-     * The latitude
-     */
-    public var latitude: Double {
-        get {
-            return y.doubleValue
-        }
-        set(latitude) {
-            setYValue(latitude)
-        }
     }
     
     /**

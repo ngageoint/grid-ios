@@ -23,19 +23,6 @@ public class PixelRange {
     public var bottomRight: Pixel
     
     /**
-     * Initialize
-     *
-     * @param topLeft
-     *            top left pixel
-     * @param bottomRight
-     *            bottom right pixel
-     */
-    public init(_ topLeft: Pixel, _ bottomRight: Pixel) {
-        self.topLeft = topLeft
-        self.bottomRight = bottomRight
-    }
-    
-    /**
      * Get the minimum x pixel
      *
      * @return minimum x pixel
@@ -143,6 +130,19 @@ public class PixelRange {
         get {
             return maxY - minY
         }
+    }
+    
+    /**
+     * Initialize
+     *
+     * @param topLeft
+     *            top left pixel
+     * @param bottomRight
+     *            bottom right pixel
+     */
+    public init(_ topLeft: Pixel, _ bottomRight: Pixel) {
+        self.topLeft = topLeft
+        self.bottomRight = bottomRight
     }
     
 }
