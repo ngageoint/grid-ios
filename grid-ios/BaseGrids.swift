@@ -38,7 +38,7 @@ open class BaseGrids {
      *
      * @return width
      */
-    public func defaultWidth() -> Double {
+    open func defaultWidth() -> Double {
         preconditionFailure("This method must be overridden")
     }
 
@@ -47,7 +47,7 @@ open class BaseGrids {
      *
      * @return grids
      */
-    public func grids() -> [BaseGrid] {
+    open func grids() -> [BaseGrid] {
         preconditionFailure("This method must be overridden")
     }
 
@@ -58,7 +58,7 @@ open class BaseGrids {
      *            zoom level
      * @return zoom grids
      */
-    public func newZoomGrids(_ zoom: Int) -> BaseZoomGrids {
+    open func newZoomGrids(_ zoom: Int) -> BaseZoomGrids {
         preconditionFailure("This method must be overridden")
     }
     
@@ -245,7 +245,7 @@ open class BaseGrids {
      *            zoom level
      * @return grids
      */
-    public func grids(_ zoom: Int) -> BaseZoomGrids {
+    open func grids(_ zoom: Int) -> BaseZoomGrids {
         var grids = zoomGrids[zoom]
         if (grids == nil) {
             grids = createZoomGrids(zoom)

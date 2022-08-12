@@ -22,4 +22,8 @@ public enum Unit: Int {
      */
     case METER
     
+    var name: String {
+        get { return String(describing: self) }
+    }
+    
 }

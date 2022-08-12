@@ -44,4 +44,8 @@ public enum Hemisphere: Int {
         return from(point.latitude)
     }
     
+    var name: String {
+        get { return String(describing: self) }
+    }
+    
 }
