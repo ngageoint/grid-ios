@@ -105,7 +105,7 @@ open class BaseGrids {
         grid.linesMaxZoom = linesMaxZoom
         
         let colorProperty = properties.value(gridKeyProperty, PropertyConstants.COLOR, false)
-        let color = colorProperty != nil ? CLRColor(hex: colorProperty) : CLRColor.black()
+        let color = colorProperty != nil ? CLRColor(hex: colorProperty).uiColor() : UIColor.black
         grid.color = color
         
         var width = properties.doubleValue(gridKeyProperty, PropertyConstants.WIDTH, false)
@@ -149,7 +149,7 @@ open class BaseGrids {
         
         let color = properties.value(labelerProperty, PropertyConstants.COLOR, false)
         if (color != nil) {
-            labeler.color = CLRColor(hex: color)
+            labeler.color = CLRColor(hex: color).uiColor()
         }
         
         let textSize = properties.doubleValue(labelerProperty, PropertyConstants.TEXT_SIZE, false)
@@ -173,15 +173,15 @@ open class BaseGrids {
      *            second grid name key
      * @return color
      */
-    public func loadGridStyleColor(_ gridKey: String, _ gridKey2: String) -> CLRColor? {
+    public func loadGridStyleColor(_ gridKey: String, _ gridKey2: String) -> UIColor? {
         
         let gridKeyProperty = properties.combine(PropertyConstants.GRIDS, gridKey)
         let gridKey2Property = properties.combine(gridKeyProperty, gridKey2)
         
         let colorProperty = properties.value(gridKey2Property, PropertyConstants.COLOR, false)
-        var color: CLRColor?
+        var color: UIColor?
         if (colorProperty != nil) {
-            color = CLRColor(hex: colorProperty)
+            color = CLRColor(hex: colorProperty).uiColor()
         }
         return color
     }
@@ -214,7 +214,7 @@ open class BaseGrids {
      *            grid
      * @return grid style
      */
-    public func gridStyle(_ color: CLRColor?, _ width: Double?, _ grid: BaseGrid) -> GridStyle {
+    public func gridStyle(_ color: UIColor?, _ width: Double?, _ grid: BaseGrid) -> GridStyle {
         
         var colorValue = color
         if (colorValue == nil) {

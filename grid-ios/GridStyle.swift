@@ -16,7 +16,7 @@ public class GridStyle {
     /**
      * Grid line color
      */
-    public var color: CLRColor?
+    public var color: UIColor?
     
     /**
      * Grid line width
@@ -38,7 +38,7 @@ public class GridStyle {
      * @param width
      *            width
      */
-    public init(_ color: CLRColor?, _ width: Double) {
+    public init(_ color: UIColor?, _ width: Double) {
         self.color = color
         self.width = width
     }

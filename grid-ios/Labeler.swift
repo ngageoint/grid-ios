@@ -31,7 +31,7 @@ open class Labeler {
     /**
      * Label color
      */
-    public var color: CLRColor?
+    public var color: UIColor?
     
     /**
      * Label text size
@@ -62,7 +62,7 @@ open class Labeler {
      *            grid edge buffer (greater than or equal to 0.0 and less than
      *            0.5)
      */
-    public convenience init(_ minZoom: Int, _ color: CLRColor?, _ textSize: Double, _ buffer: Double) {
+    public convenience init(_ minZoom: Int, _ color: UIColor?, _ textSize: Double, _ buffer: Double) {
         self.init(minZoom, nil, color, textSize, buffer)
     }
     
@@ -81,7 +81,7 @@ open class Labeler {
      *            grid edge buffer (greater than or equal to 0.0 and less than
      *            0.5)
      */
-    public convenience init(_ minZoom: Int, _ maxZoom: Int?, _ color: CLRColor?, _ textSize: Double, _ buffer: Double) {
+    public convenience init(_ minZoom: Int, _ maxZoom: Int?, _ color: UIColor?, _ textSize: Double, _ buffer: Double) {
         self.init(true, minZoom, maxZoom, color, textSize, buffer)
     }
     
@@ -102,7 +102,7 @@ open class Labeler {
      *            grid edge buffer (greater than or equal to 0.0 and less than
      *            0.5)
      */
-    public init(_ enabled: Bool, _ minZoom: Int, _ maxZoom: Int?, _ color: CLRColor?, _ textSize: Double, _ buffer: Double) {
+    public init(_ enabled: Bool, _ minZoom: Int, _ maxZoom: Int?, _ color: UIColor?, _ textSize: Double, _ buffer: Double) {
         self.enabled = enabled
         self.minZoom = minZoom
         self.maxZoom = maxZoom

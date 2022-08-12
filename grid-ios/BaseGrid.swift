@@ -75,7 +75,7 @@ open class BaseGrid: Hashable, Comparable {
     /**
      * The grid line color
      */
-    public var color: CLRColor? {
+    public var color: UIColor? {
         get {
             return style.color
         }
