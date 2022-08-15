@@ -20,12 +20,13 @@ open class GridProperties {
     /**
      *  Initialize
      *
+     *  @param resourceClass resource class
      *  @param bundle  bundle name
      *  @param name    properties name
      */
-    public init(_ bundle: String, _ name: String) {
+    public init(_ resourceClass: AnyClass, _ bundle: String, _ name: String) {
         let dict: [String: Any]?
-        let propertiesPath = GridProperties.propertyListURL(bundle, name)
+        let propertiesPath = GridProperties.propertyListURL(resourceClass, bundle, name)
         do {
             let propertiesData = try Data(contentsOf: propertiesPath)
             dict = try PropertyListSerialization.propertyList(from: propertiesData, options: [], format: nil) as? [String: Any]
@@ -313,18 +314,18 @@ open class GridProperties {
         return boolValue(combine(base, property), required)
     }
     
-    public static func propertyListURL(_ bundle: String, _ name: String) -> URL {
-        return resourceURL(bundle, name, PropertyConstants.PROPERTY_LIST_TYPE)
+    public static func propertyListURL(_ resourceClass: AnyClass, _ bundle: String, _ name: String) -> URL {
+        return resourceURL(resourceClass, bundle, name, PropertyConstants.PROPERTY_LIST_TYPE)
     }
 
-    public static func resourceURL(_ bundle: String, _ name: String, _ ext: String) -> URL {
+    public static func resourceURL(_ resourceClass: AnyClass, _ bundle: String, _ name: String, _ ext: String) -> URL {
         
         let resource = "\(bundle)/\(name)"
         var resourceURL = Bundle.main.url(forResource: resource, withExtension: ext)
         if (resourceURL == nil) {
-            resourceURL = Bundle(for: self).url(forResource: resource, withExtension: ext)
+            resourceURL = Bundle(for: resourceClass).url(forResource: resource, withExtension: ext)
             if (resourceURL == nil) {
-                resourceURL = Bundle(for: self).url(forResource: name, withExtension: ext)
+                resourceURL = Bundle(for: resourceClass).url(forResource: name, withExtension: ext)
                 if (resourceURL == nil) {
                     resourceURL = Bundle.main.url(forResource: name, withExtension: ext)
                 }
