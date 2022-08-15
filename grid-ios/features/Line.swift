@@ -55,7 +55,7 @@ open class Line: SFLine {
      *            second point
      */
     public init(_ point1: GridPoint, _ point2: GridPoint) {
-        super.init(hasZ: false, andHasM: false)
+        super.init(type:SF_LINESTRING, andHasZ: false, andHasM: false)
         setPoints(point1, point2)
     }
     
@@ -82,7 +82,7 @@ open class Line: SFLine {
         var linePoints: [GridPoint] = []
         linePoints.append(point1)
         linePoints.append(point2)
-        points = linePoints as? NSMutableArray
+        points = NSMutableArray(array: linePoints)
         validateUnits()
     }
     
