@@ -66,7 +66,7 @@ open class Line: SFLine {
      *            line to copy
      */
     public init(_ line: Line) {
-        super.init(hasZ: line.hasZ, andHasM: line.hasM)
+        super.init(type:SF_LINESTRING, andHasZ: line.hasZ, andHasM: line.hasM)
         setPoints(line.point1, line.point2)
     }
     
