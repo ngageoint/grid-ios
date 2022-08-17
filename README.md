@@ -17,11 +17,13 @@ Software source code previously released under an open source license and then m
 
 View the latest [Appledoc](http://ngageoint.github.io/grid-ios/docs/api/)
 
-```swift
+#### Military Grid Reference System ####
 
-TODO
+[MGRS](https://github.com/ngageoint/mgrs-ios) is a Swift library providing Military Grid Reference System functionality, a geocoordinate standard used by NATO militaries for locating points on Earth.
 
-```
+#### Global Area Reference System ####
+
+[GARS](https://github.com/ngageoint/gars-ios) is a Swift library providing Global Area Reference System functionality, a standardized geospatial reference system for areas.
 
 ### Build ###
 
