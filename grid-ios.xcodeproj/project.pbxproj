@@ -28,6 +28,8 @@
 		0428202E28A1242B00026382 /* BaseGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428202D28A1242B00026382 /* BaseGrid.swift */; };
 		0428203028A1454D00026382 /* BaseZoomGrids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428202F28A1454D00026382 /* BaseZoomGrids.swift */; };
 		0428203228A155C900026382 /* BaseGrids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428203128A155C900026382 /* BaseGrids.swift */; };
+		04F5211928AD646A004C6D8C /* TileDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5211828AD646A004C6D8C /* TileDraw.swift */; };
+		04F5211B28AD69D5004C6D8C /* TileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5211A28AD69D5004C6D8C /* TileUtils.swift */; };
 		7B8F91BDECC4D386AEEBDD6D /* Pods_grid_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6298E09A9ED0C174E8F1C242 /* Pods_grid_ios.framework */; };
 		EA202A114D6AB4C28FB13973 /* Pods_grid_ios_grid_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63109E2CA5CCF3CD56103440 /* Pods_grid_ios_grid_iosTests.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,8 @@
 		0428202D28A1242B00026382 /* BaseGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGrid.swift; sourceTree = "<group>"; };
 		0428202F28A1454D00026382 /* BaseZoomGrids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseZoomGrids.swift; sourceTree = "<group>"; };
 		0428203128A155C900026382 /* BaseGrids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGrids.swift; sourceTree = "<group>"; };
+		04F5211828AD646A004C6D8C /* TileDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileDraw.swift; sourceTree = "<group>"; };
+		04F5211A28AD69D5004C6D8C /* TileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileUtils.swift; sourceTree = "<group>"; };
 		3295100FC695C71079321C28 /* Pods-grid-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-ios.release.xcconfig"; path = "Target Support Files/Pods-grid-ios/Pods-grid-ios.release.xcconfig"; sourceTree = "<group>"; };
 		43F6D866DB2D2299E81BE1D4 /* Pods-grid-ios-grid-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-ios-grid-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-grid-ios-grid-iosTests/Pods-grid-ios-grid-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		449E8DB981E6CC3061EE3115 /* Pods-grid-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grid-iosTests.release.xcconfig"; path = "Target Support Files/Pods-grid-iosTests/Pods-grid-iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 				04282014289AC85A00026382 /* GridTile.swift */,
 				04282010289AC47400026382 /* Pixel.swift */,
 				04282012289AC5CF00026382 /* PixelRange.swift */,
+				04F5211828AD646A004C6D8C /* TileDraw.swift */,
+				04F5211A28AD69D5004C6D8C /* TileUtils.swift */,
 			);
 			path = tile;
 			sourceTree = "<group>";
@@ -386,9 +392,11 @@
 				04282017289ACA3B00026382 /* Bounds.swift in Sources */,
 				04282015289AC85A00026382 /* GridTile.swift in Sources */,
 				0428201D289C44AF00026382 /* GridConstants.swift in Sources */,
+				04F5211B28AD69D5004C6D8C /* TileUtils.swift in Sources */,
 				04282026289D970700026382 /* Hemisphere.swift in Sources */,
 				04282024289D4B2C00026382 /* GridProperties.swift in Sources */,
 				0428200A289A9B8200026382 /* GridPoint.swift in Sources */,
+				04F5211928AD646A004C6D8C /* TileDraw.swift in Sources */,
 				0428203028A1454D00026382 /* BaseZoomGrids.swift in Sources */,
 				0428202E28A1242B00026382 /* BaseGrid.swift in Sources */,
 				04282019289BF4CE00026382 /* Line.swift in Sources */,
