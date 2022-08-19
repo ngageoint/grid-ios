@@ -68,4 +68,9 @@ public struct GridConstants {
      */
     public static let EAST_CHAR = "E"
     
+    /**
+     * Mercator radius
+     */
+    public static let MERCATOR_RADIUS = 85445659.44705395
+    
 }

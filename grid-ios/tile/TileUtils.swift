@@ -6,6 +6,7 @@
 //
 
 import MapKit
+import sf_ios
 
 /**
  * Tile Utils
@@ -133,6 +134,64 @@ public class TileUtils {
      */
     public static func toGridPoint(_ point: MKMapPoint) -> GridPoint {
         return toGridPoint(toCoordinate(point))
+    }
+    
+    /**
+     *  Get the current zoom level of the map view
+     *
+     *  @param mapView map view
+     *
+     *  @return current zoom level
+     */
+    public static func currentZoom(_ mapView: MKMapView) -> Double {
+
+        let longitudeDelta = mapView.region.span.longitudeDelta
+        let width = mapView.bounds.size.width
+        let scale = longitudeDelta * GridConstants.MERCATOR_RADIUS * Double.pi / (SF_WGS84_HALF_WORLD_LON_WIDTH * width)
+        var zoom = Double(GridConstants.MAX_MAP_ZOOM_LEVEL) - log2(scale)
+        if (zoom < 0){
+            zoom = 0
+        }
+
+        return zoom
+    }
+
+    /**
+     *  Get the current rounded zoom level of the map view
+     *
+     *  @param mapView map view
+     *
+     *  @return current zoom level
+     */
+    public static func currentRoundedZoom(_ mapView: MKMapView) -> Int {
+        return Int(round(currentZoom(mapView)))
+    }
+    
+    /**
+     *  Get a coordinate region for the coordinate at the zoom level in the map view
+     *
+     *  @param coordinate location coordinate
+     *  @param zoom zoom level
+     *  @param mapView map view
+     *
+     *  @return coordinate region
+     */
+    public static func coordinateRegion(_ coordinate: CLLocationCoordinate2D, _ zoom: Double, _ mapView: MKMapView) -> MKCoordinateRegion {
+        
+        let scale = pow(2, Double(GridConstants.MAX_MAP_ZOOM_LEVEL) - zoom)
+        
+        let width = mapView.bounds.size.width
+        let longitudeDelta = scale * SF_WGS84_HALF_WORLD_LON_WIDTH * width / (GridConstants.MERCATOR_RADIUS * Double.pi)
+        
+        let height = mapView.bounds.size.height
+        let latitudeDelta = scale * SF_WGS84_HALF_WORLD_LAT_HEIGHT * height / (GridConstants.MERCATOR_RADIUS * Double.pi)
+        
+        
+        let span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
+        
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        
+        return region
     }
     
 }
