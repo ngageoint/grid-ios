@@ -72,7 +72,7 @@ public class TileDraw {
         let font = UIFont.systemFont(ofSize: CGFloat(textSize))
         
         var color = labeler.color
-        if (color == nil) {
+        if color == nil {
             color = UIColor.black
         }
         
@@ -108,7 +108,7 @@ public class TileDraw {
         let maxHeight = gridPercentage * Double(pixelRange.height)
 
         // If it fits, draw the label in the center of the grid zone
-        if (textSize.width <= maxWidth && textSize.height <= maxHeight) {
+        if textSize.width <= maxWidth && textSize.height <= maxHeight {
             let centerPixel = label.center.pixel(tile)
             let bounds = CGRect(x: CGFloat(centerPixel.x) - (textSize.width / 2.0), y: CGFloat(centerPixel.y) - (textSize.height / 2.0), width: textSize.width, height: textSize.height)
             

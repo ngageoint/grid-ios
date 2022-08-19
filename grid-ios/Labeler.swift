@@ -43,7 +43,7 @@ open class Labeler {
      */
     public var buffer: Double {
         willSet {
-            if (newValue < 0.0 || newValue >= 0.5) {
+            if newValue < 0.0 || newValue >= 0.5 {
                 preconditionFailure("Grid edge buffer must be >= 0 and < 0.5. buffer: \(newValue)")
             }
         }

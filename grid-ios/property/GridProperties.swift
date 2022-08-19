@@ -70,7 +70,7 @@ open class GridProperties {
     public func value(_ property: String, _ required: Bool) -> String? {
         let value: String? = properties[property] as? String
         
-        if (value == nil && required) {
+        if value == nil && required {
             preconditionFailure("Required property not found: \(property)")
         }
         
@@ -124,7 +124,7 @@ open class GridProperties {
     public func intValue(_ property: String, _ required: Bool) -> Int? {
         var val: Int?
         let stringValue: String? = value(property, required)
-        if (stringValue != nil) {
+        if stringValue != nil {
             val = Int(stringValue!)
         }
         return val
@@ -177,7 +177,7 @@ open class GridProperties {
     public func floatValue(_ property: String, _ required: Bool) -> Float? {
         var val: Float?
         let stringValue: String? = value(property, required)
-        if (stringValue != nil) {
+        if stringValue != nil {
             val = Float(stringValue!)
         }
         return val
@@ -230,7 +230,7 @@ open class GridProperties {
     public func doubleValue(_ property: String, _ required: Bool) -> Double? {
         var val: Double?
         let stringValue: String? = value(property, required)
-        if (stringValue != nil) {
+        if stringValue != nil {
             val = Double(stringValue!)
         }
         return val
@@ -283,7 +283,7 @@ open class GridProperties {
     public func boolValue(_ property: String, _ required: Bool) -> Bool? {
         var val: Bool?
         let stringValue: String? = value(property, required)
-        if (stringValue != nil) {
+        if stringValue != nil {
             val = Bool(stringValue!)
         }
         return val
@@ -322,16 +322,16 @@ open class GridProperties {
         
         let resource = "\(bundle)/\(name)"
         var resourceURL = Bundle.main.url(forResource: resource, withExtension: ext)
-        if (resourceURL == nil) {
+        if resourceURL == nil {
             resourceURL = Bundle(for: resourceClass).url(forResource: resource, withExtension: ext)
-            if (resourceURL == nil) {
+            if resourceURL == nil {
                 resourceURL = Bundle(for: resourceClass).url(forResource: name, withExtension: ext)
-                if (resourceURL == nil) {
+                if resourceURL == nil {
                     resourceURL = Bundle.main.url(forResource: name, withExtension: ext)
                 }
             }
         }
-        if (resourceURL == nil) {
+        if resourceURL == nil {
             fatalError("Failed to find resource '\(name)' with extension '\(ext)'")
         }
         

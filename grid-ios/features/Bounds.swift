@@ -264,7 +264,7 @@ public class Bounds: SFGeometryEnvelope {
     public convenience init(_ southwest: GridPoint, _ northeast: GridPoint) {
         self.init(southwest.longitude, southwest.latitude, northeast.longitude, northeast.latitude, southwest.unit)
         
-        if (!isUnit(northeast.unit)) {
+        if !isUnit(northeast.unit) {
             preconditionFailure("Points are in different units. southwest: \(String(describing: unit)), northeast: \(String(describing: northeast.unit))")
         }
     }
@@ -330,7 +330,7 @@ public class Bounds: SFGeometryEnvelope {
      */
     public func toUnit(_ unit: Unit) -> Bounds {
         var bounds: Bounds
-        if (isUnit(unit)) {
+        if isUnit(unit) {
             bounds = self
         } else {
             let sw: GridPoint = southwest.toUnit(unit)
@@ -374,7 +374,7 @@ public class Bounds: SFGeometryEnvelope {
      */
     public func centroidLatitude() -> Double {
         var centerLatitude: Double
-        if (unit == Unit.DEGREE) {
+        if unit == Unit.DEGREE {
             centerLatitude = centroid().latitude
         } else {
             centerLatitude = midY()
@@ -384,7 +384,7 @@ public class Bounds: SFGeometryEnvelope {
     
     public override func centroid() -> GridPoint {
         var point: GridPoint
-        if (unit == Unit.DEGREE) {
+        if unit == Unit.DEGREE {
             point = toMeters().centroid().toDegrees()
         } else {
             point = GridPoint(super.centroid(), unit)
@@ -405,7 +405,7 @@ public class Bounds: SFGeometryEnvelope {
         var overlap: Bounds?
 
         let overlapEnvelope: SFGeometryEnvelope? = super.overlap(with: bounds.toUnit(unit), withAllowEmpty: true)
-        if (overlapEnvelope != nil) {
+        if overlapEnvelope != nil {
             overlap = Bounds(overlapEnvelope!, unit)
         }
 
@@ -424,7 +424,7 @@ public class Bounds: SFGeometryEnvelope {
         var union: Bounds?
 
         let unionEnvelope: SFGeometryEnvelope? = super.union(with: bounds.toUnit(unit))
-        if (unionEnvelope != nil) {
+        if unionEnvelope != nil {
             union = Bounds(unionEnvelope!, unit)
         }
 
@@ -552,16 +552,16 @@ public class Bounds: SFGeometryEnvelope {
     }
     
     public func isEqual(_ bounds: Bounds?) -> Bool {
-        if(self == bounds) {
+        if self == bounds {
             return true
         }
-        if(bounds == nil) {
+        if bounds == nil {
             return false
         }
-        if(!super.isEqual(bounds)) {
+        if !super.isEqual(bounds) {
             return false
         }
-        if(unit != bounds?.unit){
+        if unit != bounds?.unit {
             return false
         }
         return true
@@ -569,7 +569,7 @@ public class Bounds: SFGeometryEnvelope {
     
     public override func isEqual(_ object: Any?) -> Bool {
         
-        if(!(object is Bounds)) {
+        if !(object is Bounds) {
             return false
         }
         

@@ -50,9 +50,9 @@ public class TileUtils {
      */
     public static func tileLength(_ scale: Float) -> Int {
         let length: Int
-        if(scale <= SCALE_FACTOR_DEFAULT){
+        if scale <= SCALE_FACTOR_DEFAULT {
             length = TILE_PIXELS_DEFAULT
-        }else{
+        } else {
             length = TILE_PIXELS_HIGH
         }
         return length
@@ -149,7 +149,7 @@ public class TileUtils {
         let width = mapView.bounds.size.width
         let scale = longitudeDelta * GridConstants.MERCATOR_RADIUS * Double.pi / (SF_WGS84_HALF_WORLD_LON_WIDTH * width)
         var zoom = Double(GridConstants.MAX_MAP_ZOOM_LEVEL) - log2(scale)
-        if (zoom < 0){
+        if zoom < 0 {
             zoom = 0
         }
 

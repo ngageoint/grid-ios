@@ -216,7 +216,7 @@ public class GridPoint: SFPoint {
      */
     public func toUnit(_ unit: Unit) -> GridPoint {
         var point: GridPoint
-        if (isUnit(unit)) {
+        if isUnit(unit) {
             point = self
         } else {
             point = GridUtils.toUnit(self.unit, longitude, latitude, unit)
@@ -283,16 +283,16 @@ public class GridPoint: SFPoint {
     }
     
     public func isEqual(_ point: GridPoint?) -> Bool {
-        if(self == point) {
+        if self == point {
             return true
         }
-        if(point == nil) {
+        if point == nil {
             return false
         }
-        if(!super.isEqual(point)) {
+        if !super.isEqual(point) {
             return false
         }
-        if(unit != point?.unit){
+        if unit != point?.unit {
             return false
         }
         return true
@@ -300,7 +300,7 @@ public class GridPoint: SFPoint {
     
     public override func isEqual(_ object: Any?) -> Bool {
         
-        if(!(object is GridPoint)) {
+        if !(object is GridPoint) {
             return false
         }
         

@@ -124,7 +124,7 @@ open class Line: SFLine {
      */
     public func toUnit(_ unit: Unit) -> Line {
         var line: Line
-        if (isUnit(unit)) {
+        if isUnit(unit) {
             line = self
         } else {
             line = mutableCopy() as! Line
@@ -175,13 +175,13 @@ open class Line: SFLine {
     }
     
     public func isEqual(_ line: Line?) -> Bool {
-        if(self == line) {
+        if self == line {
             return true
         }
-        if(line == nil) {
+        if line == nil {
             return false
         }
-        if(!super.isEqual(line)) {
+        if !super.isEqual(line) {
             return false
         }
         return true
@@ -189,7 +189,7 @@ open class Line: SFLine {
     
     open override func isEqual(_ object: Any?) -> Bool {
         
-        if(!(object is Line)) {
+        if !(object is Line) {
             return false
         }
         
@@ -204,7 +204,7 @@ open class Line: SFLine {
      * Validate units are the same
      */
     private func validateUnits() {
-        if (!point1.isUnit(point2.unit)) {
+        if !point1.isUnit(point2.unit) {
             preconditionFailure("Points are in different units. point1: \(String(describing: point1.unit)), point2: \(String(describing: point2.unit)))")
         }
     }

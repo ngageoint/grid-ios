@@ -157,7 +157,7 @@ public class GridUtils {
      */
     public static func toUnit(_ fromUnit: Unit, _ longitude: Double, _ latitude: Double, _ toUnit: Unit) -> GridPoint {
         var point: GridPoint
-        if (fromUnit == toUnit) {
+        if fromUnit == toUnit {
             point = GridPoint(longitude, latitude, toUnit)
         } else {
             point = self.toUnit(longitude, latitude, toUnit)
@@ -213,9 +213,9 @@ public class GridUtils {
      */
     public static func precisionBefore(_ value: Double, _ precision: Double) -> Double {
         var before = 0.0
-        if (abs(value) >= precision) {
+        if abs(value) >= precision {
             before = value - ((value.truncatingRemainder(dividingBy: precision) + precision).truncatingRemainder(dividingBy: precision))
-        } else if (value < 0.0) {
+        } else if value < 0.0 {
             before = -precision
         }
         return before
@@ -266,7 +266,7 @@ public class GridUtils {
         
         let point: SFPoint? = SFGeometryUtils.intersectionBetweenLine1Point1(line1Point1.toMeters(), andLine1Point2: line1Point2.toMeters(), andLine2Point1: line2Point1.toMeters(), andLine2Point2: line2Point2.toMeters())
         
-        if (point != nil) {
+        if point != nil {
             intersection = GridPoint(point!, Unit.METER).toUnit(line1Point1.unit)
         }
         

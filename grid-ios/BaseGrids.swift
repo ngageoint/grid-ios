@@ -79,16 +79,16 @@ open class BaseGrids {
         let gridKeyProperty = properties.combine(PropertyConstants.GRIDS, gridKey)
         
         var enabledValue = enabled
-        if (enabledValue == nil) {
+        if enabledValue == nil {
             enabledValue = properties.boolValue(gridKeyProperty, PropertyConstants.ENABLED, false)
-            if (enabledValue == nil) {
+            if enabledValue == nil {
                 enabledValue = true
             }
         }
         grid.enabled = enabledValue!
         
         var minZoom = properties.intValue(gridKeyProperty, PropertyConstants.MIN_ZOOM, false)
-        if (minZoom == nil) {
+        if minZoom == nil {
             minZoom = 0
         }
         grid.minZoom = minZoom!
@@ -109,12 +109,12 @@ open class BaseGrids {
         grid.color = color
         
         var width = properties.doubleValue(gridKeyProperty, PropertyConstants.WIDTH, false)
-        if (width == nil) {
+        if width == nil {
             width = defaultWidth()
         }
         grid.width = width!
         
-        if (labeler != nil) {
+        if labeler != nil {
             loadLabeler(labeler!, gridKey)
         }
         grid.labeler = labeler
@@ -138,27 +138,27 @@ open class BaseGrids {
         labeler.enabled = (enabled != nil) && enabled!
         
         let minZoom = properties.intValue(labelerProperty, PropertyConstants.MIN_ZOOM, false)
-        if (minZoom != nil) {
+        if minZoom != nil {
             labeler.minZoom = minZoom!
         }
         
         let maxZoom = properties.intValue(labelerProperty, PropertyConstants.MAX_ZOOM, false)
-        if (maxZoom != nil) {
+        if maxZoom != nil {
             labeler.maxZoom = maxZoom!
         }
         
         let color = properties.value(labelerProperty, PropertyConstants.COLOR, false)
-        if (color != nil) {
+        if color != nil {
             labeler.color = CLRColor(hex: color).uiColor()
         }
         
         let textSize = properties.doubleValue(labelerProperty, PropertyConstants.TEXT_SIZE, false)
-        if (textSize != nil) {
+        if textSize != nil {
             labeler.textSize = textSize!
         }
         
         let buffer = properties.doubleValue(labelerProperty, PropertyConstants.BUFFER, false)
-        if (buffer != nil) {
+        if buffer != nil {
             labeler.buffer = buffer!
         }
         
@@ -180,7 +180,7 @@ open class BaseGrids {
         
         let colorProperty = properties.value(gridKey2Property, PropertyConstants.COLOR, false)
         var color: UIColor?
-        if (colorProperty != nil) {
+        if colorProperty != nil {
             color = CLRColor(hex: colorProperty).uiColor()
         }
         return color
@@ -217,12 +217,12 @@ open class BaseGrids {
     public func gridStyle(_ color: UIColor?, _ width: Double?, _ grid: BaseGrid) -> GridStyle {
         
         var colorValue = color
-        if (colorValue == nil) {
+        if colorValue == nil {
             colorValue = grid.color
         }
         
         var widthValue  = width
-        if (widthValue == nil || width == 0) {
+        if widthValue == nil || width == 0 {
             widthValue = grid.width
         }
         
@@ -247,7 +247,7 @@ open class BaseGrids {
      */
     open func grids(_ zoom: Int) -> BaseZoomGrids {
         var grids = zoomGrids[zoom]
-        if (grids == nil) {
+        if grids == nil {
             grids = createZoomGrids(zoom)
         }
         return grids!
@@ -263,7 +263,7 @@ open class BaseGrids {
     private func createZoomGrids(_ zoom: Int) -> BaseZoomGrids {
         let zoomLevelGrids = newZoomGrids(zoom)
         for grid in grids() {
-            if (grid.enabled && grid.isWithin(zoom)) {
+            if grid.enabled && grid.isWithin(zoom) {
                 _ = zoomLevelGrids.addGrid(grid)
             }
         }
@@ -303,13 +303,13 @@ open class BaseGrids {
      */
     public func enable(_ grid: BaseGrid) {
         
-        if (!grid.enabled) {
+        if !grid.enabled {
             
             grid.enabled = true
             
             let minZoom = grid.minZoom
             var maxZoom = grid.maxZoom
-            if (maxZoom == nil) {
+            if maxZoom == nil {
                 maxZoom = maxZoomLevel()
             }
             
@@ -329,13 +329,13 @@ open class BaseGrids {
      */
     public func disable(_ grid: BaseGrid) {
         
-        if (grid.enabled) {
+        if grid.enabled {
             
             grid.enabled = false
             
             let minZoom = grid.minZoom
             var maxZoom = grid.maxZoom
-            if (maxZoom == nil) {
+            if maxZoom == nil {
                 maxZoom = maxZoomLevel()
             }
             
@@ -384,7 +384,7 @@ open class BaseGrids {
      */
     public func setMinZoom(_ grid: BaseGrid, _ minZoom: Int) {
         var maxZoom = grid.maxZoom
-        if (maxZoom != nil && maxZoom! < minZoom) {
+        if maxZoom != nil && maxZoom! < minZoom {
             maxZoom = minZoom
         }
         setZoomRange(grid, minZoom, maxZoom)
@@ -400,7 +400,7 @@ open class BaseGrids {
      */
     public func setMaxZoom(_ grid: BaseGrid, _ maxZoom: Int?) {
         var minZoom = grid.minZoom
-        if (maxZoom != nil && minZoom > maxZoom!) {
+        if maxZoom != nil && minZoom > maxZoom! {
             minZoom = maxZoom!
         }
         setZoomRange(grid, minZoom, maxZoom)
@@ -418,7 +418,7 @@ open class BaseGrids {
      */
     public func setZoomRange(_ grid: BaseGrid, _ minZoom: Int, _ maxZoom: Int?) {
         
-        if (maxZoom != nil && maxZoom! < minZoom) {
+        if maxZoom != nil && maxZoom! < minZoom {
             preconditionFailure("Min zoom '\(minZoom)' can not be larger than max zoom '\(String(describing: maxZoom))\'")
         }
         
@@ -441,16 +441,16 @@ open class BaseGrids {
         
         let overlaps = minOverlap <= maxOverlap
         
-        if (overlaps) {
+        if overlaps {
             
             let min = min(minZoomValue, gridMinZoom)
             let max = max(maxZoomValue, gridMaxZoom)
             
             for zoom in min ... max {
                 
-                if (zoom < minOverlap || zoom > maxOverlap) {
+                if zoom < minOverlap || zoom > maxOverlap {
                     
-                    if (zoom >= minZoomValue && zoom <= maxZoomValue) {
+                    if zoom >= minZoomValue && zoom <= maxZoomValue {
                         addGrid(grid, zoom)
                     } else {
                         removeGrid(grid, zoom)
