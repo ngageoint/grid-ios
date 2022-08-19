@@ -57,3 +57,8 @@ Pull from GitHub:
 Include as local project:
 
     pod 'grid-ios', :path => '../grid-ios'
+
+### Remote Dependencies ###
+
+* [Simple Features](https://github.com/ngageoint/simple-features-ios) (The MIT License (MIT)) - Simple Features Lib
+* [Color](https://github.com/ngageoint/color-ios) (The MIT License (MIT)) - Color Lib
