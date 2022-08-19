@@ -168,18 +168,6 @@ public class TileUtils {
     }
     
     /**
-     *  Get the current zoom level of the map view with an offset
-     *
-     *  @param mapView map view
-     *  @param zoomOffset zoom offset
-     *
-     *  @return current zoom level with offset
-     */
-    public static func currentZoom(_ mapView: MKMapView, _ zoomOffset: Double) -> Double {
-        return currentZoom(mapView) + zoomOffset
-    }
-    
-    /**
      *  Get a coordinate region for the coordinate at the zoom level in the map view
      *
      *  @param coordinate location coordinate
