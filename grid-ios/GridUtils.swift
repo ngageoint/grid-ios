@@ -341,4 +341,35 @@ public class GridUtils {
         return index
     }
     
+    /**
+     * Get a substring of the string value from the inclusive begin index to the exclusive end index
+     *
+     * @param value
+     *            string value
+     * @param beginIndex
+     *            begin index, inclusive
+     * @param endIndex
+     *            end index, exclusive
+     * @return substring as a string
+     */
+    public static func substring(_ value: String, _ beginIndex: Int, _ endIndex: Int) -> String {
+        let start = value.index(value.startIndex, offsetBy: beginIndex)
+        let end = value.index(value.startIndex, offsetBy: endIndex)
+        let range = start..<end
+        return String(value[range])
+    }
+    
+    /**
+     * Get a substring of the string value from the inclusive begin index to the end
+     *
+     * @param value
+     *            string value
+     * @param beginIndex
+     *            begin index, inclusive
+     * @return substring as a string
+     */
+    public static func substring(_ value: String, _ beginIndex: Int) -> String {
+        return substring(value, beginIndex, value.count)
+    }
+    
 }
