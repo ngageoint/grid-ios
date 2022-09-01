@@ -273,4 +273,72 @@ public class GridUtils {
         return intersection
     }
     
+    /**
+     * Increment the ASCII character by one
+     *
+     * @param character
+     *            starting character
+     * @return next character
+     */
+    public static func incrementCharacter(_ character: Character) -> Character {
+        return incrementCharacter(character, 1)
+    }
+    
+    /**
+     * Decrement the ASCII character by one
+     *
+     * @param character
+     *            starting character
+     * @return previous character
+     */
+    public static func decrementCharacter(_ character: Character) -> Character {
+        return incrementCharacter(character, -1)
+    }
+    
+    /**
+     * Increment the ASCII character
+     *
+     * @param character
+     *            starting character
+     * @param increment
+     *            ASCII increment, positive or negative for decrement
+     * @return incremented character
+     */
+    public static func incrementCharacter(_ character: Character, _ increment: Int) -> Character {
+        var characterValue = Int(character.asciiValue!)
+        characterValue += increment
+        return Character(UnicodeScalar(characterValue)!)
+    }
+    
+    /**
+     * Get the character at the index in a string
+     *
+     * @param value
+     *            string value
+     * @param index
+     *            character index
+     * @return character at index
+     */
+    public static func charAt(_ value: String, _ index: Int) -> Character {
+        return value[value.index(value.startIndex, offsetBy: index)]
+    }
+    
+    /**
+     * Get the first index of the character in the string, or -1 if not contained
+     *
+     * @param value
+     *            string value
+     * @param char
+     *            character
+     * @return index of character or -1
+     */
+    public static func indexOf(_ value: String, _ char: Character) -> Int {
+        var index = -1;
+        let firstIndex = value.firstIndex(of: char)
+        if firstIndex != nil {
+            index = firstIndex!.utf16Offset(in: value)
+        }
+        return index
+    }
+    
 }
