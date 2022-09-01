@@ -333,7 +333,7 @@ public class GridUtils {
      * @return index of character or -1
      */
     public static func indexOf(_ value: String, _ char: Character) -> Int {
-        var index = -1;
+        var index = -1
         let firstIndex = value.firstIndex(of: char)
         if firstIndex != nil {
             index = firstIndex!.utf16Offset(in: value)
