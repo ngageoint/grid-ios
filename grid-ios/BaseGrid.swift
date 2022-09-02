@@ -183,7 +183,11 @@ open class BaseGrid: Hashable, Comparable {
     }
     
     public static func == (lhs: BaseGrid, rhs: BaseGrid) -> Bool {
-        return true
+        return lhs.equals(rhs)
+    }
+    
+    open func equals(_ grid: BaseGrid) -> Bool {
+        preconditionFailure("This method must be overridden")
     }
     
     open func hash(into hasher: inout Hasher) {
@@ -191,7 +195,11 @@ open class BaseGrid: Hashable, Comparable {
     }
     
     public static func < (lhs: BaseGrid, rhs: BaseGrid) -> Bool {
-        return true
+        return lhs.compare(rhs)
+    }
+    
+    open func compare(_ grid: BaseGrid) -> Bool {
+        preconditionFailure("This method must be overridden")
     }
     
 }
