@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-ios 1.0.0 - GridProperties</title>
+    <link rel="stylesheet" type="text/css" href="https://ngageoint.github.io/grid-ios/docs/api/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="https://ngageoint.github.io/grid-ios/docs/api/">
+            <strong>
+                grid-ios 1.0.0
+            </strong>
+            <span>Documentation</span>
+        </a>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#gridproperties.init(_:_:_:)">init(_:​_:​_:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#gridproperties.properties">properties</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#gridproperties.combine(_:_:)">combine(_:​_:​)</a></li><li class="function"><a href="#gridproperties.value(_:)">value(_:​)</a></li><li class="function"><a href="#gridproperties.value(_:_:)">value(_:​_:​)</a></li><li class="function"><a href="#gridproperties.value(_:_:)">value(_:​_:​)</a></li><li class="function"><a href="#gridproperties.value(_:_:_:)">value(_:​_:​_:​)</a></li><li class="function"><a href="#gridproperties.intvalue(_:)">int​Value(_:​)</a></li><li class="function"><a href="#gridproperties.intvalue(_:_:)">int​Value(_:​_:​)</a></li><li class="function"><a href="#gridproperties.intvalue(_:_:)">int​Value(_:​_:​)</a></li><li class="function"><a href="#gridproperties.intvalue(_:_:_:)">int​Value(_:​_:​_:​)</a></li><li class="function"><a href="#gridproperties.floatvalue(_:)">float​Value(_:​)</a></li><li class="function"><a href="#gridproperties.floatvalue(_:_:)">float​Value(_:​_:​)</a></li><li class="function"><a href="#gridproperties.floatvalue(_:_:)">float​Value(_:​_:​)</a></li><li class="function"><a href="#gridproperties.floatvalue(_:_:_:)">float​Value(_:​_:​_:​)</a></li><li class="function"><a href="#gridproperties.doublevalue(_:)">double​Value(_:​)</a></li><li class="function"><a href="#gridproperties.doublevalue(_:_:)">double​Value(_:​_:​)</a></li><li class="function"><a href="#gridproperties.doublevalue(_:_:)">double​Value(_:​_:​)</a></li><li class="function"><a href="#gridproperties.doublevalue(_:_:_:)">double​Value(_:​_:​_:​)</a></li><li class="function"><a href="#gridproperties.boolvalue(_:)">bool​Value(_:​)</a></li><li class="function"><a href="#gridproperties.boolvalue(_:_:)">bool​Value(_:​_:​)</a></li><li class="function"><a href="#gridproperties.boolvalue(_:_:)">bool​Value(_:​_:​)</a></li><li class="function"><a href="#gridproperties.boolvalue(_:_:_:)">bool​Value(_:​_:​_:​)</a></li><li class="function"><a href="#gridproperties.propertylisturl(_:_:_:)">property​List​URL(_:​_:​_:​)</a></li><li class="function"><a href="#gridproperties.resourceurl(_:_:_:_:)">resource​URL(_:​_:​_:​_:​)</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Class</small>
+    <code class="name">Grid​Properties</code>
+</h1>
+
+<div class="declaration">
+<pre class="highlight"><code><html><body><span class="attribute">open</span> <span class="keyword">class</span> <span class="type">GridProperties</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Grid property loader</li>
+</ul>
+
+</div>
+
+    <section id="initializers">
+        <h2>Initializers</h2>
+
+        <div role="article" class="initializer" id="gridproperties.init(_:_:_:)">
+    <h3>
+        <code><a href="#gridproperties.init(_:_:_:)">init(_:​_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">init</span>(<span class="keyword">_</span> <span class="variable">resourceClass</span>: <span class="type">AnyClass</span>, <span class="keyword">_</span> <span class="variable">bundle</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">name</span>: <span class="type">String</span>)  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Initialize</li>
+<li></li>
+<li>@param resourceClass resource class</li>
+<li>@param bundle  bundle name</li>
+<li>@param name    properties name</li>
+</ul>
+
+</div>
+</div>
+    </section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="gridproperties.properties">
+    <h3>
+        <code><a href="#gridproperties.properties">properties</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">var</span> <span class="variable">properties</span>: [<span class="type">String</span>: <span class="keyword">Any</span>] </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Properties</li>
+</ul>
+
+</div>
+</div>
+    </section>
+    <section id="methods">
+        <h2>Methods</h2>
+
+        <div role="article" class="function" id="gridproperties.combine(_:_:)">
+    <h3>
+        <code><a href="#gridproperties.combine(_:_:)">combine(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">combine</span>(<span class="keyword">_</span> <span class="variable">base</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>) -&gt; <span class="type">String</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Combine the base property with the property to create a single combined property</li>
+<li></li>
+<li>@param base     base property</li>
+<li>@param property property</li>
+<li></li>
+<li>@return string value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.value(_:)">
+    <h3>
+        <code><a href="#gridproperties.value(_:)">value(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">value</span>(<span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>) -&gt; <span class="type">String</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the string value of the property</li>
+<li></li>
+<li>@param property property</li>
+<li></li>
+<li>@return string value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.value(_:_:)">
+    <h3>
+        <code><a href="#gridproperties.value(_:_:)">value(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">value</span>(<span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">required</span>: <span class="type">Bool</span>) -&gt; <span class="type">String</span>?  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the string value of the property with required option</li>
+<li></li>
+<li>@param property property</li>
+<li>@param required true if required to exist</li>
+<li></li>
+<li>@return string value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.value(_:_:)">
+    <h3>
+        <code><a href="#gridproperties.value(_:_:)">value(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">value</span>(<span class="keyword">_</span> <span class="variable">base</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>) -&gt; <span class="type">String</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the string value of the property combined with the base</li>
+<li></li>
+<li>@param base     base property</li>
+<li>@param property property</li>
+<li></li>
+<li>@return string value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.value(_:_:_:)">
+    <h3>
+        <code><a href="#gridproperties.value(_:_:_:)">value(_:​_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">value</span>(<span class="keyword">_</span> <span class="variable">base</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">required</span>: <span class="type">Bool</span>) -&gt; <span class="type">String</span>?  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the string value of the property combined with the base with required option</li>
+<li></li>
+<li>@param base     base property</li>
+<li>@param property property</li>
+<li>@param required true if required to exist</li>
+<li></li>
+<li>@return string value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.intvalue(_:)">
+    <h3>
+        <code><a href="#gridproperties.intvalue(_:)">int​Value(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">intValue</span>(<span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>) -&gt; <span class="type">Int</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the int value of the property</li>
+<li></li>
+<li>@param property property</li>
+<li></li>
+<li>@return int value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.intvalue(_:_:)">
+    <h3>
+        <code><a href="#gridproperties.intvalue(_:_:)">int​Value(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">intValue</span>(<span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">required</span>: <span class="type">Bool</span>) -&gt; <span class="type">Int</span>?  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the int value of the property with required option</li>
+<li></li>
+<li>@param property property</li>
+<li>@param required true if required to exist</li>
+<li></li>
+<li>@return int value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.intvalue(_:_:)">
+    <h3>
+        <code><a href="#gridproperties.intvalue(_:_:)">int​Value(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">intValue</span>(<span class="keyword">_</span> <span class="variable">base</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>) -&gt; <span class="type">Int</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the int value of the property</li>
+<li></li>
+<li>@param base     base property</li>
+<li>@param property property</li>
+<li></li>
+<li>@return int value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.intvalue(_:_:_:)">
+    <h3>
+        <code><a href="#gridproperties.intvalue(_:_:_:)">int​Value(_:​_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">intValue</span>(<span class="keyword">_</span> <span class="variable">base</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">required</span>: <span class="type">Bool</span>) -&gt; <span class="type">Int</span>?  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the int value of the property with required option</li>
+<li></li>
+<li>@param base     base property</li>
+<li>@param property property</li>
+<li>@param required true if required to exist</li>
+<li></li>
+<li>@return int value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.floatvalue(_:)">
+    <h3>
+        <code><a href="#gridproperties.floatvalue(_:)">float​Value(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">floatValue</span>(<span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>) -&gt; <span class="type">Float</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the float value of the property</li>
+<li></li>
+<li>@param property property</li>
+<li></li>
+<li>@return float value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.floatvalue(_:_:)">
+    <h3>
+        <code><a href="#gridproperties.floatvalue(_:_:)">float​Value(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">floatValue</span>(<span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">required</span>: <span class="type">Bool</span>) -&gt; <span class="type">Float</span>?  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the float value of the property with required option</li>
+<li></li>
+<li>@param property property</li>
+<li>@param required true if required to exist</li>
+<li></li>
+<li>@return float value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.floatvalue(_:_:)">
+    <h3>
+        <code><a href="#gridproperties.floatvalue(_:_:)">float​Value(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">floatValue</span>(<span class="keyword">_</span> <span class="variable">base</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>) -&gt; <span class="type">Float</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the float value of the property</li>
+<li></li>
+<li>@param base     base property</li>
+<li>@param property property</li>
+<li></li>
+<li>@return float value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.floatvalue(_:_:_:)">
+    <h3>
+        <code><a href="#gridproperties.floatvalue(_:_:_:)">float​Value(_:​_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">floatValue</span>(<span class="keyword">_</span> <span class="variable">base</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">required</span>: <span class="type">Bool</span>) -&gt; <span class="type">Float</span>?  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the float value of the property with required option</li>
+<li></li>
+<li>@param base     base property</li>
+<li>@param property property</li>
+<li>@param required true if required to exist</li>
+<li></li>
+<li>@return float value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.doublevalue(_:)">
+    <h3>
+        <code><a href="#gridproperties.doublevalue(_:)">double​Value(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">doubleValue</span>(<span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>) -&gt; <span class="type">Double</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the double value of the property</li>
+<li></li>
+<li>@param property property</li>
+<li></li>
+<li>@return double value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.doublevalue(_:_:)">
+    <h3>
+        <code><a href="#gridproperties.doublevalue(_:_:)">double​Value(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">doubleValue</span>(<span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">required</span>: <span class="type">Bool</span>) -&gt; <span class="type">Double</span>?  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the double value of the property with required option</li>
+<li></li>
+<li>@param property property</li>
+<li>@param required true if required to exist</li>
+<li></li>
+<li>@return double value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.doublevalue(_:_:)">
+    <h3>
+        <code><a href="#gridproperties.doublevalue(_:_:)">double​Value(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">doubleValue</span>(<span class="keyword">_</span> <span class="variable">base</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>) -&gt; <span class="type">Double</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the double value of the property</li>
+<li></li>
+<li>@param base     base property</li>
+<li>@param property property</li>
+<li></li>
+<li>@return double value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.doublevalue(_:_:_:)">
+    <h3>
+        <code><a href="#gridproperties.doublevalue(_:_:_:)">double​Value(_:​_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">doubleValue</span>(<span class="keyword">_</span> <span class="variable">base</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">required</span>: <span class="type">Bool</span>) -&gt; <span class="type">Double</span>?  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the double value of the property with required option</li>
+<li></li>
+<li>@param base     base property</li>
+<li>@param property property</li>
+<li>@param required true if required to exist</li>
+<li></li>
+<li>@return double value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.boolvalue(_:)">
+    <h3>
+        <code><a href="#gridproperties.boolvalue(_:)">bool​Value(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">boolValue</span>(<span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>) -&gt; <span class="type">Bool</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the bool value of the property</li>
+<li></li>
+<li>@param property property</li>
+<li></li>
+<li>@return bool value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.boolvalue(_:_:)">
+    <h3>
+        <code><a href="#gridproperties.boolvalue(_:_:)">bool​Value(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">boolValue</span>(<span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">required</span>: <span class="type">Bool</span>) -&gt; <span class="type">Bool</span>?  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the bool value of the property with required option</li>
+<li></li>
+<li>@param property property</li>
+<li>@param required true if required to exist</li>
+<li></li>
+<li>@return bool value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.boolvalue(_:_:)">
+    <h3>
+        <code><a href="#gridproperties.boolvalue(_:_:)">bool​Value(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">boolValue</span>(<span class="keyword">_</span> <span class="variable">base</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>) -&gt; <span class="type">Bool</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the bool value of the property</li>
+<li></li>
+<li>@param base     base property</li>
+<li>@param property property</li>
+<li></li>
+<li>@return bool value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.boolvalue(_:_:_:)">
+    <h3>
+        <code><a href="#gridproperties.boolvalue(_:_:_:)">bool​Value(_:​_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">boolValue</span>(<span class="keyword">_</span> <span class="variable">base</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">property</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">required</span>: <span class="type">Bool</span>) -&gt; <span class="type">Bool</span>?  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the bool value of the property with required option</li>
+<li></li>
+<li>@param base     base property</li>
+<li>@param property property</li>
+<li>@param required true if required to exist</li>
+<li></li>
+<li>@return bool value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.propertylisturl(_:_:_:)">
+    <h3>
+        <code><a href="#gridproperties.propertylisturl(_:_:_:)">property​List​URL(_:​_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">propertyListURL</span>(<span class="keyword">_</span> <span class="variable">resourceClass</span>: <span class="type">AnyClass</span>, <span class="keyword">_</span> <span class="variable">bundle</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">name</span>: <span class="type">String</span>) -&gt; <span class="type">URL</span>  </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="function" id="gridproperties.resourceurl(_:_:_:_:)">
+    <h3>
+        <code><a href="#gridproperties.resourceurl(_:_:_:_:)">resource​URL(_:​_:​_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">resourceURL</span>(<span class="keyword">_</span> <span class="variable">resourceClass</span>: <span class="type">AnyClass</span>, <span class="keyword">_</span> <span class="variable">bundle</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">name</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="variable">ext</span>: <span class="type">String</span>) -&gt; <span class="type">URL</span>  </body></html></code></pre>
+</div>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2022-09-06T10:52:01-0600">September 6, 2022</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
+</p>
+    </footer>
+</body>
+</html>
