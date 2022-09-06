@@ -4,7 +4,7 @@ use_frameworks!
 
 target 'grid-ios' do
   pod 'color-ios', '~> 1.0.0'
-  pod 'sf-ios', :path => '../simple-features-ios'
+  pod 'sf-ios', '~> 4.1.0'
 
   target 'grid-iosTests' do
     inherit! :complete
