@@ -25,6 +25,14 @@ View the latest [Appledoc](http://ngageoint.github.io/grid-ios/docs/api/)
 
 [GARS](https://github.com/ngageoint/gars-ios) is a Swift library providing Global Area Reference System functionality, a standardized geospatial reference system for areas.
 
+#### Import ####
+
+```swift
+
+import grid_ios
+
+```
+
 ### Build ###
 
 [![Build & Test](https://github.com/ngageoint/grid-ios/workflows/Build%20&%20Test/badge.svg)](https://github.com/ngageoint/grid-ios/actions/workflows/build-test.yml)
