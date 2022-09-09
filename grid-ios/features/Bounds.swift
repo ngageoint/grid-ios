@@ -11,6 +11,7 @@ import sf_ios
 /**
  * Grid Bounds
  */
+@objc(GRDBounds)
 public class Bounds: SFGeometryEnvelope {
     
     /**

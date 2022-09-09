@@ -11,6 +11,7 @@ import sf_ios
 /**
  * Line between two points
  */
+@objc(GRDLine)
 open class Line: SFLine {
     
     /**
