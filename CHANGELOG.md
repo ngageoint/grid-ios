@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.1 (TBD)
+## [1.0.1](https://github.com/ngageoint/grid-ios/releases/tag/1.0.1) (09-12-2022)
 
 * objc 'GRD' prefixed class names on objc inherited Bounds, GridPoint, and Line
 
