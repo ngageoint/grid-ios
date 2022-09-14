@@ -1,6 +1,6 @@
 swift doc generate \
   grid-ios/ \
-  --module-name grid-ios\ 1.0.1 \
+  --module-name grid-ios\ 1.0.2 \
   --output docs/docs/api/ \
   --format html \
   --base-url https://ngageoint.github.io/grid-ios/docs/api/

@@ -11,7 +11,6 @@ import sf_ios
 /**
  * Point
  */
-@objc(GRDGridPoint)
 public class GridPoint: SFPoint {
     
     /**
