@@ -4,6 +4,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## 1.0.3 (TBD)
+
+* TBD
+
 ## [1.0.2](https://github.com/ngageoint/grid-ios/releases/tag/1.0.2) (09-14-2022)
 
 * Reverting objc prefixed class names
