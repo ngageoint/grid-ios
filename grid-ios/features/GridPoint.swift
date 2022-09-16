@@ -7,6 +7,7 @@
 
 import Foundation
 import sf_ios
+import MapKit
 
 /**
  * Point
@@ -266,6 +267,15 @@ public class GridPoint: SFPoint {
      */
     public func pixel(_ width: Int, _ height: Int, _ bounds: Bounds) -> Pixel {
         return GridUtils.pixel(width, height, bounds, self)
+    }
+    
+    /**
+     * Convert to a location coordinate
+     *
+     * @return coordinate
+     */
+    public func toCoordinate() -> CLLocationCoordinate2D {
+        return TileUtils.toCoordinate(self)
     }
     
     public override func mutableCopy(with zone: NSZone? = nil) -> Any {
