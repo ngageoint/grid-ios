@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.3 (TBD)
+## [1.0.3](https://github.com/ngageoint/grid-ios/releases/tag/1.0.3) (09-16-2022)
 
 * GridPoint to coordinate (CLLocationCoordinate2D) method
 

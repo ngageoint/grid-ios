@@ -55,12 +55,12 @@ Include this repository by specifying it in a Podfile using a supported option.
 
 Pull from [CocoaPods](https://cocoapods.org/pods/grid-ios):
 
-    pod 'grid-ios', '~> 1.0.2'
+    pod 'grid-ios', '~> 1.0.3'
 
 Pull from GitHub:
 
     pod 'grid-ios', :git => 'https://github.com/ngageoint/grid-ios.git', :branch => 'master'
-    pod 'grid-ios', :git => 'https://github.com/ngageoint/grid-ios.git', :tag => '1.0.2'
+    pod 'grid-ios', :git => 'https://github.com/ngageoint/grid-ios.git', :tag => '1.0.3'
 
 Include as local project:
 
