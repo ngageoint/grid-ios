@@ -4,9 +4,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.4 (TBD)
+## [1.0.4](https://github.com/ngageoint/grid-ios/releases/tag/1.0.4) (01-10-2023)
 
-* TBD
+* sf-ios 4.1.1
+* color-ios 1.0.1
 
 ## [1.0.3](https://github.com/ngageoint/grid-ios/releases/tag/1.0.3) (09-16-2022)
 
