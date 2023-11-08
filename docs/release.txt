@@ -1,0 +1,20 @@
+
+Xcode Build:
+
+xcodebuild -workspace 'grid-ios.xcworkspace' -scheme grid-ios build
+
+Xcode Test:
+
+xcodebuild test -workspace 'grid-ios.xcworkspace' -scheme grid-ios -destination 'platform=iOS Simulator,name=iPhone 15'
+
+CocoaPods Local Lint:
+
+pod lib lint grid-ios.podspec --swift-version=5
+
+CocoaPods GitHub Release Lint:
+
+pod spec lint grid-ios.podspec --swift-version=5
+
+CocoaPods Deploy To Trunk:
+
+pod trunk push grid-ios.podspec --swift-version=5
