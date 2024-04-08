@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.7 (TBD)
+## [1.0.7](https://github.com/ngageoint/grid-ios/releases/tag/1.0.7) (04-08-2024)
 
 * sf-ios 4.1.4
 
