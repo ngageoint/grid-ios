@@ -55,7 +55,7 @@ open class Line: SFLine {
      *            second point
      */
     public init(_ point1: GridPoint, _ point2: GridPoint) {
-        super.init(type:SF_LINESTRING, andHasZ: false, andHasM: false)
+        super.init(type:.LINESTRING, andHasZ: false, andHasM: false)
         setPoints(point1, point2)
     }
     
@@ -66,7 +66,7 @@ open class Line: SFLine {
      *            line to copy
      */
     public init(_ line: Line) {
-        super.init(type:SF_LINESTRING, andHasZ: line.hasZ, andHasM: line.hasM)
+        super.init(type:.LINESTRING, andHasZ: line.hasZ, andHasM: line.hasM)
         setPoints(line.point1, line.point2)
     }
     
