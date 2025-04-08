@@ -18,4 +18,4 @@ jobs:
     - name: Install
       run: pod install
     - name: Build & Test
-      run: xcodebuild test -workspace grid-ios.xcworkspace -scheme grid-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14'
+      run: xcodebuild test -workspace grid-ios.xcworkspace -scheme grid-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16'
