@@ -47,7 +47,7 @@ Open grid-ios.xcworkspace in Xcode or build from command line:
 
 Run tests from Xcode or from command line:
 
-    xcodebuild test -workspace 'grid-ios.xcworkspace' -scheme grid-ios -destination 'platform=iOS Simulator,name=iPhone 15'
+    xcodebuild test -workspace 'grid-ios.xcworkspace' -scheme grid-ios -destination 'platform=iOS Simulator,name=iPhone 16'
 
 ### Include Library ###
 
@@ -55,12 +55,12 @@ Include this repository by specifying it in a Podfile using a supported option.
 
 Pull from [CocoaPods](https://cocoapods.org/pods/grid-ios):
 
-    pod 'grid-ios', '~> 1.0.7'
+    pod 'grid-ios', '~> 2.0.0'
 
 Pull from GitHub:
 
     pod 'grid-ios', :git => 'https://github.com/ngageoint/grid-ios.git', :branch => 'master'
-    pod 'grid-ios', :git => 'https://github.com/ngageoint/grid-ios.git', :tag => '1.0.7'
+    pod 'grid-ios', :git => 'https://github.com/ngageoint/grid-ios.git', :tag => '2.0.0'
 
 Include as local project:
 

@@ -4,9 +4,9 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-# 1.0.8 (TBD)
+# 2.0.0
 
-* TBD
+* sf-ios 5.0.0 (Breaking change for NS_ENUM symbol exposure to Swift)
 
 ## [1.0.7](https://github.com/ngageoint/grid-ios/releases/tag/1.0.7) (04-08-2024)
 

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'grid-ios'
-  s.version          = '1.0.8'
+  s.version          = '2.0.0'
   s.license          =  {:type => 'MIT', :file => 'LICENSE' }
   s.summary          = 'iOS SDK for Grids'
   s.homepage         = 'https://github.com/ngageoint/grid-ios'
@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'Foundation'
 
   s.dependency 'color-ios', '~> 1.0.2'
-  s.dependency 'sf-ios', '~> 4.1.4'
+  s.dependency 'sf-ios', '5.0.0'
 end
