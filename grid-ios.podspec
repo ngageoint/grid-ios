@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   s.requires_arc     = true
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 
-  s.platform         = :ios, '12.0'
-  s.ios.deployment_target = '12.0'
+  s.platform         = :ios, '15.0'
+  s.ios.deployment_target = '15.0'
 
   s.source_files = 'grid-ios/**/*.swift'
 
