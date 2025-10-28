@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "Grid",
-    platforms: [.macOS(.v11), .iOS(.v13)],
+    platforms: [.macOS(.v11), .iOS(.v13), .watchOS(.v10)],
     products: [
         .library(
             name: "Grid",
